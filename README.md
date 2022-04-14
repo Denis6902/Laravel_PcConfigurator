@@ -1,4 +1,6 @@
 # Aplikace v PHP frameworku Laravel
+## Instalace
+nutno doplnit
 ## Body zadání:
 - Navrhnout funkční administrační prostředí pro libovolnou aplikaci nebo pro fakturační systém případně konfigurátor PC sestav.
 - Struktura DB spolu s migračními třídami, factory a seedery.
