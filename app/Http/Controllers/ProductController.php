@@ -2,6 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CpuCooler;
+use App\Models\GPU;
+use App\Models\Monitor;
+use App\Models\Memory;
+use App\Models\Motherboard;
+use App\Models\OS;
+use App\Models\PcCase;
+use App\Models\PSU;
+use App\Models\Storage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -12,59 +21,67 @@ class ProductController extends BaseController
     function index($product){
         switch ($product):
             case "cpu-cooler":
+                $allCpuCooler = CpuCooler::all();
                 return view('products.cpu-cooler', [
-                    // set my prom to view
-
+                    "allCpu-cooler" => $allCpuCooler
                 ]);
 
             case "motherboard":
-                return view('products.motherboard', [
-                    // set my prom to view
+                $allMotherboard = Motherboard::all();
 
+                return view('products.motherboard', [
+                    "allMotherboard" => $allMotherboard
                 ]);
 
             case "memory":
-                return view('products.memory', [
-                    // set my prom to view
+                $allMemory = Memory::all();
 
+                return view('products.memory', [
+                    "allMemory" => $allMemory
                 ]);
 
             case "storage":
+                $allStorage = Storage::all();
                 return view('products.storage', [
-                    // set my prom to view
-
+                    "allStorage" => $allStorage
                 ]);
 
             case "gpu":
-                return view('products.gpu', [
-                    // set my prom to view
+                $allGpu = GPU::all();
 
+                return view('products.gpu', [
+                    "allGpu" => $allGpu
                 ]);
 
             case "case":
-                return view('products.case', [
-                    // set my prom to view
+                $allCase = PcCase::all();
 
+                return view('products.case', [
+                    "allCase" => $allCase
                 ]);
 
             case "psu":
-                return view('products.psu', [
-                    // set my prom to view
+                $allPsu = PSU::all();
 
+                return view('products.psu', [
+                    "allPsu" => $allPsu
                 ]);
 
             case "os":
-            return view('products.os', [
-                // set my prom to view
+                $allOs = OS::all();
 
+            return view('products.os', [
+                "allOs" => $allOs
             ]);
 
             case "monitor":
-            return view('products.monitor', [
-                // set my prom to view
+                $allMonitor = Monitor::all();
 
+            return view('products.monitor', [
+                "allMonitor" => $allMonitor
             ]);
 
             endswitch;
     }
+
 }
