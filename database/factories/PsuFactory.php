@@ -28,7 +28,7 @@ class PsuFactory extends Factory
             'efficiencyRating' => $this->faker->randomElement($type),
             'wattage' => $this->faker->randomElement($wattage),
             'modular' => $this->faker->randomElement($modular),
-            'rating' => $this->faker->numberBetween(0,5),
+            'rating' => $this->faker->numberBetween(1,5),
             'price' => $this->faker->numberBetween(1500, 4000),
         ];
     }

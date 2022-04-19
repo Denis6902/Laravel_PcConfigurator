@@ -12,6 +12,7 @@
     @include("header")
     <main>
         <h1>Vyberte si oparační systém</h1>
+{{--         TODO: DODĚLAT DALŠÍ PRODUCTS--}}
     </main>
     @include("footer")
 @endsection

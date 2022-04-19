@@ -9,5 +9,5 @@ class PcCase extends Model
 {
     use HasFactory;
 
-    protected $table = "case";
+    protected $table = "pccase";
 }

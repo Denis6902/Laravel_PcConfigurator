@@ -35,7 +35,7 @@
                     <th scope="row">{{$storage->capacity}}</th>
                     <th scope="row">{{$storage->type}}</th>
                     <th scope="row">{{$storage->interface}}</th>
-                    <th scope="row">{{$storage->rating}}</th>
+                    <th scope="row">@for($i = 0; $i < $storage->rating; $i++) * @endfor</th>
                     <th scope="row">{{$storage->price}}</th>
                     <th scope="row">{{$storage->created_at}}</th>
                     <th scope="row">{{$storage->updated_at}}</th>

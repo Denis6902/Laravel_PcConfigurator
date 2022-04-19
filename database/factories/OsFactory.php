@@ -37,7 +37,7 @@ class OsFactory extends Factory
             'edition' => $this->faker->randomElement($edition),
             'mode' => $this->faker->randomElement($mode),
             'maximumMemory' => $maximumMemory,
-            'rating' => $this->faker->numberBetween(0,5),
+            'rating' => $this->faker->numberBetween(1,5),
             'price' => $this->faker->numberBetween(1500, 4000),
         ];
     }
