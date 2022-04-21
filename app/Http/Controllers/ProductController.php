@@ -15,10 +15,22 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends BaseController
 {
-    function index($product){
+    function setSession($id)
+    {
+        Session::put('motherboard', $id);
+    }
+
+    function forgetSession($name)
+    {
+        Session::forget($name);
+    }
+
+    function index($product)
+    {
         switch ($product):
             case "cpu-cooler":
                 $allCpuCooler = CpuCooler::all();
@@ -70,18 +82,18 @@ class ProductController extends BaseController
             case "os":
                 $allOs = OS::all();
 
-            return view('products.os', [
-                "allOs" => $allOs
-            ]);
+                return view('products.os', [
+                    "allOs" => $allOs
+                ]);
 
             case "monitor":
                 $allMonitor = Monitor::all();
 
-            return view('products.monitor', [
-                "allMonitor" => $allMonitor
-            ]);
+                return view('products.monitor', [
+                    "allMonitor" => $allMonitor
+                ]);
 
-            endswitch;
+        endswitch;
     }
 
 }

@@ -17,11 +17,8 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('pcconfigurator', [PcConfiguratorController::class, 'index'])->name('pc-configurator');
+Route::get('/', [PcConfiguratorController::class, 'index'])->name('pc-configurator');
 Route::get('about', [AboutController::class, 'index'])->name('about');
 Route::get('products/{product}', [ProductController::class, 'index'])->name('product');
 

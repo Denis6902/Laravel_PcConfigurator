@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends Factory
  */
 class PsuFactory extends Factory
 {
@@ -20,7 +20,7 @@ class PsuFactory extends Factory
         $capacity = ['ATX', 'SFX'];
         $type = ['Gold', 'Platinum', 'Bronze'];
         $wattage = ['550', '650', '750'];
-        $modular = ['Full','Semi', 'No'];
+        $modular = ['Plně','Semi', 'Není'];
 
         return [
             'name' => $this->faker->sentence(3),

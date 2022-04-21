@@ -12,6 +12,7 @@ use App\Models\OS;
 use App\Models\PcCase;
 use App\Models\PSU;
 use App\Models\Storage;
+use Database\Factories\MemoryFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -31,7 +32,7 @@ class DatabaseSeeder extends Seeder
         OS::factory(50)->create();
         Motherboard::factory(50)->create();
 //        Monitor::factory(50)->create();
-//        Memory::factory(50)->create();
+        Memory::factory(50)->create();
 //        GPU::factory(50)->create();
 //        CpuCooler::factory(50)->create();
 //        CPU::factory(50)->create();

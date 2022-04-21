@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends Factory
  */
 class PcCaseFactory extends Factory
 {
@@ -18,7 +18,7 @@ class PcCaseFactory extends Factory
     public function definition()
     {
         $type = ['ATX Mid Tower', 'MicroATX Mini Tower', 'Mini ITX Desktop'];
-        $color = ['Black', 'White'];
+        $color = ['Černá', 'Bílá'];
 
 
         return [

@@ -23,7 +23,7 @@
 - Vytvořit ukázkový seeder pro vložení minimálně 5 záznamů do každé tabulky
 - Vytvořit design pomocí vlastního CSS, Bootstrap nebo jiných knihoven
 - Každá část v administraci bude mít kompletní CRUD operace (Create, Read, Update, Delete)
-- Budou existovat všechny View pro všechyn CRUD operace
+- Budou existovat všechny View pro všechyn CRUD operacephp artisan migrate
 
 ## Bonus
 - Přihlašování a registrace uživatelů (v případě bonusu řešetě jako poslední)

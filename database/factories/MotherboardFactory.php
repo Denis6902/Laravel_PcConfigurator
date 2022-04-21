@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends Factory
  */
 class MotherboardFactory extends Factory
 {
@@ -21,7 +21,7 @@ class MotherboardFactory extends Factory
         $type = ['ATX', 'MicroATX', 'Mini'];
         $maximumMemory = ['64', '128'];
         $memorySlots = ['2', '4'];
-        $color = ['Black', 'White'];
+        $color = ['Černá', 'Bílá'];
         // TODO: DODĚLAT FACTORY
 
         return [

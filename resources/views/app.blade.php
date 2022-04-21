@@ -12,7 +12,7 @@
             crossorigin="anonymous"></script>
     {{--styles--}}
     @stack("styles")
-    <title>Document</title>
+    <title>PC Konfigurátor</title>
 </head>
 <body>
 @yield("content")
