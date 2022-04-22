@@ -22,6 +22,8 @@ class ProductController extends BaseController
     function setSession($id)
     {
         Session::put('motherboard', $id);
+        error_log($id);
+        // TODO: VYŘEŠIT
     }
 
     function forgetSession($name)
