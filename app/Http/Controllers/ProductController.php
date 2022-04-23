@@ -19,18 +19,6 @@ use Illuminate\Support\Facades\Session;
 
 class ProductController extends BaseController
 {
-    function setSession($id)
-    {
-        Session::put('motherboard', $id);
-        error_log($id);
-        // TODO: VYŘEŠIT
-    }
-
-    function forgetSession($name)
-    {
-        Session::forget($name);
-    }
-
     function index($product)
     {
         switch ($product):

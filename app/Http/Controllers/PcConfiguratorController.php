@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Motherboard;
+use App\Models\PcCase;
+use App\Models\PcList;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -13,9 +15,7 @@ class PcConfiguratorController extends BaseController
 {
     function index()
     {
-        $id = Session::get('motherboard');
-        $oneMotherboard = Motherboard::Find($id);
-
+        $oneMotherboard = null;
         return view('pcconfigurator.index', [
             "motherboard" => $oneMotherboard
         ]);

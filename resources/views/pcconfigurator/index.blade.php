@@ -1,3 +1,4 @@
+@inject(('controller', 'App\Http\Controllers\ProductController'))
 @extends("app")
 
 @push("styles")
@@ -47,7 +48,6 @@
                     <td><a href="#">Koupit</a></td>
                     <td><a href="#">Odebrat</a></td>
                 @endif
-{{--                // TODO: DODĚLAT VÝPIS KOMPONENT POMOCÍ SESSION--}}
             </tr>
             <tr>
                 <td>Paměť</td>

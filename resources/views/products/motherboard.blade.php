@@ -1,5 +1,3 @@
-@inject('controller', 'App\Http\Controllers\ProductController')
-
 @extends("app")
 
 @push("styles")
@@ -52,7 +50,7 @@
                     <th scope="row">{{$motherboard->price}} Kč</th>
                     <th scope="row">{{$motherboard->created_at}}</th>
                     <th scope="row">{{$motherboard->updated_at}}</th>
-                    <th onclick="{{$controller->setSession($motherboard->id)}}" scope="row"><a href="{{route('pc-configurator')}}">Přidat</a></th>
+                    <th scope="row"><a href="#">Přidat</a></th>
                 </tr>
             @endforeach
             </tbody>
