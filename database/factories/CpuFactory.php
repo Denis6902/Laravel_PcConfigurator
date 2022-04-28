@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 /**
  * @extends Factory
  */
-class PcCaseFactory extends Factory
+class CpuFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,16 +17,17 @@ class PcCaseFactory extends Factory
      */
     public function definition()
     {
-        $type = ['ATX Mid Tower', 'MicroATX Mini Tower', 'Mini ITX Desktop'];
-        $color = ['Černá', 'Bílá'];
-
+        $tdp = ['65', '125', '105', '95'];
+        $cores = ['4', '6', '8', '12', '16'];
+        $clock = ['3.7', '2.5', '3.6', '2.6', '4.1'];
 
         return [
             'name' => $this->faker->sentence(3),
-            'type' => $this->faker->randomElement($type),
-            'color' => $this->faker->randomElement($color),
-            'internal_5_25_bays' => $this->faker->numberBetween(0,6),
-            'external_5_25_bays' => $this->faker->numberBetween(0,6),
+            'clock' => $this->faker->randomElement($clock),
+            'cores' => $this->faker->randomElement($cores),
+            'tdp' => $this->faker->randomElement($tdp),
+            'i_gpu' => $this->faker->sentence(2),
+            'smt_or_ht' => $this->faker->boolean(),
             'rating' => $this->faker->numberBetween(1,5),
             'price' => $this->faker->numberBetween(1500, 4000),
         ];

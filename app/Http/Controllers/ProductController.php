@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CPU;
 use App\Models\CpuCooler;
 use App\Models\GPU;
 use App\Models\Monitor;
@@ -11,11 +12,7 @@ use App\Models\OS;
 use App\Models\PcCase;
 use App\Models\PSU;
 use App\Models\Storage;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Support\Facades\Session;
 
 class ProductController extends BaseController
 {
@@ -25,7 +22,13 @@ class ProductController extends BaseController
             case "cpu-cooler":
                 $allCpuCooler = CpuCooler::all();
                 return view('products.cpu-cooler', [
-                    "allCpu-cooler" => $allCpuCooler
+                    "allCpuCooler" => $allCpuCooler
+                ]);
+
+            case "cpu":
+                $allCpu = Cpu::all();
+                return view('products.cpu', [
+                    "allCpu" => $allCpu
                 ]);
 
             case "motherboard":

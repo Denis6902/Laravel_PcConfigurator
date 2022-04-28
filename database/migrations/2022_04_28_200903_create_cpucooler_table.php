@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('monitor', function (Blueprint $table) {
+        Schema::create('cpucooler', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("size");
-            $table->string("resolution");
-            $table->integer("refresh_rate");
-            $table->string("panel_type");
+            $table->string("fan_rpm");
+            $table->string("noise_level");
+            $table->string("color");
+            $table->integer("radiator_size");
+            $table->integer("height");
             $table->integer("rating");
             $table->integer("price");
             $table->timestamps();
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('monitor');
+        Schema::dropIfExists('cpucooler');
     }
 };

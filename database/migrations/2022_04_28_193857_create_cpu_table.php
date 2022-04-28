@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('monitor', function (Blueprint $table) {
+        Schema::create('cpu', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("size");
-            $table->string("resolution");
-            $table->integer("refresh_rate");
-            $table->string("panel_type");
+            $table->double("clock");
+            $table->integer("cores");
+            $table->integer("tdp");
+            $table->string("i_gpu");
+            $table->boolean("smt_or_ht");
             $table->integer("rating");
             $table->integer("price");
             $table->timestamps();
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('monitor');
+        Schema::dropIfExists('cpu');
     }
 };

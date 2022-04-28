@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string("name");
             $table->string("type");
             $table->string("color");
-            $table->integer("internal_5,25_bays");
-            $table->integer("external_5,25_bays");
+            $table->integer("internal_5_25_bays");
+            $table->integer("external_5_25_bays");
             $table->integer("rating");
             $table->integer("price");
             $table->timestamps();

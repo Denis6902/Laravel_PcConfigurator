@@ -1,13 +1,14 @@
 # Aplikace v PHP frameworku Laravel
 ## Instalace
 - Mít nainstalovaný php interpreter a composer
-- Ve složce projektu dát příkaz `composer install` (případně `composer.phar install`)
+- Ve složce projektu dát příkaz `composer install` (případně `php composer.phar install`)
 - Vytvořit kopii souboru **.env.example** a pojmenovat ji **.env**
 - Dát přikaz `php artisan key:generate` k vygenerování klíče
-- Dát příkaz `php artisan serve` ke spuštení
-- v souboru **.env** nastavit připojení do databáze
+- V souboru **.env** nastavit připojení do databáze
 - Dát příkaz `php artisan migrate` k migraci
 - Dát příkaz `php artisan db:seed` k seedování
+- Dát příkaz `php artisan serve` ke spuštení
+
 ## Body zadání:
 - Navrhnout funkční administrační prostředí pro libovolnou aplikaci nebo pro fakturační systém případně konfigurátor PC sestav.
 - Struktura DB spolu s migračními třídami, factory a seedery.
@@ -23,7 +24,7 @@
 - Vytvořit ukázkový seeder pro vložení minimálně 5 záznamů do každé tabulky
 - Vytvořit design pomocí vlastního CSS, Bootstrap nebo jiných knihoven
 - Každá část v administraci bude mít kompletní CRUD operace (Create, Read, Update, Delete)
-- Budou existovat všechny View pro všechyn CRUD operacephp artisan migrate
+- Budou existovat všechny View pro všechny CRUD operace
 
 ## Bonus
 - Přihlašování a registrace uživatelů (v případě bonusu řešetě jako poslední)

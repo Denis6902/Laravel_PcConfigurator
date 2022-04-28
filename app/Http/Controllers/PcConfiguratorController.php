@@ -15,9 +15,8 @@ class PcConfiguratorController extends BaseController
 {
     function index()
     {
-        $oneMotherboard = null;
         return view('pcconfigurator.index', [
-            "motherboard" => $oneMotherboard
+
         ]);
     }
 }

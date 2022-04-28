@@ -25,10 +25,9 @@
             <tbody>
             <tr>
                 <td>CPU</td>
-                <td>Intel Core i5 12600KF</td>
-                <td>1111 Kč</td>
-                <td><a href="">Koupit</a></td>
-                <td><a href="">Odebrat</a></td>
+                <td><a href="{{ route('product', 'cpu') }}">+ Vybrat procesor</a></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>CPU Chladič</td>
@@ -38,16 +37,9 @@
             </tr>
             <tr>
                 <td>Základní Deska</td>
-                @if($motherboard == null)
-                    <td><a href="{{ route('product', 'motherboard') }}">+ Vybrat základní desku</a></td>
-                    <td></td>
-                    <td></td>
-                @else
-                    <td>{{$motherboard["name"]}}</td>
-                    <td>{{$motherboard["price"]}} Kč</td>
-                    <td><a href="#">Koupit</a></td>
-                    <td><a href="#">Odebrat</a></td>
-                @endif
+                <td><a href="{{ route('product', 'motherboard') }}">+ Vybrat základní desku</a></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Paměť</td>

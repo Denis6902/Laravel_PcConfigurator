@@ -9,5 +9,5 @@ class CpuCooler extends Model
 {
     use HasFactory;
 
-    protected $table = "cpu_cooler";
+    protected $table = "cpucooler";
 }
