@@ -15,6 +15,7 @@
             <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Značka</th>
                 <th scope="col">Název</th>
                 <th scope="col">WiFi</th>
                 <th scope="col">Patice</th>
@@ -25,7 +26,7 @@
                 <th scope="col">Hodnocení</th>
                 <th scope="col">Cena</th>
                 <th scope="col">Vytvořeno</th>
-                <th scope="col">Aktualizováné</th>
+                <th scope="col">Aktualizováno</th>
                 <th scope="col"></th>
             </tr>
             </thead>
@@ -33,6 +34,7 @@
             @foreach($allMotherboard as $motherboard)
                 <tr>
                     <th scope="row">{{$motherboard->id}}</th>
+                    <th scope="row"><a href="{{route('brand' ,\App\Models\Brand::Find($motherboard->brand_id)["id"])}}">{{\App\Models\Brand::Find($motherboard->brand_id)["name"]}}</a></th>
                     <th scope="row">{{$motherboard->name}}</th>
                     <th scope="row">@if($motherboard->wifi == '1')
                             Ano
@@ -50,7 +52,7 @@
                     <th scope="row">{{$motherboard->price}} Kč</th>
                     <th scope="row">{{$motherboard->created_at}}</th>
                     <th scope="row">{{$motherboard->updated_at}}</th>
-                    <th scope="row"><a href="#">Přidat</a></th>
+                    <th scope="row"><a href="{{route('addProduct', ['product'=>'motherboard', 'id'=>$motherboard->id])}}">Přidat</a></th>
                 </tr>
             @endforeach
             </tbody>

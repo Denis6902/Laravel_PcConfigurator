@@ -23,6 +23,7 @@ class GpuFactory extends Factory
 
         return [
             'name' => $this->faker->sentence(3),
+            'brand_id' => $this->faker->numberBetween(1,10),
             'chipset' => $this->faker->sentence(3),
             'memory' => $this->faker->randomElement($memory),
             'core_clock' => $core_clock,

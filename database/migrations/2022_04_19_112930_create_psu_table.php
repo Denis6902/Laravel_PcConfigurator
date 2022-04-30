@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('psu', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->integer("brand_id");
             $table->string("formFactor");
             $table->string("efficiencyRating");
             $table->integer("wattage");

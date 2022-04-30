@@ -37,7 +37,8 @@ class OsFactory extends Factory
 
 
         return [
-            'name' => 'Microsoft Windows ',
+            'name' => $this->faker->sentence(3),
+            'brand_id' => $this->faker->numberBetween(1,10),
             'version' => $version,
             'edition' => $edition,
             'mode' => $mode,

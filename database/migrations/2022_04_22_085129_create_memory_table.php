@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('memory', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->integer("brand_id");
             $table->string("type");
             $table->integer("speed");
             $table->string("modules");

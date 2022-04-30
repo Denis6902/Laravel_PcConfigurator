@@ -14,7 +14,7 @@
     @stack("styles")
     <title>PC Konfigurátor</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 @yield("content")
 </body>
 </html>

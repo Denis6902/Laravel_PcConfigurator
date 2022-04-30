@@ -16,6 +16,7 @@
         <thead>
         <tr>
             <th scope="col">ID</th>
+            <th scope="col">Značka</th>
             <th scope="col">Název</th>
             <th scope="col">Takt</th>
             <th scope="col">Počet jader</th>
@@ -25,13 +26,14 @@
             <th scope="col">Hodnocení</th>
             <th scope="col">Cena</th>
             <th scope="col">Vytvořeno</th>
-            <th scope="col">Aktualizováné</th>
+            <th scope="col">Aktualizováno</th>
         </tr>
         </thead>
         <tbody>
         @foreach($allCpu as $cpu)
             <tr>
                 <th scope="row">{{$cpu->id}}</th>
+                <th scope="row"><a href="{{route('brand' ,\App\Models\Brand::Find($cpu->brand_id)["id"])}}">{{\App\Models\Brand::Find($cpu->brand_id)["name"]}}</a></th>
                 <th scope="row">{{$cpu->name}}</th>
                 <th scope="row">{{$cpu->clock}} GHz</th>
                 <th scope="row">{{$cpu->cores}} jader</th>
@@ -46,7 +48,7 @@
                 <th scope="row">{{$cpu->price}} Kč</th>
                 <th scope="row">{{$cpu->created_at}}</th>
                 <th scope="row">{{$cpu->updated_at}}</th>
-                <th scope="row"><a href="{{route('pc-configurator')}}">Přidat</a></th>
+                <th scope="row"><a href="{{route('addProduct', ['product'=>'cpu', 'id'=>$cpu->id])}}">Přidat</a></th>
             </tr>
         @endforeach
         </tbody>

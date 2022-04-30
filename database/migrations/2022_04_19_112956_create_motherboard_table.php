@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('motherboard', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->integer("brand_id");
             $table->boolean("wifi");
             $table->string("socket");
             $table->string("type");

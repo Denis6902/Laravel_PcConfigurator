@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('cpu', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->integer("brand_id");
             $table->double("clock");
             $table->integer("cores");
             $table->integer("tdp");

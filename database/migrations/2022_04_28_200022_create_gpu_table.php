@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('gpu', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->integer("brand_id");
             $table->string("chipset");
             $table->integer("memory");
             $table->integer("core_clock");

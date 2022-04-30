@@ -25,6 +25,7 @@ class MotherboardFactory extends Factory
 
         return [
             'name' => $this->faker->sentence(3),
+            'brand_id' => $this->faker->numberBetween(1,10),
             'wifi' => $this->faker->boolean(),
             'socket' => $this->faker->randomElement($socket),
             'type' => $this->faker->randomElement($type),

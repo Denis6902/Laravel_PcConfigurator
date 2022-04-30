@@ -16,6 +16,7 @@
             <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Značka</th>
                 <th scope="col">Název</th>
                 <th scope="col">Počet otáček</th>
                 <th scope="col">Hlučnost</th>
@@ -25,7 +26,7 @@
                 <th scope="col">Hodnocení</th>
                 <th scope="col">Cena</th>
                 <th scope="col">Vytvořeno</th>
-                <th scope="col">Aktualizováné</th>
+                <th scope="col">Aktualizováno</th>
                 <th scope="col"></th>
             </tr>
             </thead>
@@ -33,6 +34,7 @@
             @foreach($allCpuCooler as $cpuCooler)
                 <tr>
                     <th scope="row">{{$cpuCooler->id}}</th>
+                    <th scope="row"><a href="{{route('brand' ,\App\Models\Brand::Find($cpuCooler->brand_id)["id"])}}">{{\App\Models\Brand::Find($cpuCooler->brand_id)["name"]}}</a></th>
                     <th scope="row">{{$cpuCooler->name}}</th>
                     <th scope="row">{{$cpuCooler->fan_rpm}} RPM</th>
                     <th scope="row">{{$cpuCooler->noise_level}} dB</th>
@@ -47,7 +49,7 @@
                     <th scope="row">{{$cpuCooler->price}} Kč</th>
                     <th scope="row">{{$cpuCooler->created_at}}</th>
                     <th scope="row">{{$cpuCooler->updated_at}}</th>
-                    <th scope="row"><a href="{{route('pc-configurator')}}">Přidat</a></th>
+                    <th scope="row"><a href="{{route('addProduct', ['product'=>'cpu-cooler', 'id'=>$cpuCooler->id])}}">Přidat</a></th>
                 </tr>
             @endforeach
             </tbody>

@@ -13,17 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cpucooler', function (Blueprint $table) {
+        Schema::create('brand', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("brand_id");
-            $table->string("fan_rpm");
-            $table->string("noise_level");
-            $table->string("color");
-            $table->integer("radiator_size");
-            $table->integer("height");
-            $table->integer("rating");
-            $table->integer("price");
+            $table->string("headquarters");
+            $table->integer("founded_in");
+            $table->text("info");
             $table->timestamps();
         });
     }
@@ -35,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cpucooler');
+        Schema::dropIfExists('brand');
     }
 };

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('os', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->integer("brand_id");
             $table->string("version");
             $table->string("edition");
             $table->string("mode");

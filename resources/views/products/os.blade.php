@@ -16,6 +16,7 @@
             <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Značka</th>
                 <th scope="col">Název</th>
                 <th scope="col">Verze</th>
                 <th scope="col">Edice</th>
@@ -24,7 +25,7 @@
                 <th scope="col">Hodnocení</th>
                 <th scope="col">Cena</th>
                 <th scope="col">Vytvořeno</th>
-                <th scope="col">Aktualizováné</th>
+                <th scope="col">Aktualizováno</th>
                 <th scope="col"></th>
             </tr>
             </thead>
@@ -32,6 +33,7 @@
             @foreach($allOs as $os)
                 <tr>
                     <th scope="row">{{$os->id}}</th>
+                    <th scope="row"><a href="{{route('brand' ,\App\Models\Brand::Find($os->brand_id)["id"])}}">{{\App\Models\Brand::Find($os->brand_id)["name"]}}</a></th>
                     <th scope="row">{{$os->name}}</th>
                     <th scope="row">{{$os->version}}</th>
                     <th scope="row">{{$os->edition}}</th>
@@ -41,7 +43,7 @@
                     <th scope="row">{{$os->price}} Kč</th>
                     <th scope="row">{{$os->created_at}}</th>
                     <th scope="row">{{$os->updated_at}}</th>
-                    <th scope="row"><a href="{{route('pc-configurator')}}">Přidat</a></th>
+                    <th scope="row"><a href="{{route('addProduct', ['product'=>'os', 'id'=>$os->id])}}">Přidat</a></th>
                 </tr>
             @endforeach
             </tbody>

@@ -23,6 +23,7 @@ class PcCaseFactory extends Factory
 
         return [
             'name' => $this->faker->sentence(3),
+            'brand_id' => $this->faker->numberBetween(1,10),
             'type' => $this->faker->randomElement($type),
             'color' => $this->faker->randomElement($color),
             'internal_5_25_bays' => $this->faker->numberBetween(0,6),

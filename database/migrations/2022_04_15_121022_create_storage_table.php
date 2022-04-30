@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('storage', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->integer("brand_id");
             $table->integer("capacity");
             $table->string("type");
             $table->string("interface");

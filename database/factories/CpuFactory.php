@@ -23,6 +23,7 @@ class CpuFactory extends Factory
 
         return [
             'name' => $this->faker->sentence(3),
+            'brand_id' => $this->faker->numberBetween(1,10),
             'clock' => $this->faker->randomElement($clock),
             'cores' => $this->faker->randomElement($cores),
             'tdp' => $this->faker->randomElement($tdp),

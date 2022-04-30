@@ -26,7 +26,7 @@ class ProductController extends BaseController
                 ]);
 
             case "cpu":
-                $allCpu = Cpu::all();
+                $allCpu = CPU::all();
                 return view('products.cpu', [
                     "allCpu" => $allCpu
                 ]);
@@ -89,4 +89,16 @@ class ProductController extends BaseController
         endswitch;
     }
 
+    function create($product, $id){
+        return view('pcconfigurator.addProduct', [
+            "product" => $product,
+            "id" => $id
+        ]);
+    }
+
+    function delete($product){
+        return view('pcconfigurator.deleteProduct', [
+            "product" => $product,
+        ]);
+    }
 }

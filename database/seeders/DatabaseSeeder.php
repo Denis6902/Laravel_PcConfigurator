@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Brand;
 use App\Models\CPU;
 use App\Models\CpuCooler;
 use App\Models\GPU;
@@ -12,8 +13,6 @@ use App\Models\OS;
 use App\Models\PcCase;
 use App\Models\PSU;
 use App\Models\Storage;
-use Database\Factories\MemoryFactory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,15 +24,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Storage::factory(50)->create();
-        PSU::factory(50)->create();
-        PcCase::factory(50)->create();
-        OS::factory(50)->create();
-        Motherboard::factory(50)->create();
-        Monitor::factory(50)->create();
-        Memory::factory(50)->create();
-        GPU::factory(50)->create();
-        CpuCooler::factory(50)->create();
-        CPU::factory(50)->create();
+        Storage::factory(10)->create();
+        PSU::factory(10)->create();
+        PcCase::factory(10)->create();
+        OS::factory(10)->create();
+        Motherboard::factory(10)->create();
+        Monitor::factory(10)->create();
+        Memory::factory(10)->create();
+        GPU::factory(10)->create();
+        CpuCooler::factory(10)->create();
+        CPU::factory(10)->create();
+            Brand::factory(10)->create();
     }
 }

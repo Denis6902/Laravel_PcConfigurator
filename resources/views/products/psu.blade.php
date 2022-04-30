@@ -16,6 +16,7 @@
             <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Značka</th>
                 <th scope="col">Název</th>
                 <th scope="col">Velikost</th>
                 <th scope="col">Certifikace</th>
@@ -24,7 +25,7 @@
                 <th scope="col">Hodnocení</th>
                 <th scope="col">Cena</th>
                 <th scope="col">Vytvořeno</th>
-                <th scope="col">Aktualizováné</th>
+                <th scope="col">Aktualizováno</th>
                 <th scope="col"></th>
             </tr>
             </thead>
@@ -32,6 +33,7 @@
             @foreach($allPsu as $psu)
                 <tr>
                     <th scope="row">{{$psu->id}}</th>
+                    <th scope="row"><a href="{{route('brand' ,\App\Models\Brand::Find($psu->brand_id)["id"])}}">{{\App\Models\Brand::Find($psu->brand_id)["name"]}}</a></th>
                     <th scope="row">{{$psu->name}}</th>
                     <th scope="row">{{$psu->formFactor}}</th>
                     <th scope="row">80+ {{$psu->efficiencyRating}}</th>
@@ -41,7 +43,7 @@
                     <th scope="row">{{$psu->price}} Kč</th>
                     <th scope="row">{{$psu->created_at}}</th>
                     <th scope="row">{{$psu->updated_at}}</th>
-                    <th scope="row"><a href="{{route('pc-configurator')}}">Přidat</a></th>
+                    <th scope="row"><a href="{{route('addProduct', ['product'=>'psu', 'id'=>$psu->id])}}">Přidat</a></th>
                 </tr>
             @endforeach
             </tbody>
