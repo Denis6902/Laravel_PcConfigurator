@@ -2,21 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Motherboard;
-use App\Models\PcCase;
-use App\Models\PcList;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Session;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class PcConfiguratorController extends BaseController
 {
     function index()
     {
-        return view('pcconfigurator.index', [
+        $count = count(session()->all()) - 3;
+        $isempty = ($count == 0);
 
+        return view('pcconfigurator.index', [
+            "isEmpty" => $isempty
+        ]);
+    }
+
+    function switchTheme(){
+
+        if(\Illuminate\Support\Facades\Session::get('theme') == null){
+            $theme = 'dark';
+        }
+        elseif(\Illuminate\Support\Facades\Session::get('theme') == 'dark'){
+            $theme = 'white';
+        }
+        elseif(\Illuminate\Support\Facades\Session::get('theme') == 'white'){
+            $theme = 'dark';
+        }
+
+        route('pc-configurator');
+        return view('pcconfigurator.switchTheme', [
+            "theme" => $theme
         ]);
     }
 }

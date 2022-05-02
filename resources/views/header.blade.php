@@ -5,6 +5,7 @@
                 <li class="nav-item"><a href="{{ route('pc-configurator') }}" class="nav-link {{ Route::is('pc-configurator') ? 'active' : '' }}
                         " aria-current="page">Konfigurátor</a></li>
                 <li class="nav-item"><a href="{{ route('about') }}" class="nav-link {{ Route::is('about') ? 'active' : '' }}">O webu</a></li>
+                <li class="nav-item"><a href="{{ route('switchTheme') }}" class="nav-link">Dark mode / Light mode</a></li>
             </ul>
         </header>
     </div>

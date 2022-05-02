@@ -1,18 +1,11 @@
 @extends("app")
 
-@push("styles")
-    <style>
-        main {
-            padding: 0 10%;
-        }
-    </style>
-@endpush
-
 @section("content")
     @include("header")
-    <main>
-       <p> Mažu produkt {{$product}}</p>
         {{\Illuminate\Support\Facades\Session::forget($product)}}
-    </main>
+
+        <script type="text/javascript">
+            window.location =  '/' ;
+        </script>
     @include("footer")
 @endsection

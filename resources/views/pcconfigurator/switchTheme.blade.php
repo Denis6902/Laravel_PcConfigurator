@@ -3,7 +3,7 @@
 @section("content")
     @include("header")
     <main>
-        {{\Illuminate\Support\Facades\Session::put($product, $id)}}
+        {{\Illuminate\Support\Facades\Session::put('theme', $theme)}}
 
         <script type="text/javascript">
             window.location =  '/' ;
