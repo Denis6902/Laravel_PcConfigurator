@@ -4,34 +4,61 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Session;
-use phpDocumentor\Reflection\Types\Nullable;
 
 class PcConfiguratorController extends BaseController
 {
     function index()
     {
-        $count = count(session()->all()) - 3;
-        $isempty = ($count == 0);
+        $cpu = Session::get('cpu');
+        $cpuCooler = Session::get('cpu-cooler');
+        $motherboard = Session::get('motherboard');
+        $memory = Session::get('memory');
+        $storage = Session::get('storage');
+        $gpu = Session::get('gpu');
+        $case = Session::get('case');
+        $psu = Session::get('psu');
+        $os = Session::get('os');
+        $monitor = Session::get('monitor');
+        $brandModel = 'App\Models\Brand';
 
-        return view('pcconfigurator.index', [
-            "isEmpty" => $isempty
+        $count = count(session()->all());
+        $isempty = ($count - 4 == 0) || $count == 1;
+        $totalPrice = 1;
+
+        if(Session::get('theme') == null){
+            Session::put('theme', 'white');
+        }
+
+        return view('pcConfigurator.index', [
+            "isEmpty" => $isempty,
+            "totalPrice" => $totalPrice,
+            "cpu" => $cpu,
+            "cpuCooler" => $cpuCooler,
+            "motherboard" => $motherboard,
+            "memory" => $memory,
+            "storage" => $storage,
+            "gpu" => $gpu,
+            "case" => $case,
+            "psu" => $psu,
+            "os" => $os,
+            "monitor" => $monitor,
+            "brandModel" => $brandModel,
         ]);
     }
 
     function switchTheme(){
 
-        if(\Illuminate\Support\Facades\Session::get('theme') == null){
-            $theme = 'dark';
-        }
-        elseif(\Illuminate\Support\Facades\Session::get('theme') == 'dark'){
+        if(Session::get('theme') == null){
             $theme = 'white';
         }
-        elseif(\Illuminate\Support\Facades\Session::get('theme') == 'white'){
+        elseif(Session::get('theme') == 'dark'){
+            $theme = 'white';
+        }
+        elseif(Session::get('theme') == 'white'){
             $theme = 'dark';
         }
 
-        route('pc-configurator');
-        return view('pcconfigurator.switchTheme', [
+        return view('pcConfigurator.switchTheme', [
             "theme" => $theme
         ]);
     }

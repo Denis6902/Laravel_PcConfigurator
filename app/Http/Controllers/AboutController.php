@@ -12,8 +12,6 @@ class AboutController extends BaseController
     function index()
     {
         return view('about.index', [
-            // set my prom to view
-
         ]);
     }
 }

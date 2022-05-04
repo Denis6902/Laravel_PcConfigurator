@@ -2,12 +2,11 @@
 
 @section("content")
     @include("header")
-    <main>
-        {{\Illuminate\Support\Facades\Session::put('theme', $theme)}}
+    {{\Illuminate\Support\Facades\Session::put('theme', $theme)}}
+    <h1 class="text-center">{{mb_strtoupper("Měním režím na $theme")}}</h1>
 
-        <script type="text/javascript">
-            window.location =  '/' ;
-        </script>
-    </main>
+    <script type="text/javascript">
+        window.location.href = "{{ route('pcConfigurator')}}";
+    </script>
     @include("footer")
 @endsection

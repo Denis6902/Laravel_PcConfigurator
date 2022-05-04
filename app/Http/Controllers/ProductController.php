@@ -16,17 +16,19 @@ use Illuminate\Routing\Controller as BaseController;
 
 class ProductController extends BaseController
 {
-    function index($product)
+    function read($product)
     {
         switch ($product):
             case "cpu-cooler":
                 $allCpuCooler = CpuCooler::all();
-                return view('products.cpu-cooler', [
+
+                return view('products.cpuCooler', [
                     "allCpuCooler" => $allCpuCooler
                 ]);
 
             case "cpu":
                 $allCpu = CPU::all();
+
                 return view('products.cpu', [
                     "allCpu" => $allCpu
                 ]);
@@ -90,14 +92,14 @@ class ProductController extends BaseController
     }
 
     function create($product, $id){
-        return view('pcconfigurator.addProduct', [
+        return view('pcConfigurator.addProduct', [
             "product" => $product,
             "id" => $id
         ]);
     }
 
     function delete($product){
-        return view('pcconfigurator.deleteProduct', [
+        return view('pcConfigurator.deleteProduct', [
             "product" => $product,
         ]);
     }

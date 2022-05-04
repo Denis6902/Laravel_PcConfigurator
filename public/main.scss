@@ -2,13 +2,18 @@ body {
     padding: 0 10%;
 }
 
-.light{
+.light {
     color: black;
     background: white;
 }
 
-.dark{
+.dark {
     color: white;
     background: black;
- }
+}
 
+header {
+    .hidden {
+        display: none;
+    }
+}

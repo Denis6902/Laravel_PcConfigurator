@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Brand::factory(10)->create();
         Storage::factory(10)->create();
         PSU::factory(10)->create();
         PcCase::factory(10)->create();
@@ -34,6 +35,5 @@ class DatabaseSeeder extends Seeder
         GPU::factory(10)->create();
         CpuCooler::factory(10)->create();
         CPU::factory(10)->create();
-            Brand::factory(10)->create();
     }
 }

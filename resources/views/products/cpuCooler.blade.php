@@ -2,7 +2,6 @@
 
 @section("content")
     @include("header")
-    <main>
         <h1>Vyberte CPU chladič</h1>
         <table class="table">
             <thead>
@@ -32,7 +31,6 @@
                     <th scope="row">{{$cpuCooler->noise_level}} dB</th>
                     <th scope="row">{{$cpuCooler->color}}</th>
                     <th scope="row">@if($cpuCooler->radiator_size == '0')
-
                         @else
                             {{$cpuCooler->radiator_size}} mm
                         @endif</th>
@@ -46,6 +44,5 @@
             @endforeach
             </tbody>
             </table>
-    </main>
     @include("footer")
 @endsection

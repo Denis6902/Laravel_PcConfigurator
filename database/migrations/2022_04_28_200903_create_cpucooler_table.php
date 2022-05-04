@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('cpucooler', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("brand_id");
+            $table->unsignedBigInteger("brand_id")->index()->nullable();
+            $table->foreign('brand_id')->references('id')->on('brand');
             $table->string("fan_rpm");
             $table->string("noise_level");
             $table->string("color");

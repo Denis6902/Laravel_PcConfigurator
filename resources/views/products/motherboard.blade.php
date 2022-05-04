@@ -2,7 +2,6 @@
 
 @section("content")
     @include("header")
-    <main>
         <table class="table">
             <thead>
             <tr>
@@ -49,6 +48,5 @@
             @endforeach
             </tbody>
         </table>
-    </main>
     @include("footer")
 @endsection

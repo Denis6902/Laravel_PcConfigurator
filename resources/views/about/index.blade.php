@@ -8,7 +8,6 @@
         Jedná se o konfigurátor PC
     </p>
     <a href="https://github.com/Denis6902/Laravel_Aplikace">Odkaz na GitHub</a>
-
 </main>
     @include("footer")
 @endsection

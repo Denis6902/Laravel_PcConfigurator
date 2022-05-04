@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('pccase', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("brand_id");
+            $table->unsignedBigInteger("brand_id")->index()->nullable();
+            $table->foreign('brand_id')->references('id')->on('brand');
             $table->string("type");
             $table->string("color");
             $table->integer("internal_5_25_bays");

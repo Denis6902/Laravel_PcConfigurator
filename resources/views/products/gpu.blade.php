@@ -2,7 +2,6 @@
 
 @section("content")
     @include("header")
-    <main>
         <h1>Vyberte si grafickou kartu</h1>
         <table class="table">
             <thead>
@@ -43,6 +42,5 @@
             @endforeach
             </tbody>
         </table>
-    </main>
     @include("footer")
 @endsection

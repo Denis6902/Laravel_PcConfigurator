@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('monitor', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("brand_id");
+            $table->unsignedBigInteger("brand_id")->index()->nullable();
+            $table->foreign('brand_id')->references('id')->on('brand');
             $table->integer("size");
             $table->string("resolution");
             $table->integer("refresh_rate");
