@@ -24,6 +24,8 @@ class OsFactory extends Factory
         $mode = $this->faker->randomElement($modeList);
         $version = $this->faker->randomElement($versionList);
         $edition = $this->faker->randomElement($editionList);
+        $name = substr($this->faker->sentence(3), 0, -1);
+
 
         if($mode == "32-bit"){
             $maximumMemory = '4';
@@ -37,7 +39,7 @@ class OsFactory extends Factory
 
 
         return [
-            'name' => $this->faker->sentence(3),
+            'name' => $name,
             'brand_id' => $this->faker->numberBetween(1,10),
             'version' => $version,
             'edition' => $edition,

@@ -22,9 +22,11 @@ class MotherboardFactory extends Factory
         $maximumMemory = ['64', '128'];
         $memorySlots = ['2', '4'];
         $color = ['Černá', 'Bílá'];
+        $name = substr($this->faker->sentence(3), 0, -1);
+
 
         return [
-            'name' => $this->faker->sentence(3),
+            'name' => $name,
             'brand_id' => $this->faker->numberBetween(1,10),
             'wifi' => $this->faker->boolean(),
             'socket' => $this->faker->randomElement($socket),

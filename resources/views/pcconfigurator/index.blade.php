@@ -23,13 +23,17 @@
             @if($cpu == null)
                 <td><a href="{{ route('product', 'cpu') }}">+ Vybrat procesor</a></td>
             @else
+                @php
+                    $thisCpu = \App\Models\CPU::Find($cpu);
+                    $totalPrice += $thisCpu["price"];
+                @endphp
                 <td>
-                    <a href="{{route('brand', $brandModel::Find(\App\Models\CPU::Find($cpu)["brand_id"]))}}">
-                        {{$brandModel::Find(\App\Models\CPU::Find($cpu)["brand_id"])["name"]}}
+                    <a href="{{route('brand', $brandModel::Find($thisCpu["brand_id"]))}}">
+                        {{$brandModel::Find($thisCpu["brand_id"])["name"]}}
                     </a>
                 </td>
-                <td>{{\App\Models\CPU::Find($cpu)["name"]}}</td>
-                <td>{{$totalPrice += \App\Models\CPU::Find($cpu)["price"]}} Kč</td>
+                <td>{{$thisCpu["name"]}}</td>
+                <td>{{$thisCpu["price"]}} Kč</td>
                 <td><a href="{{route('deleteProduct', ['product'=>'cpu'])}}">Smazat</a></td>
             @endif
         </tr>
@@ -38,12 +42,16 @@
             @if($cpuCooler == null)
                 <td><a href="{{ route('product', 'cpu-cooler') }}">+ Vybrat CPU chladič</a></td>
             @else
+                @php
+                    $thisCpuCooler = \App\Models\CpuCooler::Find($cpuCooler);
+                    $totalPrice += $thisCpuCooler["price"];
+                @endphp
                 <td>
-                    <a href="{{route('brand', $brandModel::Find(\App\Models\CpuCooler::Find($cpuCooler)["brand_id"]))}}">
-                        {{$brandModel::Find(\App\Models\CpuCooler::Find($cpuCooler)["brand_id"])["name"]}}
+                    <a href="{{route('brand', $brandModel::Find($thisCpuCooler["brand_id"]))}}">
+                        {{$brandModel::Find($thisCpuCooler["brand_id"])["name"]}}
                     </a>
-                <td>{{\App\Models\CpuCooler::Find($cpuCooler)["name"]}}</td>
-                <td>{{\App\Models\CpuCooler::Find($cpuCooler)["price"]}} Kč</td>
+                <td>{{$thisCpuCooler["name"]}}</td>
+                <td>{{$thisCpuCooler["price"]}} Kč</td>
                 <td><a href="{{route('deleteProduct', ['product'=>'cpu-cooler'])}}">Smazat</a></td>
             @endif
         </tr>
@@ -52,12 +60,16 @@
             @if($motherboard == null)
                 <td><a href="{{ route('product', 'motherboard') }}">+ Vybrat základní desku</a></td>
             @else
+                @php
+                    $thisMotherboard = \App\Models\Motherboard::Find($motherboard);
+                    $totalPrice += $thisMotherboard["price"];
+                @endphp
                 <td>
-                    <a href="{{route('brand', $brandModel::Find(\App\Models\Motherboard::Find($motherboard)["brand_id"]))}}">
-                        {{$brandModel::Find(\App\Models\Motherboard::Find($motherboard)["brand_id"])["name"]}}
+                    <a href="{{route('brand', $brandModel::Find($thisMotherboard["brand_id"]))}}">
+                        {{$brandModel::Find($thisMotherboard["brand_id"])["name"]}}
                     </a>
-                <td>{{\App\Models\Motherboard::Find($motherboard)["name"]}}</td>
-                <td>{{\App\Models\Motherboard::Find($motherboard)["price"]}} Kč</td>
+                <td>{{$thisMotherboard["name"]}}</td>
+                <td>{{$thisMotherboard["price"]}} Kč</td>
                 <td><a href="{{route('deleteProduct', ['product'=>'motherboard'])}}">Smazat</a></td>
             @endif
         </tr>
@@ -66,12 +78,16 @@
             @if($memory == null)
                 <td><a href="{{ route('product', 'memory') }}">+ Vybrat paměť</a></td>
             @else
+                @php
+                    $thisMemory = \App\Models\Memory::Find($memory);
+                    $totalPrice += $thisMemory["price"];
+                @endphp
                 <td>
-                    <a href="{{route('brand', $brandModel::Find(\App\Models\Motherboard::Find($memory)["brand_id"]))}}">
-                        {{$brandModel::Find(\App\Models\Memory::Find($memory)["brand_id"])["name"]}}
+                    <a href="{{route('brand', $brandModel::Find($thisMemory["brand_id"]))}}">
+                        {{$brandModel::Find($thisMemory["brand_id"])["name"]}}
                     </a>
-                <td>{{\App\Models\Memory::Find($memory)["name"]}}</td>
-                <td>{{\App\Models\Memory::Find($memory)["price"]}} Kč</td>
+                <td>{{$thisMemory["name"]}}</td>
+                <td>{{$thisMemory["price"]}} Kč</td>
                 <td><a href="{{route('deleteProduct', ['product'=>'memory'])}}">Smazat</a></td>
             @endif
         </tr>
@@ -80,12 +96,15 @@
             @if($storage == null)
                 <td><a href="{{ route('product', 'storage') }}">+ Vybrat uložiště</a></td>
             @else
+                @php
+                    $thisStorage = \App\Models\Storage::Find($storage);
+                    $totalPrice += $thisStorage["price"]; @endphp
                 <td>
-                    <a href="{{route('brand', $brandModel::Find(\App\Models\Storage::Find($storage)["brand_id"]))}}">
-                        {{$brandModel::Find(\App\Models\Storage::Find($storage)["brand_id"])["name"]}}
+                    <a href="{{route('brand', $brandModel::Find($thisStorage["brand_id"]))}}">
+                        {{$brandModel::Find($thisStorage["brand_id"])["name"]}}
                     </a>
-                <td>{{\App\Models\Storage::Find($storage)["name"]}}</td>
-                <td>{{$totalPrice += App\Models\Storage::Find($storage)["price"]}} Kč</td>
+                <td>{{$thisStorage["name"]}}</td>
+                <td>{{$thisStorage["price"]}} Kč</td>
                 <td><a href="{{route('deleteProduct', ['product'=>'storage'])}}">Smazat</a></td>
             @endif
         </tr>
@@ -94,27 +113,33 @@
             @if($gpu == null)
                 <td><a href="{{ route('product', 'gpu') }}">+ Vybrat grafickou kartu</a></td>
             @else
+                @php
+                    $thisGpu = \App\Models\GPU::Find($gpu);
+                    $totalPrice += $thisGpu["price"]; @endphp
                 <td>
-                    <a href="{{route('brand', $brandModel::Find(\App\Models\GPU::Find($gpu)["brand_id"]))}}">
-                        {{$brandModel::Find(\App\Models\GPU::Find($gpu)["brand_id"])["name"]}}
+                    <a href="{{route('brand', $brandModel::Find($thisGpu["brand_id"]))}}">
+                        {{$brandModel::Find($thisGpu["brand_id"])["name"]}}
                     </a>
-                <td>{{\App\Models\GPU::Find($gpu)["name"]}}</td>
-                <td>{{$totalPrice = \App\Models\GPU::Find($gpu)["price"]}} Kč</td>
+                <td>{{$thisGpu["name"]}}</td>
+                <td>{{$thisGpu["price"]}} Kč</td>
                 <td><a href="{{route('deleteProduct', ['product'=>'gpu'])}}">Smazat</a></td>
             @endif
         </tr>
         <tr>
             <td>Skříň</td>
-            @if($case == null)
-                <td><a href="{{ route('product', 'case') }}">+ Vybrat skříň</a></td>
+            @if($pcCase == null)
+                <td><a href="{{ route('product', 'pcCase') }}">+ Vybrat skříň</a></td>
             @else
+                @php
+                    $thisPcCase = \App\Models\PcCase::Find($pcCase);
+                    $totalPrice += $thisPcCase["price"]; @endphp
                 <td>
-                    <a href="{{route('brand', $brandModel::Find(\App\Models\PcCase::Find($case)["brand_id"]))}}">
-                        {{$brandModel::Find(\App\Models\PcCase::Find($case)["brand_id"])["name"]}}
+                    <a href="{{route('brand', $brandModel::Find($thisPcCase["brand_id"]))}}">
+                        {{$brandModel::Find($thisPcCase["brand_id"])["name"]}}
                     </a>
-                <td>{{\App\Models\PcCase::Find($case)["name"]}}</td>
-                <td>{{\App\Models\PcCase::Find($case)["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'case'])}}">Smazat</a></td>
+                <td>{{$thisPcCase["name"]}}</td>
+                <td>{{$thisPcCase["price"]}} Kč</td>
+                <td><a href="{{route('deleteProduct', ['product'=>'pcCase'])}}">Smazat</a></td>
             @endif
         </tr>
         <tr>
@@ -122,14 +147,15 @@
             @if($psu == null)
                 <td><a href="{{ route('product', 'psu') }}">+ Vybrat zdroj</a></td>
             @else
+                @php
+                    $thisPsu = \App\Models\PSU::Find($psu);
+                    $totalPrice += $thisPsu["price"]; @endphp
                 <td>
-                    <a href="{{route('brand', $brandModel::Find(\App\Models\PSU::Find($psu)["brand_id"]))}}">
-                        {{$brandModel::Find(\App\Models\PSU::Find($psu)["brand_id"])["name"]}}
-{{--                        //TODO: Doplnit to samé u všech řádků--}}
-{{--                        {{$brandModel::Find(\App\Models\PSU::Find($psu)["brand_id"])["name"] = Str::limit($brandModel::Find(\App\Models\PSU::Find($psu)["brand_id"])["name"], strlen($brandModel::Find(\App\Models\PSU::Find($psu)["brand_id"])["name"]) - 1, '');}}--}}
+                    <a href="{{route('brand', $brandModel::Find($thisPsu["brand_id"]))}}">
+                        {{$brandModel::Find($thisPsu["brand_id"])["name"]}}
                     </a>
-                <td>{{\App\Models\PSU::Find($psu)["name"]}}</td>
-                <td>{{\App\Models\PSU::Find($psu)["price"]}} Kč</td>
+                <td>{{$thisPsu["name"]}}</td>
+                <td>{{$thisPsu["price"]}} Kč</td>
                 <td><a href="{{route('deleteProduct', ['product'=>'psu'])}}">Smazat</a></td>
             @endif
         </tr>
@@ -138,12 +164,15 @@
             @if($os == null)
                 <td><a href="{{ route('product', 'os') }}">+ Vybrat operační systém</a></td>
             @else
+                @php
+                    $thisOs = \App\Models\OS::Find($os);
+                    $totalPrice += $thisOs["price"]; @endphp
                 <td>
-                    <a href="{{route('brand', $brandModel::Find(\App\Models\OS::Find($os)["brand_id"]))}}">
-                        {{$brandModel::Find(\App\Models\OS::Find($os)["brand_id"])["name"]}}
+                    <a href="{{route('brand', $brandModel::Find($thisOs["brand_id"]))}}">
+                        {{$brandModel::Find($thisOs["brand_id"])["name"]}}
                     </a>
-                <td>{{\App\Models\OS::Find($os)["name"]}}</td>
-                <td>{{\App\Models\OS::Find($os)["price"]}} Kč</td>
+                <td>{{$thisOs["name"]}}</td>
+                <td>{{$thisOs["price"]}} Kč</td>
                 <td><a href="{{route('deleteProduct', ['product'=>'os'])}}">Smazat</a></td>
             @endif
         </tr>
@@ -152,12 +181,16 @@
             @if($monitor == null)
                 <td><a href="{{ route('product', 'monitor') }}">+ Vybrat monitor</a></td>
             @else
+                @php
+                    $thisMonitor = \App\Models\Monitor::Find($monitor);
+                    $totalPrice += $thisMonitor["price"];
+                @endphp
                 <td>
-                    <a href="{{route('brand', $brandModel::Find(\App\Models\Monitor::Find($monitor)["brand_id"]))}}">
-                        {{$brandModel::Find(\App\Models\Monitor::Find($monitor)["brand_id"])["name"]}}
+                    <a href="{{route('brand', $brandModel::Find($thisMonitor["brand_id"]))}}">
+                        {{$brandModel::Find($thisMonitor["brand_id"])["name"]}}
                     </a>
-                <td>{{\App\Models\Monitor::Find($monitor)["name"]}}</td>
-                <td>{{\App\Models\Monitor::Find($monitor)["price"]}} Kč</td>
+                <td>{{$thisMonitor["name"]}}</td>
+                <td>{{$thisMonitor["price"]}} Kč</td>
                 <td><a href="{{route('deleteProduct', ['product'=>'monitor'])}}">Smazat</a></td>
             @endif
         </tr>
@@ -165,8 +198,11 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><strong>Celková cena xx</strong></td>
-{{--            <td><strong>Celková cena xx // TODO: Doplnit</strong></td>--}}
+            @if($totalPrice == 0)
+                <td></td>
+            @else
+                <td><strong>Celková cena: {{ $totalPrice}} Kč</strong></td>
+            @endif
             <td></td>
         </tr>
         </tbody>

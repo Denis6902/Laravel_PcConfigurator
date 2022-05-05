@@ -21,9 +21,11 @@ class PsuFactory extends Factory
         $type = ['Gold', 'Platinum', 'Bronze'];
         $wattage = ['550', '650', '750'];
         $modular = ['Plně','Semi', 'Není'];
+        $name = substr($this->faker->sentence(3), 0, -1);
+
 
         return [
-            'name' => $this->faker->sentence(3),
+            'name' => $name,
             'brand_id' => $this->faker->numberBetween(1,10),
             'formFactor' => $this->faker->randomElement($capacity),
             'efficiencyRating' => $this->faker->randomElement($type),

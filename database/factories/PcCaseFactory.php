@@ -19,10 +19,10 @@ class PcCaseFactory extends Factory
     {
         $type = ['ATX Mid Tower', 'MicroATX Mini Tower', 'Mini ITX Desktop'];
         $color = ['Černá', 'Bílá'];
-
+        $name = substr($this->faker->sentence(3), 0, -1);
 
         return [
-            'name' => $this->faker->sentence(3),
+            'name' => $name,
             'brand_id' => $this->faker->numberBetween(1,10),
             'type' => $this->faker->randomElement($type),
             'color' => $this->faker->randomElement($color),

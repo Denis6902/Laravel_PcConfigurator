@@ -60,11 +60,11 @@ class ProductController extends BaseController
                     "allGpu" => $allGpu
                 ]);
 
-            case "case":
-                $allCase = PcCase::all();
+            case "pcCase":
+                $allPcCase = PcCase::all();
 
-                return view('products.case', [
-                    "allCase" => $allCase
+                return view('products.pcCase', [
+                    "allPcCase" => $allPcCase
                 ]);
 
             case "psu":

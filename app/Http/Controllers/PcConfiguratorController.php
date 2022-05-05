@@ -15,7 +15,7 @@ class PcConfiguratorController extends BaseController
         $memory = Session::get('memory');
         $storage = Session::get('storage');
         $gpu = Session::get('gpu');
-        $case = Session::get('case');
+        $pcCase = Session::get('pcCase');
         $psu = Session::get('psu');
         $os = Session::get('os');
         $monitor = Session::get('monitor');
@@ -23,7 +23,7 @@ class PcConfiguratorController extends BaseController
 
         $count = count(session()->all());
         $isempty = ($count - 4 == 0) || $count == 1;
-        $totalPrice = 1;
+        $totalPrice = 0;
 
         if(Session::get('theme') == null){
             Session::put('theme', 'white');
@@ -38,7 +38,7 @@ class PcConfiguratorController extends BaseController
             "memory" => $memory,
             "storage" => $storage,
             "gpu" => $gpu,
-            "case" => $case,
+            "pcCase" => $pcCase,
             "psu" => $psu,
             "os" => $os,
             "monitor" => $monitor,

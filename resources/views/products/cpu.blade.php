@@ -2,49 +2,51 @@
 
 @section("content")
     @include("header")
-<main>
-    <h1>Vyberte si procesor</h1>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Značka</th>
-            <th scope="col">Název</th>
-            <th scope="col">Takt</th>
-            <th scope="col">Počet jader</th>
-            <th scope="col">TDP</th>
-            <th scope="col">Integrovaná grafika</th>
-            <th scope="col">SMT/HT</th>
-            <th scope="col">Hodnocení</th>
-            <th scope="col">Cena</th>
-            <th scope="col">Vytvořeno</th>
-            <th scope="col">Aktualizováno</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($allCpu as $cpu)
-            <tr>
-                <th scope="row">{{$cpu->id}}</th>
-                <th scope="row"><a href="{{route('brand' ,\App\Models\Brand::Find($cpu->brand_id)["id"])}}">{{\App\Models\Brand::Find($cpu->brand_id)["name"]}}</a></th>
-                <th scope="row">{{$cpu->name}}</th>
-                <th scope="row">{{$cpu->clock}} GHz</th>
-                <th scope="row">{{$cpu->cores}} jader</th>
-                <th scope="row">{{$cpu->tdp}}W</th>
-                <th scope="row">{{$cpu->i_gpu}}</th>
-                <th scope="row">@if($cpu->smt_or_ht == '1')
-                        Ano
-                    @else
-                        Ne
-                    @endif</th>
-                <th scope="row">@for($i = 0; $i < $cpu->rating; $i++) * @endfor</th>
-                <th scope="row">{{$cpu->price}} Kč</th>
-                <th scope="row">{{$cpu->created_at}}</th>
-                <th scope="row">{{$cpu->updated_at}}</th>
-                <th scope="row"><a href="{{route('addProduct', ['product'=>'cpu', 'id'=>$cpu->id])}}">Přidat</a></th>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-</main>
+    <main>
+        <h1>Vyberte si procesor</h1>
+        <div class="album py-5">
+            <div class="container">
+                <div class="row">
+                    @foreach($allCpu as $cpu)
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                     alt="CPU" style="height: 225px; width: 100%; display: block;"
+                                     src="/./img/cpu.jpg"
+                                     data-holder-rendered="true">
+                                <div class="card-body">
+                                    <p>
+                                        <a class="card-text"
+                                          href="{{route('brand' ,\App\Models\Brand::Find($cpu->brand_id)["id"])}}">Značka: {{\App\Models\Brand::Find($cpu->brand_id)["name"]}}
+                                        </a>
+                                    </p>
+                                    <p class="card-text">Procesor: {{$cpu->name}}</p>
+                                    <p class="card-text">{{$cpu->clock}} GHz</p>
+                                    <p class="card-text">{{$cpu->cores}} jader</p>
+                                    <p class="card-text">{{$cpu->tdp}} W</p>
+                                    <p class="card-text">Integrovaná grafická karta: {{$cpu->i_gpu}}</p>
+                                    @if($cpu->smt_or_ht == '1')
+                                        <p class="card-text">Podpora SMT/HT</p>
+                                    @endif
+                                    <p class="card-text">Hodnocení {{$cpu->rating * 10}}%</p>
+                                    <p class="card-text">Cena: {{$cpu->price}} Kč</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Zobrazit
+                                            </button>
+                                            {{--TODO: Přidat cestu a blade a route /product/.../{id} - připadně upravit co zde půjde vidět a co půjde vidět v /product/.../{id}--}}
+                                            <a class="btn btn-sm btn-outline-secondary"
+                                               href="{{route('addProduct', ['product'=>'cpu', 'id'=>$cpu->id])}}">Přidat</a>
+                                        </div>
+                                        <small class="text-muted">{{$cpu->created_at}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </main>
     @include("footer")
 @endsection

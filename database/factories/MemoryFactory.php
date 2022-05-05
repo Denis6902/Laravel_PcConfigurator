@@ -25,6 +25,7 @@ class MemoryFactory extends Factory
         $modules = ['2 x 16', '2 x 8', '1 x 8', '1 x 16', '4 x 8', '4 x 16'];
         $color = ['Černá', 'Bílá'];
         $type = $this->faker->randomElement($typeList);
+        $name = substr($this->faker->sentence(3), 0, -1);
 
 
         if($type == 'DDR4'){
@@ -37,7 +38,7 @@ class MemoryFactory extends Factory
         }
 
         return [
-            'name' => $this->faker->sentence(3),
+            'name' => $name,
             'brand_id' => $this->faker->numberBetween(1,10),
             'type' => $type,
             'speed' => $speed,

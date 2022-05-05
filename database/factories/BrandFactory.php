@@ -18,8 +18,11 @@ class BrandFactory extends Factory
     public function definition()
     {
         $headquarters = ['USA', 'EU', 'Asia'];
+        $name = substr($this->faker->sentence(1), 0, -1);
+
+
         return [
-            'name' => $this->faker->sentence(1),
+            'name' => $name,
             'headquarters' => $this->faker->randomElement($headquarters),
             'founded_in' => $this->faker->numberBetween(1900,2020),
             'info' => $this->faker->sentence(20),

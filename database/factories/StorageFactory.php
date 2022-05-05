@@ -19,6 +19,8 @@ class StorageFactory extends Factory
     {
         $capacity = ['128', '256','512','1024','2048'];
         $type = ['SSD', 'HDD'];
+        $name = substr($this->faker->sentence(3), 0, -1);
+
         if('type' == 'HDD'){
             $interface = 'SATA';
             }
@@ -27,7 +29,7 @@ class StorageFactory extends Factory
         }
 
         return [
-            'name' => $this->faker->sentence(3),
+            'name' => $name,
             'brand_id' => $this->faker->numberBetween(1,10),
             'capacity' => $this->faker->randomElement($capacity),
             'type' => $this->faker->randomElement($type),
