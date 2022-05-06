@@ -15,7 +15,7 @@ class PcConfiguratorController extends BaseController
         $memory = Session::get('memory');
         $storage = Session::get('storage');
         $gpu = Session::get('gpu');
-        $pcCase = Session::get('pcCase');
+        $pcCase = Session::get('pccase');
         $psu = Session::get('psu');
         $os = Session::get('os');
         $monitor = Session::get('monitor');

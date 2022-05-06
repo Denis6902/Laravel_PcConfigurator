@@ -28,7 +28,7 @@ class PcCaseFactory extends Factory
             'color' => $this->faker->randomElement($color),
             'internal_5_25_bays' => $this->faker->numberBetween(0,6),
             'external_5_25_bays' => $this->faker->numberBetween(0,6),
-            'rating' => $this->faker->numberBetween(1,5),
+            'rating' => $this->faker->numberBetween(1,100),
             'price' => $this->faker->numberBetween(1500, 4000),
         ];
     }

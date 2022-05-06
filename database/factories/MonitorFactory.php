@@ -30,7 +30,7 @@ class MonitorFactory extends Factory
             'resolution' => $this->faker->randomElement($resolution),
             'refresh_rate' => $this->faker->randomElement($refresh_rate),
             'panel_type' => $this->faker->randomElement($panel_type),
-            'rating' => $this->faker->numberBetween(1,5),
+            'rating' => $this->faker->numberBetween(1,100),
             'price' => $this->faker->numberBetween(1500, 4000),
         ];
     }

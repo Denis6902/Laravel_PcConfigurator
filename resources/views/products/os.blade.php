@@ -2,42 +2,45 @@
 
 @section("content")
     @include("header")
-        <h1>Vyberte si oparační systém</h1>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Značka</th>
-                <th scope="col">Název</th>
-                <th scope="col">Verze</th>
-                <th scope="col">Edice</th>
-                <th scope="col">Typ W</th>
-                <th scope="col">Maximální podporovaná velikost RAM</th>
-                <th scope="col">Hodnocení</th>
-                <th scope="col">Cena</th>
-                <th scope="col">Vytvořeno</th>
-                <th scope="col">Aktualizováno</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($allOs as $os)
-                <tr>
-                    <th scope="row">{{$os->id}}</th>
-                    <th scope="row"><a href="{{route('brand' ,\App\Models\Brand::Find($os->brand_id)["id"])}}">{{\App\Models\Brand::Find($os->brand_id)["name"]}}</a></th>
-                    <th scope="row">{{$os->name}}</th>
-                    <th scope="row">{{$os->version}}</th>
-                    <th scope="row">{{$os->edition}}</th>
-                    <th scope="row">{{$os->mode}}</th>
-                    <th scope="row">{{$os->maximumMemory}} GB</th>
-                    <th scope="row">@for($i = 0; $i < $os->rating; $i++) * @endfor</th>
-                    <th scope="row">{{$os->price}} Kč</th>
-                    <th scope="row">{{$os->created_at}}</th>
-                    <th scope="row">{{$os->updated_at}}</th>
-                    <th scope="row"><a href="{{route('addProduct', ['product'=>'os', 'id'=>$os->id])}}">Přidat</a></th>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+    <h1>Vyberte si operační systém</h1>
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                @foreach($allOs as $os)
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="OS" style="height: 225px; width: 100%; display: block;"
+                                 src="/./img/products/os.jpg"
+                                 data-holder-rendered="true">
+                            <div class="card-body">
+                                <p>
+                                    <a class="card-text"
+                                       href="{{route('brand' ,$brandModel::Find($os->brand_id)["id"])}}">Značka: {{$brandModel::Find($os->brand_id)["name"]}}
+                                    </a>
+                                </p>
+                                <p class="card-text">Operační systém: {{$os->name}}</p>
+                                <p class="card-text">Typ: {{$os->version}} {{$os->edition}} {{$os->mode}}</p>
+                                <p class="card-text">Podporovaná velikost RAM: {{$os->maximumMemory}} GB</p>
+                                <p class="card-text">Hodnocení {{$os->rating}}%</p>
+                                <p class="card-text">Cena: {{$os->price}} Kč</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Zobrazit
+                                        </button>
+                                        {{--TODO: Přidat cestu a blade a route /product/.../{id} - připadně upravit co zde půjde vidět a co půjde vidět v /product/.../{id}--}}
+                                        <a class="btn btn-sm btn-outline-secondary"
+                                           href="{{route('addProduct', ['product'=>'os', 'id'=>$os->id])}}">Přidat</a>
+                                    </div>
+                                    <small
+                                        class="text-muted">{{ \Carbon\Carbon::parse($os->created_at)->format('d/m/Y')}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
     @include("footer")
 @endsection

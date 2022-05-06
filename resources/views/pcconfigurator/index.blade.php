@@ -128,7 +128,7 @@
         <tr>
             <td>Skříň</td>
             @if($pcCase == null)
-                <td><a href="{{ route('product', 'pcCase') }}">+ Vybrat skříň</a></td>
+                <td><a href="{{ route('product', 'pccase') }}">+ Vybrat skříň</a></td>
             @else
                 @php
                     $thisPcCase = \App\Models\PcCase::Find($pcCase);
@@ -139,7 +139,7 @@
                     </a>
                 <td>{{$thisPcCase["name"]}}</td>
                 <td>{{$thisPcCase["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'pcCase'])}}">Smazat</a></td>
+                <td><a href="{{route('deleteProduct', ['product'=>'pccase'])}}">Smazat</a></td>
             @endif
         </tr>
         <tr>
@@ -194,17 +194,16 @@
                 <td><a href="{{route('deleteProduct', ['product'=>'monitor'])}}">Smazat</a></td>
             @endif
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            @if($totalPrice == 0)
+        @if($totalPrice == 0)
+        @else
+            <tr>
                 <td></td>
-            @else
+                <td></td>
+                <td></td>
                 <td><strong>Celková cena: {{ $totalPrice}} Kč</strong></td>
-            @endif
-            <td></td>
-        </tr>
+                <td></td>
+            </tr>
+        @endif
         </tbody>
     </table>
     @include("footer")

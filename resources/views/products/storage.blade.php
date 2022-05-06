@@ -2,40 +2,44 @@
 
 @section("content")
     @include("header")
-        <h1>Vyberte si uložiště</h1>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Značka</th>
-                <th scope="col">Název</th>
-                <th scope="col">Kapacita</th>
-                <th scope="col">Typ</th>
-                <th scope="col">Interface</th>
-                <th scope="col">Hodnocení</th>
-                <th scope="col">Cena</th>
-                <th scope="col">Vytvořeno</th>
-                <th scope="col">Aktualizováno</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($allStorage as $storage)
-                <tr>
-                    <th scope="row">{{$storage->id}}</th>
-                    <th scope="row"><a href="{{route('brand' ,\App\Models\Brand::Find($storage->brand_id)["id"])}}">{{\App\Models\Brand::Find($storage->brand_id)["name"]}}</a></th>
-                    <th scope="row">{{$storage->name}}</th>
-                    <th scope="row">{{$storage->capacity}} GB</th>
-                    <th scope="row">{{$storage->type}}</th>
-                    <th scope="row">{{$storage->interface}}</th>
-                    <th scope="row">@for($i = 0; $i < $storage->rating; $i++) * @endfor</th>
-                    <th scope="row">{{$storage->price}} Kč</th>
-                    <th scope="row">{{$storage->created_at}}</th>
-                    <th scope="row">{{$storage->updated_at}}</th>
-                    <th scope="row"><a href="{{route('addProduct', ['product'=>'storage', 'id'=>$storage->id])}}">Přidat</a></th>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+    <h1>Vyberte si uložiště</h1>
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                @foreach($allStorage as $storage)
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="Storage" style="height: 225px; width: 100%; display: block;"
+                                 src="/./img/products/storage.jpg"
+                                 data-holder-rendered="true">
+                            <div class="card-body">
+                                <p>
+                                    <a class="card-text"
+                                       href="{{route('brand' ,$brandModel::Find($storage->brand_id)["id"])}}">Značka: {{$brandModel::Find($storage->brand_id)["name"]}}
+                                    </a>
+                                </p>
+                                <p class="card-text">Disk: {{$storage->name}}</p>
+                                <p class="card-text">Kapacita: {{$storage->capacity}} GB</p>
+                                <p class="card-text">Typ: {{$storage->interface}} {{$storage->type}}</p>
+                                <p class="card-text">Hodnocení {{$storage->rating}}%</p>
+                                <p class="card-text">Cena: {{$storage->price}} Kč</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Zobrazit</button>
+                                        {{--TODO: Přidat cestu a blade a route /product/.../{id} - připadně upravit co zde půjde vidět a co půjde vidět v /product/.../{id}--}}
+                                        <a class="btn btn-sm btn-outline-secondary"
+                                           href="{{route('addProduct', ['product'=>'storage', 'id'=>$storage->id])}}">Přidat</a>
+                                    </div>
+                                    <small
+                                        class="text-muted">{{ \Carbon\Carbon::parse($storage->created_at)->format('d/m/Y')}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
     @include("footer")
 @endsection

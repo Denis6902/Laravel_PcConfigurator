@@ -45,7 +45,7 @@ class MemoryFactory extends Factory
             'modules' => $this->faker->randomElement($modules),
             'color' => $this->faker->randomElement($color),
             'latency' => $latency,
-            'rating' => $this->faker->numberBetween(1,5),
+            'rating' => $this->faker->numberBetween(1,100),
             'price' => $this->faker->numberBetween(1500, 4000),
         ];
     }

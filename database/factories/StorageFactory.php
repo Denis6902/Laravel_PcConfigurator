@@ -34,7 +34,7 @@ class StorageFactory extends Factory
             'capacity' => $this->faker->randomElement($capacity),
             'type' => $this->faker->randomElement($type),
             'interface' => $this->faker->randomElement($interface),
-            'rating' => $this->faker->numberBetween(1,5),
+            'rating' => $this->faker->numberBetween(1,100),
             'price' => $this->faker->numberBetween(500, 2500),
         ];
     }

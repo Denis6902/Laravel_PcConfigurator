@@ -45,7 +45,7 @@ class OsFactory extends Factory
             'edition' => $edition,
             'mode' => $mode,
             'maximumMemory' => $maximumMemory,
-            'rating' => $this->faker->numberBetween(1,5),
+            'rating' => $this->faker->numberBetween(1,100),
             'price' => $this->faker->numberBetween(1500, 4000),
         ];
     }

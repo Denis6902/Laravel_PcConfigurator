@@ -17,6 +17,7 @@ class CpuFactory extends Factory
      */
     public function definition()
     {
+        // TODO: přidat img faker z předem definovaných v  []
         $tdp = ['65', '125', '105', '95'];
         $cores = ['4', '6', '8', '12', '16'];
         $clock = ['3.7', '2.5', '3.6', '2.6', '4.1'];
@@ -31,7 +32,7 @@ class CpuFactory extends Factory
             'tdp' => $this->faker->randomElement($tdp),
             'i_gpu' => $this->faker->sentence(2),
             'smt_or_ht' => $this->faker->boolean(),
-            'rating' => $this->faker->numberBetween(1,5),
+            'rating' => $this->faker->numberBetween(1,100),
             'price' => $this->faker->numberBetween(1500, 4000),
         ];
     }

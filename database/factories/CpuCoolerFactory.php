@@ -38,7 +38,7 @@ class CpuCoolerFactory extends Factory
             'color' => $this->faker->randomElement($color),
             'radiator_size' => $this->faker->randomElement($radiator_size),
             'height' => $this->faker->numberBetween(27,70),
-            'rating' => $this->faker->numberBetween(1,5),
+            'rating' => $this->faker->numberBetween(1,100),
             'price' => $this->faker->numberBetween(1500, 4000),
         ];
     }

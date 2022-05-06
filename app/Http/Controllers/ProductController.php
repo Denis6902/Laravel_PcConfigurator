@@ -18,74 +18,86 @@ class ProductController extends BaseController
 {
     function read($product)
     {
+        $brandModel = 'App\Models\Brand';
+
         switch ($product):
             case "cpu-cooler":
                 $allCpuCooler = CpuCooler::all();
 
                 return view('products.cpuCooler', [
-                    "allCpuCooler" => $allCpuCooler
+                    "allCpuCooler" => $allCpuCooler,
+                    "brandModel" => $brandModel,
                 ]);
 
             case "cpu":
                 $allCpu = CPU::all();
 
                 return view('products.cpu', [
-                    "allCpu" => $allCpu
+                    "allCpu" => $allCpu,
+                    "brandModel" => $brandModel,
                 ]);
 
             case "motherboard":
                 $allMotherboard = Motherboard::all();
 
                 return view('products.motherboard', [
-                    "allMotherboard" => $allMotherboard
+                    "allMotherboard" => $allMotherboard,
+                    "brandModel" => $brandModel,
                 ]);
 
             case "memory":
                 $allMemory = Memory::all();
 
                 return view('products.memory', [
-                    "allMemory" => $allMemory
+                    "allMemory" => $allMemory,
+                    "brandModel" => $brandModel,
                 ]);
 
             case "storage":
                 $allStorage = Storage::all();
                 return view('products.storage', [
-                    "allStorage" => $allStorage
+                    "allStorage" => $allStorage,
+                    "brandModel" => $brandModel,
                 ]);
 
             case "gpu":
                 $allGpu = GPU::all();
 
                 return view('products.gpu', [
-                    "allGpu" => $allGpu
+                    "allGpu" => $allGpu,
+                    "brandModel" => $brandModel,
                 ]);
 
-            case "pcCase":
+            case "pccase":
                 $allPcCase = PcCase::all();
 
                 return view('products.pcCase', [
-                    "allPcCase" => $allPcCase
+                    "allPcCase" => $allPcCase,
+                    "brandModel" => $brandModel,
                 ]);
 
             case "psu":
                 $allPsu = PSU::all();
 
                 return view('products.psu', [
-                    "allPsu" => $allPsu
+                    "allPsu" => $allPsu,
+                    "brandModel" => $brandModel,
                 ]);
 
             case "os":
                 $allOs = OS::all();
 
                 return view('products.os', [
-                    "allOs" => $allOs
+                    "allOs" => $allOs,
+                    "brandModel" => $brandModel,
                 ]);
 
             case "monitor":
                 $allMonitor = Monitor::all();
 
                 return view('products.monitor', [
-                    "allMonitor" => $allMonitor
+                    "allMonitor" => $allMonitor,
+                    "brandModel" => $brandModel,
                 ]);
 
         endswitch;

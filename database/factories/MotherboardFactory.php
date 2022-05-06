@@ -34,7 +34,7 @@ class MotherboardFactory extends Factory
             'maximumMemory' => $this->faker->randomElement($maximumMemory),
             'memorySlots' => $this->faker->randomElement($memorySlots),
             'color' => $this->faker->randomElement($color),
-            'rating' => $this->faker->numberBetween(1,5),
+            'rating' => $this->faker->numberBetween(1,100),
             'price' => $this->faker->numberBetween(1500, 4000),
         ];
     }
