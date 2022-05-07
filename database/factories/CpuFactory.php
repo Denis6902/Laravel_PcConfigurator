@@ -26,14 +26,15 @@ class CpuFactory extends Factory
 
         return [
             'name' => $name,
-            'brand_id' => $this->faker->numberBetween(1,10),
+            'brand_id' => $this->faker->numberBetween(1, 10),
             'clock' => $this->faker->randomElement($clock),
             'cores' => $this->faker->randomElement($cores),
             'tdp' => $this->faker->randomElement($tdp),
             'i_gpu' => $this->faker->sentence(2),
             'smt_or_ht' => $this->faker->boolean(),
-            'rating' => $this->faker->numberBetween(1,100),
+            'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(1500, 4000),
+            'info' => $this->faker->sentence(80),
         ];
     }
 }

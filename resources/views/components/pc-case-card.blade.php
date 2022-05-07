@@ -1,0 +1,31 @@
+<div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+        <img class="card-img-top"
+             alt="PcCase" style="height: 225px; width: 100%; display: block;"
+             src="/./img/products/pccase.jpg"
+             data-holder-rendered="true">
+        <div class="card-body">
+            <p class="card-text">Skříň: {{$pcCase->name}}</p>
+            <p class="card-text">Velikost: {{$pcCase->type}}</p>
+            <p class="card-text">Barva: {{$pcCase->color}}</p>
+            <p class="card-text">Pozic interních disků: {{$pcCase->internal_5_25_bays}}x </p>
+            <p class="card-text">Pozic externích disků: {{$pcCase->external_5_25_bays}}x </p>
+            <p class="card-text">
+                @for($i = 0; $i < (($pcCase->rating)+2)/20 && $i < 5; $i++)
+                    <img class="bigStar" src="/./img/star.svg" alt="Star">
+                @endfor
+            </p>
+            <p class="card-text">Cena: {{$pcCase->price}} Kč</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="{{route('product', ['product'=>'pccase', 'id'=>$pcCase->id])}}"
+                       class="btn btn-sm btn-outline-primary">Zobrazit
+                    </a>
+                </div>
+                <div><a class="btn btn-sm btn-outline-primary"
+                        href="{{route('addProduct', ['product'=>'pccase', 'id'=>$pcCase->id])}}">Přidat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

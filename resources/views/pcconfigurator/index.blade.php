@@ -2,6 +2,7 @@
 
 @section("content")
     @include("header")
+{{--  TODO: možná předělat na jiný vzhled?   --}}
     <table class="table">
         <thead>
         <tr>
@@ -21,7 +22,7 @@
         <tr>
             <td>CPU</td>
             @if($cpu == null)
-                <td><a href="{{ route('product', 'cpu') }}">+ Vybrat procesor</a></td>
+                <td><a href="{{ route('products', 'cpu') }}">+ Vybrat procesor</a></td>
             @else
                 @php
                     $thisCpu = \App\Models\CPU::Find($cpu);
@@ -40,7 +41,7 @@
         <tr>
             <td>CPU Chladič</td>
             @if($cpuCooler == null)
-                <td><a href="{{ route('product', 'cpu-cooler') }}">+ Vybrat CPU chladič</a></td>
+                <td><a href="{{ route('products', 'cpucooler') }}">+ Vybrat CPU chladič</a></td>
             @else
                 @php
                     $thisCpuCooler = \App\Models\CpuCooler::Find($cpuCooler);
@@ -52,13 +53,13 @@
                     </a>
                 <td>{{$thisCpuCooler["name"]}}</td>
                 <td>{{$thisCpuCooler["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'cpu-cooler'])}}">Smazat</a></td>
+                <td><a href="{{route('deleteProduct', ['product'=>'cpucooler'])}}">Smazat</a></td>
             @endif
         </tr>
         <tr>
             <td>Základní Deska</td>
             @if($motherboard == null)
-                <td><a href="{{ route('product', 'motherboard') }}">+ Vybrat základní desku</a></td>
+                <td><a href="{{ route('products', 'motherboard') }}">+ Vybrat základní desku</a></td>
             @else
                 @php
                     $thisMotherboard = \App\Models\Motherboard::Find($motherboard);
@@ -76,7 +77,7 @@
         <tr>
             <td>Paměť</td>
             @if($memory == null)
-                <td><a href="{{ route('product', 'memory') }}">+ Vybrat paměť</a></td>
+                <td><a href="{{ route('products', 'memory') }}">+ Vybrat paměť</a></td>
             @else
                 @php
                     $thisMemory = \App\Models\Memory::Find($memory);
@@ -94,7 +95,7 @@
         <tr>
             <td>Uložiště</td>
             @if($storage == null)
-                <td><a href="{{ route('product', 'storage') }}">+ Vybrat uložiště</a></td>
+                <td><a href="{{ route('products', 'storage') }}">+ Vybrat uložiště</a></td>
             @else
                 @php
                     $thisStorage = \App\Models\Storage::Find($storage);
@@ -111,7 +112,7 @@
         <tr>
             <td>Grafická karta</td>
             @if($gpu == null)
-                <td><a href="{{ route('product', 'gpu') }}">+ Vybrat grafickou kartu</a></td>
+                <td><a href="{{ route('products', 'gpu') }}">+ Vybrat grafickou kartu</a></td>
             @else
                 @php
                     $thisGpu = \App\Models\GPU::Find($gpu);
@@ -128,7 +129,7 @@
         <tr>
             <td>Skříň</td>
             @if($pcCase == null)
-                <td><a href="{{ route('product', 'pccase') }}">+ Vybrat skříň</a></td>
+                <td><a href="{{ route('products', 'pccase') }}">+ Vybrat skříň</a></td>
             @else
                 @php
                     $thisPcCase = \App\Models\PcCase::Find($pcCase);
@@ -145,7 +146,7 @@
         <tr>
             <td>Zdroj</td>
             @if($psu == null)
-                <td><a href="{{ route('product', 'psu') }}">+ Vybrat zdroj</a></td>
+                <td><a href="{{ route('products', 'psu') }}">+ Vybrat zdroj</a></td>
             @else
                 @php
                     $thisPsu = \App\Models\PSU::Find($psu);
@@ -162,7 +163,7 @@
         <tr>
             <td>Operační systém</td>
             @if($os == null)
-                <td><a href="{{ route('product', 'os') }}">+ Vybrat operační systém</a></td>
+                <td><a href="{{ route('products', 'os') }}">+ Vybrat operační systém</a></td>
             @else
                 @php
                     $thisOs = \App\Models\OS::Find($os);
@@ -179,7 +180,7 @@
         <tr>
             <td>Monitor</td>
             @if($monitor == null)
-                <td><a href="{{ route('product', 'monitor') }}">+ Vybrat monitor</a></td>
+                <td><a href="{{ route('products', 'monitor') }}">+ Vybrat monitor</a></td>
             @else
                 @php
                     $thisMonitor = \App\Models\Monitor::Find($monitor);

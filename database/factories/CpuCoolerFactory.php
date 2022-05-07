@@ -22,24 +22,24 @@ class CpuCoolerFactory extends Factory
         $noise_level = ['22.5', '14 - 25', '28', '4 - 25', '25', '15 - 38'];
         $aio = $this->faker->boolean();
 
-        if($aio == null){
+        if ($aio == null) {
             $radiator_size = ['240', '280', '360', '120', '140'];
-        }
-        else{
+        } else {
             $radiator_size = ['0'];
         }
 
 
         return [
             'name' => $this->faker->sentence(3),
-            'brand_id' => $this->faker->numberBetween(1,10),
+            'brand_id' => $this->faker->numberBetween(1, 10),
             'fan_rpm' => $this->faker->randomElement($fan_rpm),
             'noise_level' => $this->faker->randomElement($noise_level),
             'color' => $this->faker->randomElement($color),
             'radiator_size' => $this->faker->randomElement($radiator_size),
-            'height' => $this->faker->numberBetween(27,70),
-            'rating' => $this->faker->numberBetween(1,100),
+            'height' => $this->faker->numberBetween(27, 70),
+            'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(1500, 4000),
+            'info' => $this->faker->sentence(80),
         ];
     }
 }

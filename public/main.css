@@ -2,18 +2,16 @@ body {
   padding: 0 10%;
 }
 
-.light {
-  color: black;
-  background: white;
-}
-
-.dark {
-  color: white;
-  background: black;
-}
-
-header .hidden {
+header .hidden, footer .hidden {
   display: none;
+}
+
+.smallStar {
+  width: 2%;
+}
+
+.bigStar {
+  width: 5%;
 }
 
 /*# sourceMappingURL=main.css.map */

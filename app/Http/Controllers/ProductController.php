@@ -16,12 +16,12 @@ use Illuminate\Routing\Controller as BaseController;
 
 class ProductController extends BaseController
 {
-    function read($product)
+    function readProducts($product)
     {
         $brandModel = 'App\Models\Brand';
 
         switch ($product):
-            case "cpu-cooler":
+            case "cpucooler":
                 $allCpuCooler = CpuCooler::all();
 
                 return view('products.cpuCooler', [
@@ -103,14 +103,103 @@ class ProductController extends BaseController
         endswitch;
     }
 
-    function create($product, $id){
+    function readProduct($product, $id)
+    {
+        $brandModel = 'App\Models\Brand';
+
+        switch ($product):
+            case "cpucooler":
+                $cpuCooler = CpuCooler::Find($id);
+
+                return view('product.cpuCooler', [
+                    "cpuCooler" => $cpuCooler,
+                    "brandModel" => $brandModel,
+                ]);
+
+            case "cpu":
+                $cpu = CPU::Find($id);
+
+                return view('product.cpu', [
+                    "cpu" => $cpu,
+                    "brandModel" => $brandModel,
+                ]);
+
+            case "motherboard":
+                $motherboard = Motherboard::Find($id);
+
+                return view('product.motherboard', [
+                    "motherboard" => $motherboard,
+                    "brandModel" => $brandModel,
+                ]);
+
+            case "memory":
+                $memory = Memory::Find($id);
+
+                return view('product.memory', [
+                    "memory" => $memory,
+                    "brandModel" => $brandModel,
+                ]);
+
+            case "storage":
+                $storage = Storage::Find($id);
+                return view('product.storage', [
+                    "storage" => $storage,
+                    "brandModel" => $brandModel,
+                ]);
+
+            case "gpu":
+                $gpu = GPU::Find($id);
+
+                return view('product.gpu', [
+                    "gpu" => $gpu,
+                    "brandModel" => $brandModel,
+                ]);
+
+            case "pccase":
+                $pcCase = PcCase::Find($id);
+
+                return view('product.pcCase', [
+                    "pcCase" => $pcCase,
+                    "brandModel" => $brandModel,
+                ]);
+
+            case "psu":
+                $psu = PSU::Find($id);
+
+                return view('product.psu', [
+                    "psu" => $psu,
+                    "brandModel" => $brandModel,
+                ]);
+
+            case "os":
+                $os = OS::Find($id);
+
+                return view('product.os', [
+                    "os" => $os,
+                    "brandModel" => $brandModel,
+                ]);
+
+            case "monitor":
+                $monitor = Monitor::Find($id);
+
+                return view('product.monitor', [
+                    "monitor" => $monitor,
+                    "brandModel" => $brandModel,
+                ]);
+
+        endswitch;
+    }
+
+    function create($product, $id)
+    {
         return view('pcConfigurator.addProduct', [
             "product" => $product,
             "id" => $id
         ]);
     }
 
-    function delete($product){
+    function delete($product)
+    {
         return view('pcConfigurator.deleteProduct', [
             "product" => $product,
         ]);

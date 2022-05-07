@@ -17,25 +17,25 @@ class StorageFactory extends Factory
      */
     public function definition()
     {
-        $capacity = ['128', '256','512','1024','2048'];
+        $capacity = ['128', '256', '512', '1024', '2048'];
         $type = ['SSD', 'HDD'];
         $name = substr($this->faker->sentence(3), 0, -1);
 
-        if('type' == 'HDD'){
+        if ('type' == 'HDD') {
             $interface = 'SATA';
-            }
-        else {
+        } else {
             $interface = ['M.2', 'SATA'];
         }
 
         return [
             'name' => $name,
-            'brand_id' => $this->faker->numberBetween(1,10),
+            'brand_id' => $this->faker->numberBetween(1, 10),
             'capacity' => $this->faker->randomElement($capacity),
             'type' => $this->faker->randomElement($type),
             'interface' => $this->faker->randomElement($interface),
-            'rating' => $this->faker->numberBetween(1,100),
+            'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(500, 2500),
+            'info' => $this->faker->sentence(80),
         ];
     }
 }

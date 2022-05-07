@@ -26,15 +26,16 @@ class GpuFactory extends Factory
 
         return [
             'name' => $name,
-            'brand_id' => $this->faker->numberBetween(1,10),
+            'brand_id' => $this->faker->numberBetween(1, 10),
             'chipset' => $chipset,
             'memory' => $this->faker->randomElement($memory),
             'core_clock' => $core_clock,
             'boost_clock' => $core_clock + $this->faker->numberBetween(200, 500),
             'color' => $this->faker->randomElement($color),
-            'length' => $this->faker->numberBetween(200,320),
-            'rating' => $this->faker->numberBetween(1,100),
+            'length' => $this->faker->numberBetween(200, 320),
+            'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(1500, 4000),
+            'info' => $this->faker->sentence(80),
         ];
     }
 }

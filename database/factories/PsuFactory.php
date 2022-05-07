@@ -20,19 +20,20 @@ class PsuFactory extends Factory
         $capacity = ['ATX', 'SFX'];
         $type = ['Gold', 'Platinum', 'Bronze'];
         $wattage = ['550', '650', '750'];
-        $modular = ['Plně','Semi', 'Není'];
+        $modular = ['Plně', 'Semi', 'Není'];
         $name = substr($this->faker->sentence(3), 0, -1);
 
 
         return [
             'name' => $name,
-            'brand_id' => $this->faker->numberBetween(1,10),
+            'brand_id' => $this->faker->numberBetween(1, 10),
             'formFactor' => $this->faker->randomElement($capacity),
             'efficiencyRating' => $this->faker->randomElement($type),
             'wattage' => $this->faker->randomElement($wattage),
             'modular' => $this->faker->randomElement($modular),
-            'rating' => $this->faker->numberBetween(1,100),
+            'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(1500, 4000),
+            'info' => $this->faker->sentence(80),
         ];
     }
 }

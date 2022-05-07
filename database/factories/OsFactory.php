@@ -27,26 +27,25 @@ class OsFactory extends Factory
         $name = substr($this->faker->sentence(3), 0, -1);
 
 
-        if($mode == "32-bit"){
+        if ($mode == "32-bit") {
             $maximumMemory = '4';
-        }
-        else if($edition == 'Home'){
+        } else if ($edition == 'Home') {
             $maximumMemory = '128';
-        }
-        else {
+        } else {
             $maximumMemory = '2048';
         }
 
 
         return [
             'name' => $name,
-            'brand_id' => $this->faker->numberBetween(1,10),
+            'brand_id' => $this->faker->numberBetween(1, 10),
             'version' => $version,
             'edition' => $edition,
             'mode' => $mode,
             'maximumMemory' => $maximumMemory,
-            'rating' => $this->faker->numberBetween(1,100),
+            'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(1500, 4000),
+            'info' => $this->faker->sentence(80),
         ];
     }
 }

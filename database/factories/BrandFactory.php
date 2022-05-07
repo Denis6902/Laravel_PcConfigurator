@@ -24,8 +24,8 @@ class BrandFactory extends Factory
         return [
             'name' => $name,
             'headquarters' => $this->faker->randomElement($headquarters),
-            'founded_in' => $this->faker->numberBetween(1900,2020),
-            'info' => $this->faker->sentence(20),
+            'founded_in' => $this->faker->numberBetween(1900, 2020),
+            'info' => $this->faker->sentence(80),
         ];
     }
 }

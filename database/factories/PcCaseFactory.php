@@ -23,13 +23,14 @@ class PcCaseFactory extends Factory
 
         return [
             'name' => $name,
-            'brand_id' => $this->faker->numberBetween(1,10),
+            'brand_id' => $this->faker->numberBetween(1, 10),
             'type' => $this->faker->randomElement($type),
             'color' => $this->faker->randomElement($color),
-            'internal_5_25_bays' => $this->faker->numberBetween(0,6),
-            'external_5_25_bays' => $this->faker->numberBetween(0,6),
-            'rating' => $this->faker->numberBetween(1,100),
+            'internal_5_25_bays' => $this->faker->numberBetween(0, 6),
+            'external_5_25_bays' => $this->faker->numberBetween(0, 6),
+            'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(1500, 4000),
+            'info' => $this->faker->sentence(80),
         ];
     }
 }

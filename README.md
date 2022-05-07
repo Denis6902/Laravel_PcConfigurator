@@ -1,5 +1,7 @@
 # Aplikace v PHP frameworku Laravel
+
 ## Instalace
+
 - Mít nainstalovaný php interpreter a composer
 - Ve složce projektu dát příkaz `composer install` (případně `php composer.phar install`)
 - Vytvořit kopii souboru **.env.example** a pojmenovat ji **.env**
@@ -10,7 +12,9 @@
 - Dát příkaz `php artisan serve` ke spuštení
 
 ## Body zadání:
-- Navrhnout funkční administrační prostředí pro libovolnou aplikaci nebo pro fakturační systém případně konfigurátor PC sestav.
+
+- Navrhnout funkční administrační prostředí pro libovolnou aplikaci nebo pro fakturační systém případně konfigurátor PC
+  sestav.
 - Struktura DB spolu s migračními třídami, factory a seedery.
 - Vytvořit modely pro správnou funkčnost.
 - Vytvořit view pro všechny operace CRUD + využít layout templates a pomocných nástrojů BLADE.
@@ -19,6 +23,7 @@
 - Dodržet model MVC.
 
 ## Nutné náležitosti:
+
 - Minimální počet tabulek je (6)
 - Minimálně 2 tabulky bude mít vazbu 1:N (N:1) pokud bude možnost využít vazbu N:N tak ji využít
 - Vytvořit ukázkový seeder pro vložení minimálně 5 záznamů do každé tabulky
@@ -27,5 +32,6 @@
 - Budou existovat všechny View pro všechny CRUD operace
 
 ## Bonus
+
 - Přihlašování a registrace uživatelů (v případě bonusu řešetě jako poslední)
 - Implementace Soft Delete pro mazání skrze "tabulkový koš"

@@ -27,15 +27,16 @@ class MotherboardFactory extends Factory
 
         return [
             'name' => $name,
-            'brand_id' => $this->faker->numberBetween(1,10),
+            'brand_id' => $this->faker->numberBetween(1, 10),
             'wifi' => $this->faker->boolean(),
             'socket' => $this->faker->randomElement($socket),
             'type' => $this->faker->randomElement($type),
             'maximumMemory' => $this->faker->randomElement($maximumMemory),
             'memorySlots' => $this->faker->randomElement($memorySlots),
             'color' => $this->faker->randomElement($color),
-            'rating' => $this->faker->numberBetween(1,100),
+            'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(1500, 4000),
+            'info' => $this->faker->sentence(80),
         ];
     }
 }

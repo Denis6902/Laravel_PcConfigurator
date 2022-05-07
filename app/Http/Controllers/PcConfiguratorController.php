@@ -10,7 +10,7 @@ class PcConfiguratorController extends BaseController
     function index()
     {
         $cpu = Session::get('cpu');
-        $cpuCooler = Session::get('cpu-cooler');
+        $cpuCooler = Session::get('cpucooler');
         $motherboard = Session::get('motherboard');
         $memory = Session::get('memory');
         $storage = Session::get('storage');
@@ -25,7 +25,7 @@ class PcConfiguratorController extends BaseController
         $isempty = ($count - 4 == 0) || $count == 1;
         $totalPrice = 0;
 
-        if(Session::get('theme') == null){
+        if (Session::get('theme') == null) {
             Session::put('theme', 'white');
         }
 
@@ -46,15 +46,14 @@ class PcConfiguratorController extends BaseController
         ]);
     }
 
-    function switchTheme(){
+    function switchTheme()
+    {
 
-        if(Session::get('theme') == null){
+        if (Session::get('theme') == null) {
             $theme = 'white';
-        }
-        elseif(Session::get('theme') == 'dark'){
+        } elseif (Session::get('theme') == 'dark') {
             $theme = 'white';
-        }
-        elseif(Session::get('theme') == 'white'){
+        } elseif (Session::get('theme') == 'white') {
             $theme = 'dark';
         }
 
