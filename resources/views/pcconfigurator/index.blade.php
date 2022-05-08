@@ -2,7 +2,7 @@
 
 @section("content")
     @include("header")
-{{--  TODO: možná předělat na jiný vzhled?   --}}
+    {{--  TODO: možná předělat na jiný vzhled?   --}}
     <table class="table">
         <thead>
         <tr>

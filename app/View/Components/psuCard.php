@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class psuCard extends Component
 {
     public $psu;
+
     /**
      * Create a new component instance.
      *

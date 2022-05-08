@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class cpuCoolerCard extends Component
 {
     public $cpuCooler;
+
     /**
      * Create a new component instance.
      *

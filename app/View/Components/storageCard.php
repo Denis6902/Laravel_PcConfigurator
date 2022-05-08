@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class storageCard extends Component
 {
     public $storage;
+
     /**
      * Create a new component instance.
      *

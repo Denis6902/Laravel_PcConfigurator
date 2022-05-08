@@ -4,14 +4,19 @@
              alt="OS" style="height: 225px; width: 100%; display: block;"
              src="/./img/products/os.jpg"
              data-holder-rendered="true">
+        <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
         <div class="card-body">
             <p class="card-text">Operační systém: {{$os->name}}</p>
             <p class="card-text">Typ: {{$os->version}} {{$os->edition}} {{$os->mode}}</p>
             <p class="card-text">Podporovaná velikost RAM: {{$os->maximumMemory}} GB</p>
             <p class="card-text">
-                @for($i = 0; $i < (($os->rating)+2)/20 && $i < 5; $i++)
-                    <img class="bigStar" src="/./img/star.svg" alt="Star">
-                @endfor
+                @if($os->rating < 20)
+                    <img class="bigStar" src="/./img/halfstar.svg" alt="nostar">
+                @else
+                    @for($i = 0; $i < (($os->rating)+2)/20 && $i < 5; $i++)
+                        <img class="bigStar" src="/./img/star.svg" alt="Star">
+                    @endfor
+                @endif
             </p>
             <p class="card-text">Cena: {{$os->price}} Kč</p>
             <div class="d-flex justify-content-between align-items-center">

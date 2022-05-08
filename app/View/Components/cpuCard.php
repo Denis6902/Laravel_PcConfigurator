@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class cpuCard extends Component
 {
     public $cpu;
+
     /**
      * Create a new component instance.
      *

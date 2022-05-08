@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class motherboardCard extends Component
 {
     public $motherboard;
+
     /**
      * Create a new component instance.
      *

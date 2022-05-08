@@ -6,12 +6,36 @@ header .hidden, footer .hidden {
   display: none;
 }
 
-.smallStar {
-  width: 2%;
-}
-
 .bigStar {
   width: 5%;
+}
+
+.smallStar {
+  width: 1.5%;
+}
+
+.productInfo {
+  display: flex;
+}
+.productInfo p {
+  margin-right: 1em;
+}
+
+.underHeaderOfProduct {
+  display: flex;
+}
+.underHeaderOfProduct p {
+  margin-right: 1em;
+  margin-bottom: 0;
+}
+
+.productMargin {
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+h2 {
+  padding-top: 1em;
 }
 
 /*# sourceMappingURL=main.css.map */

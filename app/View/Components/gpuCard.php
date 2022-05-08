@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class gpuCard extends Component
 {
     public $gpu;
+
     /**
      * Create a new component instance.
      *

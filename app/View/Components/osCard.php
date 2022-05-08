@@ -6,7 +6,8 @@ use Illuminate\View\Component;
 
 class osCard extends Component
 {
-    public  $os;
+    public $os;
+
     /**
      * Create a new component instance.
      *

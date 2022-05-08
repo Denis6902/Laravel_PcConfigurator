@@ -6,7 +6,8 @@ use Illuminate\View\Component;
 
 class monitorCard extends Component
 {
-    public $monitor ;
+    public $monitor;
+
     /**
      * Create a new component instance.
      *

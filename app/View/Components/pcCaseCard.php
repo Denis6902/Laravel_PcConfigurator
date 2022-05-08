@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class pcCaseCard extends Component
 {
     public $pcCase;
+
     /**
      * Create a new component instance.
      *

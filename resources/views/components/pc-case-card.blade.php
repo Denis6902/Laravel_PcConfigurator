@@ -4,6 +4,7 @@
              alt="PcCase" style="height: 225px; width: 100%; display: block;"
              src="/./img/products/pccase.jpg"
              data-holder-rendered="true">
+        <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
         <div class="card-body">
             <p class="card-text">Skříň: {{$pcCase->name}}</p>
             <p class="card-text">Velikost: {{$pcCase->type}}</p>
@@ -11,9 +12,13 @@
             <p class="card-text">Pozic interních disků: {{$pcCase->internal_5_25_bays}}x </p>
             <p class="card-text">Pozic externích disků: {{$pcCase->external_5_25_bays}}x </p>
             <p class="card-text">
-                @for($i = 0; $i < (($pcCase->rating)+2)/20 && $i < 5; $i++)
-                    <img class="bigStar" src="/./img/star.svg" alt="Star">
-                @endfor
+                @if($pcCase->rating < 20)
+                    <img class="bigStar" src="/./img/halfstar.svg" alt="nostar">
+                @else
+                    @for($i = 0; $i < (($pcCase->rating)+2)/20 && $i < 5; $i++)
+                        <img class="bigStar" src="/./img/star.svg" alt="Star">
+                    @endfor
+                @endif
             </p>
             <p class="card-text">Cena: {{$pcCase->price}} Kč</p>
             <div class="d-flex justify-content-between align-items-center">

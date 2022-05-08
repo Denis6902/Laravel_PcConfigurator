@@ -7,8 +7,10 @@
         <h2 id="aplikace-v-php-frameworku-laravel">Aplikace v PHP frameworku Laravel</h2>
         <h3 id="body-zad-n-">Body zadání:</h3>
         <ul>
-            <li>Navrhnout funkční administrační prostředí pro libovolnou aplikaci nebo pro fakturační systém případně konfigurátor PC
-                sestav.</li>
+            <li>Navrhnout funkční administrační prostředí pro libovolnou aplikaci nebo pro fakturační systém případně
+                konfigurátor PC
+                sestav.
+            </li>
             <li>Struktura DB spolu s migračními třídami, factory a seedery.</li>
             <li>Vytvořit modely pro správnou funkčnost.</li>
             <li>Vytvořit view pro všechny operace CRUD + využít layout templates a pomocných nástrojů BLADE.</li>

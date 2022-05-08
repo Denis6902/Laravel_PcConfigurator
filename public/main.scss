@@ -1,19 +1,51 @@
+// body
 body {
     padding: 0 10%;
 }
 
+// header and footer
 header, footer {
     .hidden {
         display: none;
     }
 }
 
-.smallStar {
-     width: 2%;
-}
+// products
 
 .bigStar {
     width: 5%;
+}
+
+//product
+
+.smallStar {
+    width: 1.5%;
+}
+
+.productInfo {
+    display: flex;
+
+    p {
+        margin-right: 1em;
+    }
+}
+
+.underHeaderOfProduct {
+    display: flex;
+
+    p {
+        margin-right: 1em;
+        margin-bottom: 0;
+    }
+}
+
+.productMargin {
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+h2 {
+    padding-top: 1em
 }
 
 

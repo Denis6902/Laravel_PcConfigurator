@@ -4,6 +4,7 @@
              alt="Motherboard" style="height: 225px; width: 100%; display: block;"
              src="/./img/products/motherboard.jpg"
              data-holder-rendered="true">
+        <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
         <div class="card-body">
             <p class="card-text">Základní deska: {{$motherboard->name}}</p>
             <p class="card-text">Socket: {{$motherboard->socket}}</p>
@@ -15,9 +16,14 @@
             @endif
             <p class="card-text">Barva: {{$motherboard->color}}</p>
             <p class="card-text">
-                @for($i = 0; $i < (($motherboard->rating)+2)/20 && $i < 5; $i++)
-                    <img class="bigStar" src="/./img/star.svg" alt="Star">
-                @endfor
+                @if($motherboard->rating < 20)
+                    <img class="bigStar" src="/./img/halfstar.svg" alt="nostar">
+                @else
+                    @for($i = 0; $i < (($motherboard->rating)+2)/20 && $i < 5; $i++)
+                        <img class="bigStar" src="/./img/star.svg" alt="Star">
+                    @endfor
+                @endif
+
             </p>
             <p class="card-text">Cena: {{$motherboard->price}} Kč</p>
             <div class="d-flex justify-content-between align-items-center">

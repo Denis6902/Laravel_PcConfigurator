@@ -1,46 +1,23 @@
 @extends("app")
 
-<style>
-    .displayFlex {
-        display: flex;
-    }
-
-    .displayFlex p {
-        margin-right: 1em;
-    }
-
-    .displayFlexDVA {
-        display: flex;
-    }
-
-    .displayFlexDVA p {
-        margin-right: 1em;
-        margin-bottom: 0;
-    }
-
-    .margin {
-        margin-right: 1em;
-        margin-bottom: 1em;
-    }
-
-    h2{
-        padding-top: 1em
-    }
-</style>
-
 @section("content")
     @include("header")
     <main>
         <h1>{{$cpu->name}}</h1>
-        <div class="displayFlexDVA margin">
-            @for($i = 1; $i < ($cpu->rating)/20; $i++)
-                <img class="smallStar" src="/./img/star.svg" alt="Star">
-            @endfor
+        <div class="underHeaderOfProduct productMargin">
+            @if($cpu->rating < 20)
+                <img class="smallStar" src="/./img/halfstar.svg" alt="nostar">
+            @else
+                @for($i = 1; $i < ($cpu->rating)/20; $i++)
+                    <img class="smallStar" src="/./img/star.svg" alt="Star">
+                @endfor
+            @endif
             <p class="card-text">{{$cpu->rating}}%</p>
             <p class="card-text">Náš kód: {{$cpu->id}}</p>
         </div>
-        <div class="displayFlex">
+        <div class="productInfo">
             <img class="card-img-top"
+                 {{-- TODO: možná změnit velikost img --}}
                  alt="CPU" style="width: 50%; display: block;"
                  src="/./img/products/cpu.jpg"
                  data-holder-rendered="true">
@@ -58,7 +35,7 @@
                 </p>
                 <p class="card-text">Cena: {{$cpu->price}} Kč</p>
                 <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group margin">
+                    <div class="btn-group productMargin">
                         <a class="btn btn-outline-primary"
                            href="{{route('addProduct', ['product'=>'cpu', 'id'=>$cpu->id])}}">Přidat</a>
                     </div>
