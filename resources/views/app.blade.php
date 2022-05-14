@@ -20,6 +20,9 @@
     <title>PC Konfigurátor</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
+{{--TODO: dodělat jednu 1:N vazbu...--}}
+{{--TODO: dodělat validace, například ATX desku jde dát jenom do ATX skříňe...--}}
+{{--TODO: dodělat databazi, hlavne kvuli validacim...--}}
 @php
     \Illuminate\Support\Facades\Session::put("currentRoute", \Illuminate\Support\Facades\Request::fullUrl())
 @endphp

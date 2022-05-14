@@ -25,16 +25,16 @@
             </figure>
             <div class="card-body">
                 <p class="card-text">Takt: {{$cpu->clock}} GHz</p>
-                <p class="card-text">Počet jader: {{$cpu->cores}}</p>
                 <p class="card-text">TDP: {{$cpu->tdp}} W</p>
+                <p class="card-text">Socket: {{$cpu->socket}}</p>
                 <p class="card-text">Integrovaná grafická karta: {{$cpu->i_gpu}}</p>
-                <p class="card-text">Podpora SMT/HT:
-                    @if($cpu->smt_or_ht == '1')
-                        Ano
-                    @else
-                        Ne
-                    @endif
-                </p>
+                @if($cpu->smt_or_ht == '1')
+                    <p class="card-text">Počet jader: {{$cpu->cores}} ({{$cpu->cores * 2 }} vláken)</p>
+                    <p class="card-text">Podpora SMT/HT: Ano </p>
+                @else
+                    <p class="card-text">Počet jader: {{$cpu->cores}}</p>
+                    <p class="card-text">Podpora SMT/HT: Ne </p>
+                @endif
                 <p class="card-text">Cena: {{$cpu->price}} Kč</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group productMargin">

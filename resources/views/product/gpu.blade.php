@@ -24,10 +24,11 @@
                 <p class="text-center">Ilustrační foto</p>
             </figure>
             <div class="card-body">
-                <p class="card-text">Název čipu: {{$gpu->chipset}}</p>
-                <p class="card-text">Velikost paměti {{$gpu->memory}} GB</p>
-                <p class="card-text">Takt jádra {{$gpu->core_clock}} MHz</p>
-                <p class="card-text">Boost taktu jádra {{$gpu->boost_clock}} MHz</p>
+                <p class="card-text">Název grafického čipu: {{$gpu->chipset}}</p>
+                <p class="card-text">Velikost paměti: {{$gpu->memory}} GB</p>
+                <p class="card-text">Takt jádra: {{$gpu->core_clock}} MHz</p>
+                <p class="card-text">Boost taktu jádra: {{$gpu->boost_clock}} MHz</p>
+                <p class="card-text">Doporučený výkon zdroje: {{$gpu->recommendedWattage}} W</p>
                 <p class="card-text">Barva {{$gpu->color}}</p>
                 <p class="card-text">Délka {{$gpu->length}} mm</p>
                 <div class="d-flex justify-content-between align-items-center">

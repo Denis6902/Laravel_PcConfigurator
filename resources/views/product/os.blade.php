@@ -27,7 +27,8 @@
                 <p class="card-text">Verze: {{$os->version}}</p>
                 <p class="card-text">Edice: {{$os->edition}}</p>
                 <p class="card-text">Typ [bitový]: {{$os->mode}}</p>
-                <p class="card-text">Maximální podporovaná velikost paměti: {{$os->maximumMemory}} GB ({{$os->maximumMemory/1024}} TB)</p>
+                <p class="card-text">Maximální podporovaná velikost paměti: {{$os->maximumMemory}} GB
+                    ({{$os->maximumMemory/1024}} TB)</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group productMargin">
                         <a class="btn btn-outline-primary"

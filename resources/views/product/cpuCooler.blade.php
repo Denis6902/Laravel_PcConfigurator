@@ -2,9 +2,6 @@
 
 @section("content")
     @include("header")
-{{--
-    TODO: UDĚLAT STRÁNKOVAČ
---}}
     <main>
         <h1>{{$cpuCooler->name}}</h1>
         <div class="underHeaderOfProduct productMargin">
@@ -20,17 +17,17 @@
         </div>
         <div class="productInfo">
             <figure style="width: 40%;">
-            @if($cpuCooler->radiator_size != 0)
-                <img class="card-img-top"
-                     alt="AiO CPU Cooler" style="display: block;"
-                     src="/./img/products/aiocpucooler.jpg"
-                     data-holder-rendered="true">
-            @else
-                <img class="card-img-top"
-                     alt="CPU Cooler" style="display: block;"
-                     src="/./img/products/cpucooler.jpg"
-                     data-holder-rendered="true">
-            @endif
+                @if($cpuCooler->radiator_size != 0)
+                    <img class="card-img-top"
+                         alt="AiO CPU Cooler" style="display: block;"
+                         src="/./img/products/aiocpucooler.jpg"
+                         data-holder-rendered="true">
+                @else
+                    <img class="card-img-top"
+                         alt="CPU Cooler" style="display: block;"
+                         src="/./img/products/cpucooler.jpg"
+                         data-holder-rendered="true">
+                @endif
                 <p class="text-center">Ilustrační foto</p>
             </figure>
             <div class="card-body">

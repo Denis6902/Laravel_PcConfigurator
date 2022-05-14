@@ -17,10 +17,10 @@
         </div>
         <div class="productInfo">
             <figure style="width: 50%;">
-            <img class="card-img-top"
-                 alt="Motherboard" style="display: block;"
-                 src="/./img/products/motherboard.jpg"
-                 data-holder-rendered="true">
+                <img class="card-img-top"
+                     alt="Motherboard" style="display: block;"
+                     src="/./img/products/motherboard.jpg"
+                     data-holder-rendered="true">
                 <p class="text-center">Ilustrační foto</p>
             </figure>
             <div class="card-body">

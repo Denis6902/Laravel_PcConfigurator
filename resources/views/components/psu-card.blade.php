@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 productCard">
     <div class="card mb-4 box-shadow">
         <img class="card-img-top"
              alt="PSU" style="height: 225px; width: 100%; display: block;"
@@ -28,8 +28,13 @@
                     </a>
                 </div>
                 <div>
-                    <a class="btn btn-sm btn-outline-primary"
-                       href="{{route('addProduct', ['product'=>'psu', 'id'=>$psu->id])}}">Přidat</a>
+                    @if(\Illuminate\Support\Facades\Route::is("products") || \Illuminate\Support\Facades\Route::is("brand"))
+                        <a class="btn btn-sm btn-outline-primary"
+                           href="{{route('addProduct', ['product'=>'psu', 'id'=>$psu->id])}}">Přidat</a>
+                    @else
+                        <a class="btn btn-sm btn-outline-primary"
+                           href="{{route('deleteProduct', ['product'=>'psu'])}}">Smazat</a>
+                    @endif
                 </div>
             </div>
         </div>

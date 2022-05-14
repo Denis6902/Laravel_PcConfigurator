@@ -2,210 +2,235 @@
 
 @section("content")
     @include("header")
-    {{--  TODO: možná předělat na jiný vzhled?   --}}
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Komponenta</th>
-            @if($isEmpty == 0)
-                <th scope="col">Značka</th>
-            @endif
-            <th scope="col">Název</th>
-            @if($isEmpty == 0)
-                <th scope="col">Cena</th>
-            @endif
-            <th scope="col"></th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>CPU</td>
-            @if($cpu == null)
-                <td><a href="{{ route('products', 'cpu') }}">+ Vybrat procesor</a></td>
-            @else
-                @php
-                    $thisCpu = \App\Models\CPU::Find($cpu);
-                    $totalPrice += $thisCpu["price"];
-                @endphp
-                <td>
-                    <a href="{{route('brand', $brandModel::Find($thisCpu["brand_id"]))}}">
-                        {{$brandModel::Find($thisCpu["brand_id"])["name"]}}
-                    </a>
-                </td>
-                <td>{{$thisCpu["name"]}}</td>
-                <td>{{$thisCpu["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'cpu'])}}">Smazat</a></td>
-            @endif
-        </tr>
-        <tr>
-            <td>CPU Chladič</td>
-            @if($cpuCooler == null)
-                <td><a href="{{ route('products', 'cpucooler') }}">+ Vybrat CPU chladič</a></td>
-            @else
-                @php
-                    $thisCpuCooler = \App\Models\CpuCooler::Find($cpuCooler);
-                    $totalPrice += $thisCpuCooler["price"];
-                @endphp
-                <td>
-                    <a href="{{route('brand', $brandModel::Find($thisCpuCooler["brand_id"]))}}">
-                        {{$brandModel::Find($thisCpuCooler["brand_id"])["name"]}}
-                    </a>
-                <td>{{$thisCpuCooler["name"]}}</td>
-                <td>{{$thisCpuCooler["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'cpucooler'])}}">Smazat</a></td>
-            @endif
-        </tr>
-        <tr>
-            <td>Základní Deska</td>
-            @if($motherboard == null)
-                <td><a href="{{ route('products', 'motherboard') }}">+ Vybrat základní desku</a></td>
-            @else
-                @php
-                    $thisMotherboard = \App\Models\Motherboard::Find($motherboard);
-                    $totalPrice += $thisMotherboard["price"];
-                @endphp
-                <td>
-                    <a href="{{route('brand', $brandModel::Find($thisMotherboard["brand_id"]))}}">
-                        {{$brandModel::Find($thisMotherboard["brand_id"])["name"]}}
-                    </a>
-                <td>{{$thisMotherboard["name"]}}</td>
-                <td>{{$thisMotherboard["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'motherboard'])}}">Smazat</a></td>
-            @endif
-        </tr>
-        <tr>
-            <td>Paměť</td>
-            @if($memory == null)
-                <td><a href="{{ route('products', 'memory') }}">+ Vybrat paměť</a></td>
-            @else
-                @php
-                    $thisMemory = \App\Models\Memory::Find($memory);
-                    $totalPrice += $thisMemory["price"];
-                @endphp
-                <td>
-                    <a href="{{route('brand', $brandModel::Find($thisMemory["brand_id"]))}}">
-                        {{$brandModel::Find($thisMemory["brand_id"])["name"]}}
-                    </a>
-                <td>{{$thisMemory["name"]}}</td>
-                <td>{{$thisMemory["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'memory'])}}">Smazat</a></td>
-            @endif
-        </tr>
-        <tr>
-            <td>Uložiště</td>
-            @if($storage == null)
-                <td><a href="{{ route('products', 'storage') }}">+ Vybrat uložiště</a></td>
-            @else
-                @php
-                    $thisStorage = \App\Models\Storage::Find($storage);
-                    $totalPrice += $thisStorage["price"]; @endphp
-                <td>
-                    <a href="{{route('brand', $brandModel::Find($thisStorage["brand_id"]))}}">
-                        {{$brandModel::Find($thisStorage["brand_id"])["name"]}}
-                    </a>
-                <td>{{$thisStorage["name"]}}</td>
-                <td>{{$thisStorage["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'storage'])}}">Smazat</a></td>
-            @endif
-        </tr>
-        <tr>
-            <td>Grafická karta</td>
-            @if($gpu == null)
-                <td><a href="{{ route('products', 'gpu') }}">+ Vybrat grafickou kartu</a></td>
-            @else
-                @php
-                    $thisGpu = \App\Models\GPU::Find($gpu);
-                    $totalPrice += $thisGpu["price"]; @endphp
-                <td>
-                    <a href="{{route('brand', $brandModel::Find($thisGpu["brand_id"]))}}">
-                        {{$brandModel::Find($thisGpu["brand_id"])["name"]}}
-                    </a>
-                <td>{{$thisGpu["name"]}}</td>
-                <td>{{$thisGpu["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'gpu'])}}">Smazat</a></td>
-            @endif
-        </tr>
-        <tr>
-            <td>Skříň</td>
-            @if($pcCase == null)
-                <td><a href="{{ route('products', 'pccase') }}">+ Vybrat skříň</a></td>
-            @else
-                @php
-                    $thisPcCase = \App\Models\PcCase::Find($pcCase);
-                    $totalPrice += $thisPcCase["price"]; @endphp
-                <td>
-                    <a href="{{route('brand', $brandModel::Find($thisPcCase["brand_id"]))}}">
-                        {{$brandModel::Find($thisPcCase["brand_id"])["name"]}}
-                    </a>
-                <td>{{$thisPcCase["name"]}}</td>
-                <td>{{$thisPcCase["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'pccase'])}}">Smazat</a></td>
-            @endif
-        </tr>
-        <tr>
-            <td>Zdroj</td>
-            @if($psu == null)
-                <td><a href="{{ route('products', 'psu') }}">+ Vybrat zdroj</a></td>
-            @else
-                @php
-                    $thisPsu = \App\Models\PSU::Find($psu);
-                    $totalPrice += $thisPsu["price"]; @endphp
-                <td>
-                    <a href="{{route('brand', $brandModel::Find($thisPsu["brand_id"]))}}">
-                        {{$brandModel::Find($thisPsu["brand_id"])["name"]}}
-                    </a>
-                <td>{{$thisPsu["name"]}}</td>
-                <td>{{$thisPsu["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'psu'])}}">Smazat</a></td>
-            @endif
-        </tr>
-        <tr>
-            <td>Operační systém</td>
-            @if($os == null)
-                <td><a href="{{ route('products', 'os') }}">+ Vybrat operační systém</a></td>
-            @else
-                @php
-                    $thisOs = \App\Models\OS::Find($os);
-                    $totalPrice += $thisOs["price"]; @endphp
-                <td>
-                    <a href="{{route('brand', $brandModel::Find($thisOs["brand_id"]))}}">
-                        {{$brandModel::Find($thisOs["brand_id"])["name"]}}
-                    </a>
-                <td>{{$thisOs["name"]}}</td>
-                <td>{{$thisOs["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'os'])}}">Smazat</a></td>
-            @endif
-        </tr>
-        <tr>
-            <td>Monitor</td>
-            @if($monitor == null)
-                <td><a href="{{ route('products', 'monitor') }}">+ Vybrat monitor</a></td>
-            @else
-                @php
-                    $thisMonitor = \App\Models\Monitor::Find($monitor);
-                    $totalPrice += $thisMonitor["price"];
-                @endphp
-                <td>
-                    <a href="{{route('brand', $brandModel::Find($thisMonitor["brand_id"]))}}">
-                        {{$brandModel::Find($thisMonitor["brand_id"])["name"]}}
-                    </a>
-                <td>{{$thisMonitor["name"]}}</td>
-                <td>{{$thisMonitor["price"]}} Kč</td>
-                <td><a href="{{route('deleteProduct', ['product'=>'monitor'])}}">Smazat</a></td>
-            @endif
-        </tr>
-        @if($totalPrice == 0)
-        @else
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><strong>Celková cena: {{ $totalPrice}} Kč</strong></td>
-                <td></td>
-            </tr>
-        @endif
-        </tbody>
-    </table>
+    @if($totalPrice != 0)
+        <h1>Celková cena: {{ $totalPrice}} Kč</h1>
+    @endif
+
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                @if($thisCpu == null)
+                    <div class="col-md-4 productCard">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="CPU" style="width: 100%; display: block;"
+                                 src="/./img/products/cpu.jpg"
+                                 data-holder-rendered="true">
+                            <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
+                            <div class="card-body">
+                                <p class="card-text">Typ produktu: CPU</p>
+                                <div
+                                    class="text-muted">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                       href="{{ route('products', 'cpu') }}">Vybrat CPU</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <x-cpu-card :cpu="$thisCpu"></x-cpu-card>
+                @endif
+
+                @if($thisCpuCooler == null)
+                    <div class="col-md-4 productCard">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="CPU Cooler" style="width: 100%; display: block;"
+                                 src="/./img/products/cpucooler.jpg"
+                                 data-holder-rendered="true">
+                            <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
+                            <div class="card-body">
+                                <p class="card-text">Typ produktu: CPU Chladič</p>
+                                <div
+                                    class="text-muted">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                       href="{{ route('products', 'cpucooler') }}">Vybrat CPU Cooler</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <x-cpu-cooler-card :cpu-cooler="$thisCpuCooler"></x-cpu-cooler-card>
+                @endif
+
+                @if($thisMotherboard == null)
+                    <div class="col-md-4 productCard">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="Motherboard" style="width: 100%; display: block;"
+                                 src="/./img/products/motherboard.jpg"
+                                 data-holder-rendered="true">
+                            <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
+                            <div class="card-body">
+                                <p class="card-text">Typ produktu: Základní deska</p>
+                                <div
+                                    class="text-muted">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                       href="{{ route('products', 'motherboard') }}">Vybrat základní desku</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <x-motherboard-card :motherboard="$thisMotherboard"></x-motherboard-card>
+                @endif
+
+                @if($thisMemory == null)
+                    <div class="col-md-4 productCard">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="Memory" style="width: 100%; display: block;"
+                                 src="/./img/products/memory.jpg"
+                                 data-holder-rendered="true">
+                            <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
+                            <div class="card-body">
+                                <p class="card-text">Typ produktu: Paměť</p>
+                                <div
+                                    class="text-muted">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                       href="{{ route('products', 'memory') }}">Vybrat paměť</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <x-memory-card :memory="$thisMemory"></x-memory-card>
+                @endif
+
+                @if($thisStorage == null)
+                    <div class="col-md-4 productCard">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="Storage" style="width: 100%; display: block;"
+                                 src="/./img/products/storage.jpg"
+                                 data-holder-rendered="true">
+                            <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
+                            <div class="card-body">
+                                <p class="card-text">Typ produktu: Uložiště</p>
+                                <div
+                                    class="text-muted">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                       href="{{ route('products', 'storage') }}">Vybrat uložiště</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <x-storage-card :storage="$thisStorage"></x-storage-card>
+                @endif
+
+                @if($thisGpu == null)
+                    <div class="col-md-4 productCard">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="GPU" style="width: 100%; display: block;"
+                                 src="/./img/products/gpu.jpg"
+                                 data-holder-rendered="true">
+                            <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
+                            <div class="card-body">
+                                <p class="card-text">Typ produktu: Grafická karta</p>
+                                <div
+                                    class="text-muted">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                       href="{{ route('products', 'gpu') }}">Vybrat grafickou kartu</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <x-gpu-card :gpu="$thisGpu"></x-gpu-card>
+                @endif
+
+                @if($thisPcCase == null)
+                    <div class="col-md-4 productCard">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="PC Case" style="width: 100%; display: block;"
+                                 src="/./img/products/pccase.jpg"
+                                 data-holder-rendered="true">
+                            <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
+                            <div class="card-body">
+                                <p class="card-text">Typ produktu: Skříň</p>
+                                <div
+                                    class="text-muted">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                       href="{{ route('products', 'pccase') }}">Vybrat skříň</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <x-pc-case-card :pc-case="$thisPcCase"></x-pc-case-card>
+                @endif
+
+                @if($thisPsu == null)
+                    <div class="col-md-4 productCard">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="PSU" style="width: 100%; display: block;"
+                                 src="/./img/products/psu.jpg"
+                                 data-holder-rendered="true">
+                            <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
+                            <div class="card-body">
+                                <p class="card-text">Typ produktu: Zdroj</p>
+                                <div
+                                    class="text-muted">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                       href="{{ route('products', 'psu') }}">Vybrat zdroj</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <x-psu-card :psu="$thisPsu"></x-psu-card>
+                @endif
+
+                @if($thisOs == null)
+                    <div class="col-md-4 productCard">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="OS" style="width: 100%; display: block;"
+                                 src="/./img/products/os.jpg"
+                                 data-holder-rendered="true">
+                            <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
+                            <div class="card-body">
+                                <p class="card-text">Typ produktu: Operační systém</p>
+                                <div
+                                    class="text-muted">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                       href="{{ route('products', 'os') }}">Vybrat operační systém</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <x-os-card :os="$thisOs"></x-os-card>
+                @endif
+
+                @if($thisMonitor == null)
+                    <div class="col-md-4 productCard">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 alt="Monitor" style="width: 100%; display: block;"
+                                 src="/./img/products/monitor.jpg"
+                                 data-holder-rendered="true">
+                            <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
+                            <div class="card-body">
+                                <p class="card-text">Typ produktu: Monitor</p>
+                                <div
+                                    class="text-muted">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                       href="{{ route('products', 'monitor') }}">Vybrat monitor</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <x-monitor-card :monitor="$thisMonitor"></x-monitor-card>
+                @endif
+
+            </div>
+        </div>
+    </div>
     @include("footer")
 @endsection

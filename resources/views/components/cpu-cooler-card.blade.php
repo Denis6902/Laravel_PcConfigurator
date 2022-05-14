@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 productCard">
     <div class="card mb-4 box-shadow">
         @if($cpuCooler->radiator_size != 0)
             <img class="card-img-top"
@@ -38,8 +38,13 @@
                     </a>
                 </div>
                 <div>
-                    <a class="btn btn-sm btn-outline-primary"
-                       href="{{route('addProduct', ['product'=>'cpucooler', 'id'=>$cpuCooler->id])}}">Přidat</a>
+                    @if(\Illuminate\Support\Facades\Route::is("products") || \Illuminate\Support\Facades\Route::is("brand"))
+                        <a class="btn btn-sm btn-outline-primary"
+                           href="{{route('addProduct', ['product'=>'cpucooler', 'id'=>$cpuCooler->id])}}">Přidat</a>
+                    @else
+                        <a class="btn btn-sm btn-outline-primary"
+                           href="{{route('deleteProduct', ['product'=>'cpucooler'])}}">Smazat</a>
+                    @endif
                 </div>
             </div>
         </div>

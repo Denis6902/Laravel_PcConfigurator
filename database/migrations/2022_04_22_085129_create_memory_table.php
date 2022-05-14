@@ -12,7 +12,6 @@ return new class extends Migration {
      */
     public function up()
     {
-        // TODO: zkontrolovat typy u migrations a factory
         Schema::create('memory', function (Blueprint $table) {
             $table->id();
             $table->string("name");

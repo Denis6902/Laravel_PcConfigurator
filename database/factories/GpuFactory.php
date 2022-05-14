@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
  * @extends Factory
@@ -19,17 +18,17 @@ class GpuFactory extends Factory
     {
         $color = ['Černá', 'Bílá'];
         $memory = ['4', '8', '6', '12', '24'];
+        $recommendedWattage = ['550', '650', '750'];
         $core_clock = $this->faker->numberBetween(1300, 1600);
-        //$name = substr($this->faker->sentence(1), 0, -1);
-        //$chipset = substr($this->faker->sentence(1), 0, -1);
-        $name = rtrim($this->faker->sentence(2),'.');
-        $chipset = rtrim($this->faker->sentence(2),'.');
+        $name = rtrim($this->faker->sentence(2), '.');
+        $chipset = rtrim($this->faker->sentence(2), '.');
 
         return [
             'name' => $name,
             'brand_id' => $this->faker->numberBetween(1, 10),
             'chipset' => $chipset,
             'memory' => $this->faker->randomElement($memory),
+            'recommendedWattage' => $this->faker->randomElement($recommendedWattage),
             'core_clock' => $core_clock,
             'boost_clock' => $core_clock + $this->faker->numberBetween(200, 500),
             'color' => $this->faker->randomElement($color),

@@ -14,7 +14,6 @@ use App\Models\PcCase;
 use App\Models\PSU;
 use App\Models\Storage;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Support\Str;
 
 class BrandController extends BaseController
 {

@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 productCard">
     <div class="card mb-4 box-shadow">
         <img class="card-img-top"
              alt="Memory" style="height: 225px; width: 100%; display: block;"
@@ -7,7 +7,8 @@
         <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
         <div class="card-body">
             <p class="card-text">Paměť: {{$memory->name}}</p>
-            <p class="card-text">Typ: {{$memory->modules}} x {{$memory->capacity}} {{$memory->type}} {{$memory->speed}} MHz
+            <p class="card-text">Typ: {{$memory->modules}} x {{$memory->capacity}} {{$memory->type}} {{$memory->speed}}
+                MHz
                 CL {{$memory->latency}}</p>
             <p class="card-text">Barva: {{$memory->color}}</p>
             <p class="card-text">
@@ -27,8 +28,13 @@
                     </a>
                 </div>
                 <div>
-                    <a class="btn btn-sm btn-outline-primary"
-                       href="{{route('addProduct', ['product'=>'memory', 'id'=>$memory->id])}}">Přidat</a>
+                    @if(\Illuminate\Support\Facades\Route::is("products") || \Illuminate\Support\Facades\Route::is("brand"))
+                        <a class="btn btn-sm btn-outline-primary"
+                           href="{{route('addProduct', ['product'=>'memory', 'id'=>$memory->id])}}">Přidat</a>
+                    @else
+                        <a class="btn btn-sm btn-outline-primary"
+                           href="{{route('deleteProduct', ['product'=>'memory'])}}">Smazat</a>
+                    @endif
                 </div>
             </div>
         </div>

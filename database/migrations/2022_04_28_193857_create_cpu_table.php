@@ -20,6 +20,8 @@ return new class extends Migration {
             $table->double("clock");
             $table->integer("cores");
             $table->integer("tdp");
+            $table->string("supported_ram_type");
+            $table->string("socket");
             $table->string("i_gpu");
             $table->boolean("smt_or_ht");
             $table->integer("rating");

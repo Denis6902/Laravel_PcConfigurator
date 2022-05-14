@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 productCard">
     <div class="card mb-4 box-shadow">
         <img class="card-img-top"
              alt="CPU" style="height: 225px; width: 100%; display: block;"
@@ -7,13 +7,16 @@
         <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
         <div class="card-body">
             <p class="card-text">Procesor: {{$cpu->name}}</p>
-            <p class="card-text">Takt: {{$cpu->clock}} GHz</p>
-            <p class="card-text">Počet jader: {{$cpu->cores}}</p>
-            <p class="card-text">TDP: {{$cpu->tdp}} W</p>
-            <p class="card-text">Integrovaná grafická karta: {{$cpu->i_gpu}}</p>
+
             @if($cpu->smt_or_ht == '1')
-                <p class="card-text">Podpora SMT/HT</p>
+                <p class="card-text">{{$cpu->cores}} jader ({{$cpu->cores * 2 }} vláken) s {{$cpu->clock}} GHz</p>
+                @else
+                <p class="card-text">{{$cpu->cores}} jader s {{$cpu->clock}} GHz</p>
             @endif
+            <p class="card-text">TDP: {{$cpu->tdp}} W</p>
+            <p class="card-text">Socket: {{$cpu->socket}}</p>
+            <p class="card-text">Podpora RAM: {{$cpu->supported_ram_type}}</p>
+            <p class="card-text">Integrovaná grafická karta: {{$cpu->i_gpu}}</p>
             <p class="card-text">
                 @if($cpu->rating < 20)
                     <img class="bigStar" src="/./img/halfstar.svg" alt="nostar">
@@ -30,10 +33,14 @@
                        class="btn btn-sm btn-outline-primary">Zobrazit
                     </a>
                 </div>
-                <div
-                    class="text-muted">
-                    <a class="btn btn-sm btn-outline-primary"
-                       href="{{route('addProduct', ['product'=>'cpu', 'id'=>$cpu->id])}}">Přidat</a>
+                <div class="text-muted">
+                    @if(\Illuminate\Support\Facades\Route::is("products") || \Illuminate\Support\Facades\Route::is("brand"))
+                        <a class="btn btn-sm btn-outline-primary"
+                           href="{{route('addProduct', ['product'=>'cpu', 'id'=>$cpu->id])}}">Přidat</a>
+                    @else
+                        <a class="btn btn-sm btn-outline-primary"
+                           href="{{route('deleteProduct', ['product'=>'cpu'])}}">Smazat</a>
+                    @endif
                 </div>
             </div>
         </div>

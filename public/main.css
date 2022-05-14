@@ -10,6 +10,10 @@ header .hidden, footer .hidden {
   width: 5%;
 }
 
+.productCard {
+  min-height: 646px;
+}
+
 .smallStar {
   width: 1.5%;
 }

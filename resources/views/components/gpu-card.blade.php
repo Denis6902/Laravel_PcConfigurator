@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 productCard">
     <div class="card mb-4 box-shadow">
         <img class="card-img-top"
              alt="Gpu" style="height: 225px; width: 100%; display: block;"
@@ -7,10 +7,10 @@
         <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
         <div class="card-body">
             <p class="card-text">Grafická karta: {{$gpu->name}}</p>
-            <p class="card-text">Čip: {{$gpu->chipset}}</p>
+            <p class="card-text">Grafický čip: {{$gpu->chipset}}</p>
             <p class="card-text">Velikost paměti: {{$gpu->memory}} GB</p>
             <p class="card-text">Takt jádra: {{$gpu->core_clock}} MHz</p>
-            <p class="card-text">Barva: {{$gpu->color}}</p>
+            <p class="card-text">Doporučený výkon zdroje: {{$gpu->recommendedWattage}} W</p>
             <p class="card-text">Délka: {{$gpu->length}} mm</p>
             <p class="card-text">
                 @if($gpu->rating < 20)
@@ -29,8 +29,13 @@
                     </a>
                 </div>
                 <div>
-                    <a class="btn btn-sm btn-outline-primary"
-                       href="{{route('addProduct', ['product'=>'gpu', 'id'=>$gpu->id])}}">Přidat</a>
+                    @if(\Illuminate\Support\Facades\Route::is("products") || \Illuminate\Support\Facades\Route::is("brand"))
+                        <a class="btn btn-sm btn-outline-primary"
+                           href="{{route('addProduct', ['product'=>'gpu', 'id'=>$gpu->id])}}">Přidat</a>
+                    @else
+                        <a class="btn btn-sm btn-outline-primary"
+                           href="{{route('deleteProduct', ['product'=>'gpu'])}}">Smazat</a>
+                    @endif
                 </div>
             </div>
         </div>
