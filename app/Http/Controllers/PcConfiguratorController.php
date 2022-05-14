@@ -90,7 +90,7 @@ class PcConfiguratorController extends BaseController
             Session::put('theme', 'white');
         }
 
-        return view('pcConfigurator.index', [
+        return view('pcconfigurator.index', [
             "isEmpty" => $isempty,
             "totalPrice" => $totalPrice,
             "thisCpu" => $thisCpu,
