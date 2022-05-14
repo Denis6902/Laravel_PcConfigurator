@@ -12,6 +12,7 @@ return new class extends Migration {
      */
     public function up()
     {
+        // TODO: zkontrolovat typy u migrations a factory
         Schema::create('memory', function (Blueprint $table) {
             $table->id();
             $table->string("name");
@@ -19,9 +20,10 @@ return new class extends Migration {
             $table->foreign('brand_id')->references('id')->on('brand');
             $table->string("type");
             $table->integer("speed");
-            $table->string("modules");
+            $table->integer("modules");
+            $table->integer("capacity");
             $table->string("color");
-            $table->string("latency");
+            $table->integer("latency");
             $table->integer("rating");
             $table->integer("price");
             $table->text("info");

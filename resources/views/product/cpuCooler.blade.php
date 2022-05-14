@@ -2,6 +2,9 @@
 
 @section("content")
     @include("header")
+{{--
+    TODO: UDĚLAT STRÁNKOVAČ
+--}}
     <main>
         <h1>{{$cpuCooler->name}}</h1>
         <div class="underHeaderOfProduct productMargin">
@@ -16,14 +19,31 @@
             <p class="card-text">Náš kód: {{$cpuCooler->id}}</p>
         </div>
         <div class="productInfo">
-            <img class="card-img-top"
-                 {{-- TODO: možná změnit velikost img --}}
-                 alt="CPU" style="width: 40%; display: block;"
-                 src="/./img/products/cpucooler.jpg"
-                 data-holder-rendered="true">
+            <figure style="width: 40%;">
+            @if($cpuCooler->radiator_size != 0)
+                <img class="card-img-top"
+                     alt="AiO CPU Cooler" style="display: block;"
+                     src="/./img/products/aiocpucooler.jpg"
+                     data-holder-rendered="true">
+            @else
+                <img class="card-img-top"
+                     alt="CPU Cooler" style="display: block;"
+                     src="/./img/products/cpucooler.jpg"
+                     data-holder-rendered="true">
+            @endif
+                <p class="text-center">Ilustrační foto</p>
+            </figure>
             <div class="card-body">
-                <p class="card-text">someinfo: {{$cpuCooler->rpm}} </p>
-                {{-- TODO: dopsat info + ostatní /product --}}
+                <p class="card-text">Počet otáček za minutu: {{$cpuCooler->fan_rpm}} </p>
+                <p class="card-text">Hlučnost: {{$cpuCooler->noise_level}} dB</p>
+                <p class="card-text">Barva: {{$cpuCooler->color}}</p>
+                @if($cpuCooler->radiator_size != 0)
+                    <p class="card-text">Typ chladiče: Vodní (All in One)</p>
+                    <p class="card-text">Velikost radiátoru: {{$cpuCooler->radiator_size}} mm</p>
+                @else
+                    <p class="card-text">Typ chladiče: Vzduchový</p>
+                @endif
+                <p class="card-text">Výška chladice: {{$cpuCooler->height}} mm</p>
                 <p class="card-text">Cena: {{$cpuCooler->price}} Kč</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group productMargin">
@@ -36,7 +56,8 @@
                        href="{{route('brand' ,$brandModel::Find($cpuCooler->brand_id)["id"])}}">{{$brandModel::Find($cpuCooler->brand_id)["name"]}}
                     </a>
                 <p class="card-text">Kód značky: {{$brandModel::Find($cpuCooler->brand_id)["id"]}}</p>
-                <p class="card-text">V nabídce od: {{ \Carbon\Carbon::parse($cpuCooler->created_at)->format('d.m.Y')}}</p>
+                <p class="card-text">V nabídce
+                    od: {{ \Carbon\Carbon::parse($cpuCooler->created_at)->format('d.m.Y')}}</p>
             </div>
         </div>
         <h2>Popis produktu</h2>

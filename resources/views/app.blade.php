@@ -20,6 +20,9 @@
     <title>PC Konfigurátor</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
+@php
+    \Illuminate\Support\Facades\Session::put("currentRoute", \Illuminate\Support\Facades\Request::fullUrl())
+@endphp
 @yield("content")
 </body>
 </html>

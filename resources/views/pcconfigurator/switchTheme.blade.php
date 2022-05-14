@@ -6,7 +6,7 @@
     <h1 class="text-center">{{mb_strtoupper("Měním režím na $theme")}}</h1>
 
     <script type="text/javascript">
-        window.location.href = "{{ route('pcConfigurator')}}";
+        window.location.href = "{{ $currentRoute }}";
     </script>
     @include("footer")
 @endsection

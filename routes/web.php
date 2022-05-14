@@ -19,12 +19,12 @@ use App\Http\Controllers\ProductController;
 */
 
 
-Route::get('/', [PcConfiguratorController::class, 'index'])->name('pcConfigurator');
-Route::get('switchTheme', [PcConfiguratorController::class, 'switchTheme'])->name('switchTheme');
-Route::get('about', [AboutController::class, 'index'])->name('about');
+Route::get('/', [PcConfiguratorController::class, 'read'])->name('pcConfigurator');
+Route::get('switchTheme', [PcConfiguratorController::class, 'updateTheme'])->name('switchTheme');
+Route::get('about', [AboutController::class, 'read'])->name('about');
 Route::get('addProduct/{product}/{id}', [ProductController::class, 'create'])->name('addProduct');
 Route::get('deleteProduct/{product}', [ProductController::class, 'delete'])->name('deleteProduct');
-Route::get('brand/{id}', [BrandController::class, 'index'])->name('brand');
+Route::get('brand/{id}', [BrandController::class, 'read'])->name('brand');
 Route::get('products/{product}', [ProductController::class, 'readProducts'])->name('products');
 Route::get('product/{product}/{id}', [ProductController::class, 'readProduct'])->name('product');
 

@@ -9,7 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 class AboutController extends BaseController
 {
-    function index()
+    function read()
     {
         return view('about.index', [
         ]);

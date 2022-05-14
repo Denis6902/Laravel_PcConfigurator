@@ -20,6 +20,9 @@ header .hidden, footer .hidden {
 .productInfo p {
   margin-right: 1em;
 }
+.productInfo figure p {
+  margin: 0;
+}
 
 .underHeaderOfProduct {
   display: flex;

@@ -1,9 +1,16 @@
 <div class="col-md-4">
     <div class="card mb-4 box-shadow">
-        <img class="card-img-top"
-             alt="CPU Cooler" style="height: 225px; width: 100%; display: block;"
-             src="/./img/products/cpucooler.jpg"
-             data-holder-rendered="true">
+        @if($cpuCooler->radiator_size != 0)
+            <img class="card-img-top"
+                 alt="AiO CPU Cooler" style="height: 225px; width: 100%; display: block;"
+                 src="/./img/products/aiocpucooler.jpg"
+                 data-holder-rendered="true">
+        @else
+            <img class="card-img-top"
+                 alt="CPU Cooler" style="height: 225px; width: 100%; display: block;"
+                 src="/./img/products/cpucooler.jpg"
+                 data-holder-rendered="true">
+        @endif
         <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
         <div class="card-body">
             <p class="card-text">Chladič: {{$cpuCooler->name}}</p>
@@ -18,7 +25,7 @@
                 @if($cpuCooler->rating < 20)
                     <img class="bigStar" src="/./img/halfstar.svg" alt="nostar">
                 @else
-                    @for($i = 0; $i < (($cpuCooler->rating)+2)/20 && $i < 5; $i++)
+                    @for($i = 1; $i < ($cpuCooler->rating)/20; $i++)
                         <img class="bigStar" src="/./img/star.svg" alt="Star">
                     @endfor
                 @endif

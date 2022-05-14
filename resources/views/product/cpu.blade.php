@@ -16,11 +16,13 @@
             <p class="card-text">Náš kód: {{$cpu->id}}</p>
         </div>
         <div class="productInfo">
-            <img class="card-img-top"
-                 {{-- TODO: možná změnit velikost img --}}
-                 alt="CPU" style="width: 50%; display: block;"
-                 src="/./img/products/cpu.jpg"
-                 data-holder-rendered="true">
+            <figure style="width: 50%">
+                <img class="card-img-top"
+                     alt="CPU" style="display: block;"
+                     src="/./img/products/cpu.jpg"
+                     data-holder-rendered="true">
+                <p class="text-center">Ilustrační foto</p>
+            </figure>
             <div class="card-body">
                 <p class="card-text">Takt: {{$cpu->clock}} GHz</p>
                 <p class="card-text">Počet jader: {{$cpu->cores}}</p>

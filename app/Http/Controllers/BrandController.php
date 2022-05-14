@@ -18,7 +18,7 @@ use Illuminate\Support\Str;
 
 class BrandController extends BaseController
 {
-    function index($id)
+    function read($id)
     {
         $brand = Brand::Find($id);
         $allThisBrandCpu = [(CPU::where('brand_id', $id)->get())];;

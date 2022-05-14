@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class PcConfiguratorController extends BaseController
 {
-    function index()
+    function read()
     {
         $cpu = Session::get('cpu');
         $cpuCooler = Session::get('cpucooler');
@@ -22,7 +22,7 @@ class PcConfiguratorController extends BaseController
         $brandModel = 'App\Models\Brand';
 
         $count = count(session()->all());
-        $isempty = ($count - 4 == 0) || $count == 1;
+        $isempty = ($count - 5 == 0) || $count == 1;
         $totalPrice = 0;
 
         if (Session::get('theme') == null) {
@@ -46,8 +46,9 @@ class PcConfiguratorController extends BaseController
         ]);
     }
 
-    function switchTheme()
+    function updateTheme()
     {
+        $currentRoute = Session::get("currentRoute");
 
         if (Session::get('theme') == null) {
             $theme = 'white';
@@ -58,7 +59,8 @@ class PcConfiguratorController extends BaseController
         }
 
         return view('pcConfigurator.switchTheme', [
-            "theme" => $theme
+            "theme" => $theme,
+            "currentRoute" => $currentRoute
         ]);
     }
 }

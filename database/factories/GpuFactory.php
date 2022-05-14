@@ -20,9 +20,10 @@ class GpuFactory extends Factory
         $color = ['Černá', 'Bílá'];
         $memory = ['4', '8', '6', '12', '24'];
         $core_clock = $this->faker->numberBetween(1300, 1600);
-        $name = substr($this->faker->sentence(2), 0, -1);
-        $chipset = substr($this->faker->sentence(2), 0, -1);
-
+        //$name = substr($this->faker->sentence(1), 0, -1);
+        //$chipset = substr($this->faker->sentence(1), 0, -1);
+        $name = rtrim($this->faker->sentence(2),'.');
+        $chipset = rtrim($this->faker->sentence(2),'.');
 
         return [
             'name' => $name,

@@ -28,6 +28,12 @@ header, footer {
     p {
         margin-right: 1em;
     }
+
+    figure{
+        p{
+            margin: 0
+        }
+    }
 }
 
 .underHeaderOfProduct {

@@ -15,7 +15,7 @@
                 @if($pcCase->rating < 20)
                     <img class="bigStar" src="/./img/halfstar.svg" alt="nostar">
                 @else
-                    @for($i = 0; $i < (($pcCase->rating)+2)/20 && $i < 5; $i++)
+                    @for($i = 1; $i < ($pcCase->rating)/20; $i++)
                         <img class="bigStar" src="/./img/star.svg" alt="Star">
                     @endfor
                 @endif

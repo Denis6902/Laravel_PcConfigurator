@@ -9,15 +9,14 @@
             <p class="card-text">Grafická karta: {{$gpu->name}}</p>
             <p class="card-text">Čip: {{$gpu->chipset}}</p>
             <p class="card-text">Velikost paměti: {{$gpu->memory}} GB</p>
-            <p class="card-text">Takt jádra: {{$gpu->core_clock}} MHz s boostem až
-                na {{$gpu->boost_clock}} MHz</p>
+            <p class="card-text">Takt jádra: {{$gpu->core_clock}} MHz</p>
             <p class="card-text">Barva: {{$gpu->color}}</p>
             <p class="card-text">Délka: {{$gpu->length}} mm</p>
             <p class="card-text">
                 @if($gpu->rating < 20)
                     <img class="bigStar" src="/./img/halfstar.svg" alt="nostar">
                 @else
-                    @for($i = 0; $i < (($gpu->rating)+2)/20 && $i < 5; $i++)
+                    @for($i = 1; $i < ($gpu->rating)/20; $i++)
                         <img class="bigStar" src="/./img/star.svg" alt="Star">
                     @endfor
                 @endif

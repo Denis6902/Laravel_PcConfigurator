@@ -3,43 +3,49 @@
 @section("content")
     @include("header")
     <main>
-        <h1>Skříň</h1>
-        <div class="album py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <img class="card-img-top"
-                                 alt="PcCase" style="height: 225px; width: 100%; display: block;"
-                                 src="/./img/products/pccase.jpg"
-                                 data-holder-rendered="true">
-                            <div class="card-body">
-                                <p>
-                                    <a class="card-text"
-                                       href="{{route('brand' ,$brandModel::Find($pcCase->brand_id)["id"])}}">Značka: {{$pcCase::Find($pcCase->brand_id)["name"]}}
-                                    </a>
-                                </p>
-                                <p class="card-text">Skříň: {{$pcCase->name}}</p>
-                                <p class="card-text">Velikost: {{$pcCase->type}}</p>
-                                <p class="card-text">Barva: {{$pcCase->color}}</p>
-                                <p class="card-text">Pozic interních disků: {{$pcCase->internal_5_25_bays}}x </p>
-                                <p class="card-text">Pozic externích disků: {{$pcCase->external_5_25_bays}}x </p>
-                                <p class="card-text">Hodnocení {{$pcCase->rating}}%</p>
-                                <p class="card-text">Cena: {{$pcCase->price}} Kč</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a class="btn btn-sm btn-outline-secondary"
-                                           href="{{route('addProduct', ['product'=>'pccase', 'id'=>$pcCase->id])}}">Přidat</a>
-                                    </div>
-                                    <small
-                                        class="text-muted">{{ \Carbon\Carbon::parse($pcCase->created_at)->format('d/m/Y')}}</small>
-                                </div>
-                            </div>
-                        </div>
+        <h1>{{$pcCase->name}}</h1>
+        <div class="underHeaderOfProduct productMargin">
+            @if($pcCase->rating < 20)
+                <img class="smallStar" src="/./img/halfstar.svg" alt="nostar">
+            @else
+                @for($i = 1; $i < ($pcCase->rating)/20; $i++)
+                    <img class="smallStar" src="/./img/star.svg" alt="Star">
+                @endfor
+            @endif
+            <p class="card-text">{{$pcCase->rating}}%</p>
+            <p class="card-text">Náš kód: {{$pcCase->id}}</p>
+        </div>
+        <div class="productInfo">
+            <figure style="width: 35%;">
+                <img class="card-img-top"
+                     alt="PC Case" style="display: block;"
+                     src="/./img/products/pccase.jpg"
+                     data-holder-rendered="true">
+                <p class="text-center">Ilustrační foto</p>
+            </figure>
+            <div class="card-body">
+                <p class="card-text">Velikost skříně: {{$pcCase->type}}</p>
+                <p class="card-text">Barva: {{$pcCase->color}}</p>
+                <p class="card-text">{{$pcCase->internal_5_25_bays}} pozice pro interní disky</p>
+                <p class="card-text">{{$pcCase->external_5_25_bays}} pozice pro externí disky</p>
+                <p class="card-text">Cena: {{$pcCase->price}} Kč</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group productMargin">
+                        <a class="btn btn-outline-primary"
+                           href="{{route('addProduct', ['product'=>'pccase', 'id'=>$pcCase->id])}}">Přidat</a>
                     </div>
                 </div>
+                <p class="card-text"> Značka:
+                    <a class="card-text"
+                       href="{{route('brand' ,$brandModel::Find($pcCase->brand_id)["id"])}}">{{$brandModel::Find($pcCase->brand_id)["name"]}}
+                    </a>
+                <p class="card-text">Kód značky: {{$brandModel::Find($pcCase->brand_id)["id"]}}</p>
+                <p class="card-text">V nabídce
+                    od: {{ \Carbon\Carbon::parse($pcCase->created_at)->format('d.m.Y')}}</p>
             </div>
         </div>
+        <h2>Popis produktu</h2>
+        <p class="card-text">{{$pcCase->info}}</p>
     </main>
     @include("footer")
 @endsection
