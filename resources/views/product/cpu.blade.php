@@ -26,7 +26,7 @@
             <div class="card-body">
                 <p class="card-text">Takt: {{$cpu->clock}} GHz</p>
                 <p class="card-text">TDP: {{$cpu->tdp}} W</p>
-                <p class="card-text">Socket: {{$cpu->socket}}</p>
+                <p class="card-text">Socket: {{ \App\Models\Socket::find($cpu->socket_id)["name"]}}</p>
                 <p class="card-text">Integrovaná grafická karta: {{$cpu->i_gpu}}</p>
                 @if($cpu->smt_or_ht == '1')
                     <p class="card-text">Počet jader: {{$cpu->cores}} ({{$cpu->cores * 2 }} vláken)</p>

@@ -12,7 +12,9 @@ use App\Models\OS;
 use App\Models\PcCase;
 use App\Models\PSU;
 use App\Models\Storage;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends BaseController
 {
@@ -30,7 +32,9 @@ class ProductController extends BaseController
                 ]);
 
             case "cpu":
-                $allCpu = CPU::all();
+                $allCpu = $this->checkCompability('App\Models\Motherboard', "motherboard", 'App\Models\CPU');
+
+
 
                 return view('products.cpu', [
                     "allCpu" => $allCpu,
@@ -38,7 +42,7 @@ class ProductController extends BaseController
                 ]);
 
             case "motherboard":
-                $allMotherboard = Motherboard::all();
+                $allMotherboard = $this->checkCompability('App\Models\CPU', "cpu", 'App\Models\Motherboard');
 
                 return view('products.motherboard', [
                     "allMotherboard" => $allMotherboard,
@@ -203,5 +207,16 @@ class ProductController extends BaseController
         return view('pcConfigurator.deleteProduct', [
             "product" => $product,
         ]);
+    }
+
+    public function checkCompability($ProductModel1, $productName1, $ProductModel2)
+    {
+        $product = $ProductModel1::find(Session::get($productName1));
+
+        if (Session::get($productName1) != null) {
+            return $ProductModel2::Where("socket_id", $product["socket_id"])->get();
+        } else {
+            return $ProductModel2::all();
+        }
     }
 }

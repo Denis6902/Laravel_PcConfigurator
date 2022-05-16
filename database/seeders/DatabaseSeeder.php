@@ -13,7 +13,11 @@ use App\Models\OS;
 use App\Models\PcCase;
 use App\Models\PSU;
 use App\Models\Storage;
+use App\Models\Socket;
+use Database\Factories\SocketFactory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,6 +29,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Brand::factory(10)->create();
+        DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['AM4', Carbon::now(), Carbon::now()]);
+        DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['LGA-1700', Carbon::now(), Carbon::now()]);
+        DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['LGA-1200', Carbon::now(), Carbon::now()]);
+        DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['LGA-1151', Carbon::now(), Carbon::now()]);
+
+
         Storage::factory(20)->create();
         PSU::factory(20)->create();
         PcCase::factory(20)->create();

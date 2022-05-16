@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row">
                 @if($thisCpu == null)
-                    <div class="col-md-4 productCard">
+                    <div class="col-md-4 ">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top"
                                  alt="CPU" style="width: 100%; display: block;"
@@ -32,7 +32,7 @@
                 @endif
 
                 @if($thisCpuCooler == null)
-                    <div class="col-md-4 productCard">
+                    <div class="col-md-4 ">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top"
                                  alt="CPU Cooler" style="width: 100%; display: block;"
@@ -54,7 +54,7 @@
                 @endif
 
                 @if($thisMotherboard == null)
-                    <div class="col-md-4 productCard">
+                    <div class="col-md-4 ">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top"
                                  alt="Motherboard" style="width: 100%; display: block;"
@@ -76,7 +76,7 @@
                 @endif
 
                 @if($thisMemory == null)
-                    <div class="col-md-4 productCard">
+                    <div class="col-md-4 ">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top"
                                  alt="Memory" style="width: 100%; display: block;"
@@ -98,7 +98,7 @@
                 @endif
 
                 @if($thisStorage == null)
-                    <div class="col-md-4 productCard">
+                    <div class="col-md-4 ">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top"
                                  alt="Storage" style="width: 100%; display: block;"
@@ -120,7 +120,7 @@
                 @endif
 
                 @if($thisGpu == null)
-                    <div class="col-md-4 productCard">
+                    <div class="col-md-4 ">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top"
                                  alt="GPU" style="width: 100%; display: block;"
@@ -142,7 +142,7 @@
                 @endif
 
                 @if($thisPcCase == null)
-                    <div class="col-md-4 productCard">
+                    <div class="col-md-4 ">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top"
                                  alt="PC Case" style="width: 100%; display: block;"
@@ -164,7 +164,7 @@
                 @endif
 
                 @if($thisPsu == null)
-                    <div class="col-md-4 productCard">
+                    <div class="col-md-4 ">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top"
                                  alt="PSU" style="width: 100%; display: block;"
@@ -186,7 +186,7 @@
                 @endif
 
                 @if($thisOs == null)
-                    <div class="col-md-4 productCard">
+                    <div class="col-md-4 ">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top"
                                  alt="OS" style="width: 100%; display: block;"
@@ -208,7 +208,7 @@
                 @endif
 
                 @if($thisMonitor == null)
-                    <div class="col-md-4 productCard">
+                    <div class="col-md-4 ">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top"
                                  alt="Monitor" style="width: 100%; display: block;"

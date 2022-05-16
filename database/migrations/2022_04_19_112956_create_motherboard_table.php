@@ -18,7 +18,9 @@ return new class extends Migration {
             $table->unsignedBigInteger("brand_id")->index()->nullable();
             $table->foreign('brand_id')->references('id')->on('brand');
             $table->boolean("wifi");
-            $table->string("socket");
+            //$table->string("socket");
+            $table->unsignedBigInteger("socket_id")->index()->nullable();
+            $table->foreign('socket_id')->references('id')->on('socket');
             $table->string("type");
             $table->integer("maximumMemory");
             $table->integer("memorySlots");

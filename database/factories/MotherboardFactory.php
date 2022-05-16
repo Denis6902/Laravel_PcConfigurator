@@ -16,7 +16,6 @@ class MotherboardFactory extends Factory
      */
     public function definition()
     {
-        $socket = ['AM4', 'LGA-1700', 'LGA-1200', 'LGA-1151'];
         $type = ['ATX', 'MicroATX', 'Mini'];
         $maximumMemory = ['64', '128'];
         $memorySlots = ['2', '4'];
@@ -28,7 +27,7 @@ class MotherboardFactory extends Factory
             'name' => $name,
             'brand_id' => $this->faker->numberBetween(1, 10),
             'wifi' => $this->faker->boolean(),
-            'socket' => $this->faker->randomElement($socket),
+            'socket_id' => $this->faker->numberBetween(1,4),
             'type' => $this->faker->randomElement($type),
             'maximumMemory' => $this->faker->randomElement($maximumMemory),
             'memorySlots' => $this->faker->randomElement($memorySlots),

@@ -21,7 +21,9 @@ return new class extends Migration {
             $table->integer("cores");
             $table->integer("tdp");
             $table->string("supported_ram_type");
-            $table->string("socket");
+            $table->unsignedBigInteger("socket_id")->index()->nullable();
+            $table->foreign('socket_id')->references('id')->on('socket');
+            //$table->string("socket");
             $table->string("i_gpu");
             $table->boolean("smt_or_ht");
             $table->integer("rating");

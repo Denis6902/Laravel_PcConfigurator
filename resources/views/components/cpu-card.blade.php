@@ -1,4 +1,4 @@
-<div class="col-md-4 productCard">
+<div class="col-md-4 ">
     <div class="card mb-4 box-shadow">
         <img class="card-img-top"
              alt="CPU" style="height: 225px; width: 100%; display: block;"
@@ -14,7 +14,7 @@
                 <p class="card-text">{{$cpu->cores}} jader s {{$cpu->clock}} GHz</p>
             @endif
             <p class="card-text">TDP: {{$cpu->tdp}} W</p>
-            <p class="card-text">Socket: {{$cpu->socket}}</p>
+            <p class="card-text">Socket: {{ \App\Models\Socket::find($cpu->socket_id)["name"] }}</p>
             <p class="card-text">Podpora RAM: {{$cpu->supported_ram_type}}</p>
             <p class="card-text">Integrovaná grafická karta: {{$cpu->i_gpu}}</p>
             <p class="card-text">

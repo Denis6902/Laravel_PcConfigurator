@@ -31,7 +31,7 @@
                         Ne
                     @endif
                 </p>
-                <p class="card-text">Socket: {{$motherboard->socket}}</p>
+                <p class="card-text">Socket: {{ \App\Models\Socket::find($motherboard->socket_id)["name"] }}</p>
                 <p class="card-text">Velikost základní desky: {{$motherboard->type}}</p>
                 <p class="card-text">Maximální podporovaná velikost paměti: {{$motherboard->maximumMemory}} GB</p>
                 <p class="card-text">Počet slotů pro paměti: {{$motherboard->memorySlots}}</p>

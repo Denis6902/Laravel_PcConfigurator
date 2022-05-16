@@ -1,4 +1,4 @@
-<div class="col-md-4 productCard">
+<div class="col-md-4 ">
     <div class="card mb-4 box-shadow">
         @if($cpuCooler->radiator_size != 0)
             <img class="card-img-top"
