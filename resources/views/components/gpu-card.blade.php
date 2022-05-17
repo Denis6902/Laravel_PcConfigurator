@@ -10,7 +10,7 @@
             <p class="card-text">Grafický čip: {{$gpu->chipset}}</p>
             <p class="card-text">Velikost paměti: {{$gpu->memory}} GB</p>
             <p class="card-text">Takt jádra: {{$gpu->core_clock}} MHz</p>
-            <p class="card-text">Doporučený výkon zdroje: {{$gpu->recommendedWattage}} W</p>
+            <p class="card-text">Minimální nutný výkon zdroje: {{$gpu->minimumWattage}} W</p>
             <p class="card-text">Délka: {{$gpu->length}} mm</p>
             <p class="card-text">
                 @if($gpu->rating < 20)

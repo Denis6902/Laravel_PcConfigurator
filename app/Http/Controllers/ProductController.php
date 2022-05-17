@@ -12,7 +12,6 @@ use App\Models\OS;
 use App\Models\PcCase;
 use App\Models\PSU;
 use App\Models\Storage;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Session;
 
@@ -32,9 +31,7 @@ class ProductController extends BaseController
                 ]);
 
             case "cpu":
-                $allCpu = $this->checkCompability('App\Models\Motherboard', "motherboard", 'App\Models\CPU');
-
-
+                $allCpu = $this->checkSocketCompability('App\Models\Motherboard', "motherboard", 'App\Models\CPU');
 
                 return view('products.cpu', [
                     "allCpu" => $allCpu,
@@ -42,7 +39,7 @@ class ProductController extends BaseController
                 ]);
 
             case "motherboard":
-                $allMotherboard = $this->checkCompability('App\Models\CPU', "cpu", 'App\Models\Motherboard');
+                $allMotherboard = $this->checkSocketCompability('App\Models\CPU', "cpu", 'App\Models\Motherboard');
 
                 return view('products.motherboard', [
                     "allMotherboard" => $allMotherboard,
@@ -65,7 +62,7 @@ class ProductController extends BaseController
                 ]);
 
             case "gpu":
-                $allGpu = GPU::all();
+                $allGpu = $this->checkMinimumWattageCompability('App\Models\PSU', "psu", 'App\Models\GPU');
 
                 return view('products.gpu', [
                     "allGpu" => $allGpu,
@@ -81,7 +78,7 @@ class ProductController extends BaseController
                 ]);
 
             case "psu":
-                $allPsu = PSU::all();
+                $allPsu = $this->checkMinimumWattageCompability('App\Models\GPU', "gpu", 'App\Models\PSU');
 
                 return view('products.psu', [
                     "allPsu" => $allPsu,
@@ -209,12 +206,30 @@ class ProductController extends BaseController
         ]);
     }
 
-    public function checkCompability($ProductModel1, $productName1, $ProductModel2)
+    public function checkSocketCompability($ProductModel1, $productName1, $ProductModel2)
     {
         $product = $ProductModel1::find(Session::get($productName1));
 
         if (Session::get($productName1) != null) {
             return $ProductModel2::Where("socket_id", $product["socket_id"])->get();
+        } else {
+            return $ProductModel2::all();
+        }
+    }
+
+    public function checkMinimumWattageCompability($ProductModel1, string $productName1, $ProductModel2)
+    {
+        $product = $ProductModel1::find(Session::get($productName1));
+
+        if (Session::get($productName1) != null) {
+
+            switch ($productName1):
+                case "gpu":
+                    return $ProductModel2::Where("wattage", ">=", $product["minimumWattage"])->get();
+
+                case "psu":
+                    return $ProductModel2::Where("minimumWattage", "<=", $product["wattage"])->get();
+            endswitch;
         } else {
             return $ProductModel2::all();
         }

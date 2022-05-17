@@ -18,7 +18,7 @@ class GpuFactory extends Factory
     {
         $color = ['Černá', 'Bílá'];
         $memory = ['4', '8', '6', '12', '24'];
-        $recommendedWattage = ['550', '650', '750'];
+        $recommendedWattage = ['500', '600', '700'];
         $core_clock = $this->faker->numberBetween(1300, 1600);
         $name = rtrim($this->faker->sentence(2), '.');
         $chipset = rtrim($this->faker->sentence(2), '.');
@@ -28,7 +28,7 @@ class GpuFactory extends Factory
             'brand_id' => $this->faker->numberBetween(1, 10),
             'chipset' => $chipset,
             'memory' => $this->faker->randomElement($memory),
-            'recommendedWattage' => $this->faker->randomElement($recommendedWattage),
+            'minimumWattage' => $this->faker->randomElement($recommendedWattage),
             'core_clock' => $core_clock,
             'boost_clock' => $core_clock + $this->faker->numberBetween(200, 500),
             'color' => $this->faker->randomElement($color),

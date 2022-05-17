@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->foreign('brand_id')->references('id')->on('brand');
             $table->string("chipset");
             $table->integer("memory");
-            $table->integer("recommendedWattage");
+            $table->integer("minimumWattage");
             $table->integer("core_clock");
             $table->integer("boost_clock");
             $table->string("color");

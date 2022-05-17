@@ -18,7 +18,7 @@ class PsuFactory extends Factory
     {
         $capacity = ['ATX', 'SFX'];
         $type = ['Gold', 'Platinum', 'Bronze'];
-        $wattage = ['550', '650', '750'];
+        $wattage = ['500','550', '650', '750'];
         $modular = ['Plně', 'Semi', 'Není'];
         $name = substr($this->faker->sentence(2), 0, -1);
 
