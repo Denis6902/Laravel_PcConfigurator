@@ -18,8 +18,8 @@
         <div class="productInfo">
             <figure style="width: 35%;">
                 <img class="card-img-top"
-                     alt="PSU" style="display: block;"
-                     src="/./img/products/psu.jpg"
+                     alt="{{\App\Models\IllustrationImage::find($psu->illustration_image_id)["alt"]}}" style="display: block;"
+                     src="{{\App\Models\IllustrationImage::find($psu->illustration_image_id)["srrc"]}}"
                      data-holder-rendered="true">
                 <p class="text-center">Ilustrační foto</p>
             </figure>

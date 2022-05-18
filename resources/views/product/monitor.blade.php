@@ -18,8 +18,8 @@
         <div class="productInfo">
             <figure style="width: 50%;">
                 <img class="card-img-top"
-                     alt="Monitor" style="display: block;"
-                     src="/./img/products/monitor.jpg"
+                     alt="{{\App\Models\IllustrationImage::find($monitor->illustration_image_id)["alt"]}}" style="display: block;"
+                     src="{{\App\Models\IllustrationImage::find($monitor->illustration_image_id)["src"]}}"
                      data-holder-rendered="true">
                 <p class="text-center">Ilustrační foto</p>
             </figure>

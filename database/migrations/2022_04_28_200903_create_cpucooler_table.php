@@ -25,6 +25,8 @@ return new class extends Migration {
             $table->integer("rating");
             $table->integer("price");
             $table->text("info");
+            $table->unsignedBigInteger("illustration_image_id")->index()->nullable();
+            $table->foreign('illustration_image_id')->references('id')->on('illustrationimage');
             $table->timestamps();
         });
     }

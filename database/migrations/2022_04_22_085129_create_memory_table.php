@@ -17,7 +17,8 @@ return new class extends Migration {
             $table->string("name");
             $table->unsignedBigInteger("brand_id")->index()->nullable();
             $table->foreign('brand_id')->references('id')->on('brand');
-            $table->string("type");
+            $table->unsignedBigInteger("supported_ram_type_id")->index()->nullable();
+            $table->foreign('supported_ram_type_id')->references('id')->on('supportedramtype');
             $table->integer("speed");
             $table->integer("modules");
             $table->integer("capacity");
@@ -26,6 +27,8 @@ return new class extends Migration {
             $table->integer("rating");
             $table->integer("price");
             $table->text("info");
+            $table->unsignedBigInteger("illustration_image_id")->index()->nullable();
+            $table->foreign('illustration_image_id')->references('id')->on('illustrationimage');
             $table->timestamps();
         });
     }

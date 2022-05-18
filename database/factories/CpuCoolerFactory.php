@@ -23,8 +23,10 @@ class CpuCoolerFactory extends Factory
 
         if ($aio == null) {
             $radiator_size = ['240', '280', '360', '120', '140'];
+            $illustration_image_id = 3;
         } else {
             $radiator_size = ['0'];
+            $illustration_image_id = 2;
         }
 
 
@@ -39,6 +41,7 @@ class CpuCoolerFactory extends Factory
             'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(1500, 4000),
             'info' => $this->faker->sentence(80),
+            'illustration_image_id' =>$illustration_image_id,
         ];
     }
 }

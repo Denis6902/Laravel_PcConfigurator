@@ -17,17 +17,10 @@
         </div>
         <div class="productInfo">
             <figure style="width: 40%;">
-                @if($cpuCooler->radiator_size != 0)
-                    <img class="card-img-top"
-                         alt="AiO CPU Cooler" style="display: block;"
-                         src="/./img/products/aiocpucooler.jpg"
-                         data-holder-rendered="true">
-                @else
-                    <img class="card-img-top"
-                         alt="CPU Cooler" style="display: block;"
-                         src="/./img/products/cpucooler.jpg"
-                         data-holder-rendered="true">
-                @endif
+                <img class="card-img-top"
+                     alt="{{\App\Models\IllustrationImage::find($cpuCooler->illustration_image_id)["alt"]}}" style="display: block;"
+                     src="{{\App\Models\IllustrationImage::find($cpuCooler->illustration_image_id)["src"]}}"
+                     data-holder-rendered="true">
                 <p class="text-center">Ilustrační foto</p>
             </figure>
             <div class="card-body">

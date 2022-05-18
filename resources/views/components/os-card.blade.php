@@ -1,8 +1,8 @@
 <div class="col-md-4 ">
     <div class="card mb-4 box-shadow">
         <img class="card-img-top"
-             alt="OS" style="height: 225px; width: 100%; display: block;"
-             src="/./img/products/os.jpg"
+             alt="{{\App\Models\IllustrationImage::find($os->illustration_image_id)["alt"]}}" style="height: 225px; width: 100%; display: block;"
+             src="{{\App\Models\IllustrationImage::find($os->illustration_image_id)["src"]}}"
              data-holder-rendered="true">
         <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
         <div class="card-body">

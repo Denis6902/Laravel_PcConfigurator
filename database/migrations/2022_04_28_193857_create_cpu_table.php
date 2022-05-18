@@ -20,15 +20,17 @@ return new class extends Migration {
             $table->double("clock");
             $table->integer("cores");
             $table->integer("tdp");
-            $table->string("supported_ram_type");
             $table->unsignedBigInteger("socket_id")->index()->nullable();
             $table->foreign('socket_id')->references('id')->on('socket');
-            //$table->string("socket");
             $table->string("i_gpu");
             $table->boolean("smt_or_ht");
             $table->integer("rating");
             $table->integer("price");
             $table->text("info");
+            $table->unsignedBigInteger("illustration_image_id")->index()->nullable();
+            $table->foreign('illustration_image_id')->references('id')->on('illustrationimage');
+            $table->unsignedBigInteger("supported_ram_type_id")->index()->nullable();
+            $table->foreign('supported_ram_type_id')->references('id')->on('supportedramtype');
             $table->timestamps();
         });
     }

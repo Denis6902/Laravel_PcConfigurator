@@ -36,6 +36,7 @@ class GpuFactory extends Factory
             'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(1500, 4000),
             'info' => $this->faker->sentence(80),
+            'illustration_image_id' => 7,
         ];
     }
 }

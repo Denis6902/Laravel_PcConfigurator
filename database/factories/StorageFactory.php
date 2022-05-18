@@ -35,6 +35,7 @@ class StorageFactory extends Factory
             'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(500, 2500),
             'info' => $this->faker->sentence(80),
+            'illustration_image_id' => 6,
         ];
     }
 }

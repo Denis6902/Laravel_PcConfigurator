@@ -18,8 +18,8 @@
         <div class="productInfo">
             <figure style="width: 35%;">
                 <img class="card-img-top"
-                     alt="PC Case" style="display: block;"
-                     src="/./img/products/pccase.jpg"
+                     alt="{{\App\Models\IllustrationImage::find($pcCase->illustration_image_id)["alt"]}}" style="display: block;"
+                     src="{{\App\Models\IllustrationImage::find($pcCase->illustration_image_id)["src"]}}"
                      data-holder-rendered="true">
                 <p class="text-center">Ilustrační foto</p>
             </figure>

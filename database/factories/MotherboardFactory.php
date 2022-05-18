@@ -21,6 +21,7 @@ class MotherboardFactory extends Factory
         $memorySlots = ['2', '4'];
         $color = ['Černá', 'Bílá'];
         $name = substr($this->faker->sentence(3), 0, -1);
+        $supported_ram_type = [1,2];
 
 
         return [
@@ -35,6 +36,8 @@ class MotherboardFactory extends Factory
             'rating' => $this->faker->numberBetween(1, 100),
             'price' => $this->faker->numberBetween(1500, 4000),
             'info' => $this->faker->sentence(80),
+            'illustration_image_id' => 4,
+            'supported_ram_type_id' => $this->faker->randomElement($supported_ram_type)
         ];
     }
 }

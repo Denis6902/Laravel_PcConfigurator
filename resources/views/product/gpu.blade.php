@@ -18,8 +18,8 @@
         <div class="productInfo">
             <figure style="width: 55%;">
                 <img class="card-img-top"
-                     alt="GPU" style="display: block;"
-                     src="/./img/products/gpu.jpg"
+                     alt="{{\App\Models\IllustrationImage::find($gpu->illustration_image_id)["alt"]}}" style="display: block;"
+                     src="{{\App\Models\IllustrationImage::find($gpu->illustration_image_id)["src"]}}"
                      data-holder-rendered="true">
                 <p class="text-center">Ilustrační foto</p>
             </figure>

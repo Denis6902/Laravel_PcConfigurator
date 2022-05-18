@@ -13,7 +13,6 @@ use App\Models\OS;
 use App\Models\PcCase;
 use App\Models\PSU;
 use App\Models\Storage;
-use App\Models\Socket;
 use Database\Factories\SocketFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
@@ -34,6 +33,20 @@ class DatabaseSeeder extends Seeder
         DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['LGA-1200', Carbon::now(), Carbon::now()]);
         DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['LGA-1151', Carbon::now(), Carbon::now()]);
 
+        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/cpu.jpg', "CPU", Carbon::now(), Carbon::now()]);
+        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/cpucooler.jpg', "CPU Cooler", Carbon::now(), Carbon::now()]);
+        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/aiocpucooler.jpg', "AiO CPU Cooler", Carbon::now(), Carbon::now()]);
+        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/motherboard.jpg', "Motherboard", Carbon::now(), Carbon::now()]);
+        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/memory.jpg', "Memory", Carbon::now(), Carbon::now()]);
+        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/storage.jpg', "Storage", Carbon::now(), Carbon::now()]);
+        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/gpu.jpg', "GPU", Carbon::now(), Carbon::now()]);
+        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/pccase.jpg', "PC Case", Carbon::now(), Carbon::now()]);
+        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/psu.jpg', "PSU", Carbon::now(), Carbon::now()]);
+        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/os.jpg', "OS", Carbon::now(), Carbon::now()]);
+        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/monitor.jpg', "Monitor", Carbon::now(), Carbon::now()]);
+
+        DB::insert('insert into supportedramtype (type, created_at, updated_at) values (?,?,?)', ['DDR4', Carbon::now(), Carbon::now()]);
+        DB::insert('insert into supportedramtype (type, created_at, updated_at) values (?,?,?)', ['DDR5', Carbon::now(), Carbon::now()]);
 
         Storage::factory(20)->create();
         PSU::factory(20)->create();

@@ -1,13 +1,13 @@
 <div class="col-md-4 ">
     <div class="card mb-4 box-shadow">
         <img class="card-img-top"
-             alt="Memory" style="height: 225px; width: 100%; display: block;"
-             src="/./img/products/memory.jpg"
+             alt="{{\App\Models\IllustrationImage::find($memory->illustration_image_id)["alt"]}}" style="height: 225px; width: 100%; display: block;"
+             src="{{\App\Models\IllustrationImage::find($memory->illustration_image_id)["src"]}}"
              data-holder-rendered="true">
         <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
         <div class="card-body">
             <p class="card-text">Paměť: {{$memory->name}}</p>
-            <p class="card-text">Typ: {{$memory->modules}} x {{$memory->capacity}} {{$memory->type}} {{$memory->speed}}
+            <p class="card-text">Typ: {{$memory->modules}} x {{$memory->capacity}} {{\App\Models\SupportedRamType::find($memory->supported_ram_type_id)["type"]}} {{$memory->speed}}
                 MHz
                 CL {{$memory->latency}}</p>
             <p class="card-text">Barva: {{$memory->color}}</p>
