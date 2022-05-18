@@ -218,23 +218,23 @@ class ProductController extends BaseController
         }
     }
 
-/*    public function checkMinimumWattageCompability($ProductModel1, string $productName1, $ProductModel2)
-    {
-        $product = $ProductModel1::find(Session::get($productName1));
+    /*    public function checkMinimumWattageCompability($ProductModel1, string $productName1, $ProductModel2)
+        {
+            $product = $ProductModel1::find(Session::get($productName1));
 
-        if (Session::get($productName1) != null) {
+            if (Session::get($productName1) != null) {
 
-            switch ($productName1):
-                case "gpu":
-                    return $ProductModel2::Where("wattage", ">=", $product["minimumWattage"])->get();
+                switch ($productName1):
+                    case "gpu":
+                        return $ProductModel2::Where("wattage", ">=", $product["minimumWattage"])->get();
 
-                case "psu":
-                    return $ProductModel2::Where("minimumWattage", "<=", $product["wattage"])->get();
-            endswitch;
-        } else {
-            return $ProductModel2::all();
-        }
-    }*/
+                    case "psu":
+                        return $ProductModel2::Where("minimumWattage", "<=", $product["wattage"])->get();
+                endswitch;
+            } else {
+                return $ProductModel2::all();
+            }
+        }*/
 
     public function checkCpuCompability()
     {
@@ -244,6 +244,7 @@ class ProductController extends BaseController
         if (Session::get("memory") != null && Session::get("motherboard") != null) {
             return CPU::Where([
                 ["supported_ram_type_id", "=", $memory["supported_ram_type_id"]],
+                ["supported_ram_type_id", "=", $motherboard["supported_ram_type_id"]],
                 ["socket_id", "=", $motherboard["socket_id"]],
             ])->get();
         } elseif (Session::get("memory") != null) {
@@ -252,7 +253,8 @@ class ProductController extends BaseController
             ])->get();
         } elseif (Session::get("motherboard") != null) {
             return CPU::Where([
-                ["socket_id", "=", $motherboard["socket_id"]->get()],
+                ["supported_ram_type_id", "=", $motherboard["supported_ram_type_id"]],
+                ["socket_id", "=", $motherboard["socket_id"]],
             ])->get();
         } else {
             return CPU::all();
@@ -267,15 +269,17 @@ class ProductController extends BaseController
         if (Session::get("memory") != null && Session::get("cpu") != null) {
             return Motherboard::Where([
                 ["supported_ram_type_id", "=", $memory["supported_ram_type_id"]],
+                ["supported_ram_type_id", "=", $cpu["supported_ram_type_id"]],
                 ["socket_id", "=", $cpu["socket_id"]],
             ])->get();
         } elseif (Session::get("memory") != null) {
             return Motherboard::Where([
+                ["supported_ram_type_id", "=", $cpu["supported_ram_type_id"]],
                 ["supported_ram_type_id", "=", $memory["supported_ram_type_id"]],
             ])->get();
         } elseif (Session::get("cpu") != null) {
             return Motherboard::Where([
-                ["socket_id", "=", $cpu["socket_id"]->get()],
+                ["socket_id", "=", $cpu["socket_id"]],
             ])->get();
         } else {
             return Motherboard::all();
@@ -290,15 +294,17 @@ class ProductController extends BaseController
         if (Session::get("motherboard") != null && Session::get("cpu") != null) {
             return Memory::Where([
                 ["supported_ram_type_id", "=", $motherboard["supported_ram_type_id"]],
+                ["supported_ram_type_id", "=", $cpu["supported_ram_type_id"]],
                 ["socket_id", "=", $cpu["socket_id"]],
             ])->get();
         } elseif (Session::get("motherboard") != null) {
             return Memory::Where([
+                ["supported_ram_type_id", "=", $cpu["supported_ram_type_id"]],
                 ["supported_ram_type_id", "=", $motherboard["supported_ram_type_id"]],
             ])->get();
         } elseif (Session::get("cpu") != null) {
             return Memory::Where([
-                ["socket_id", "=", $cpu["socket_id"]->get()],
+                ["socket_id", "=", $cpu["socket_id"]],
             ])->get();
         } else {
             return Memory::all();
