@@ -21,14 +21,14 @@ class MotherboardFactory extends Factory
         $memorySlots = ['2', '4'];
         $color = ['Černá', 'Bílá'];
         $name = substr($this->faker->sentence(3), 0, -1);
-        $supported_ram_type = [1,2];
+        $supported_ram_type = [1, 2];
 
 
         return [
             'name' => $name,
             'brand_id' => $this->faker->numberBetween(1, 10),
             'wifi' => $this->faker->boolean(),
-            'socket_id' => $this->faker->numberBetween(1,4),
+            'socket_id' => $this->faker->numberBetween(1, 4),
             'type' => $this->faker->randomElement($type),
             'maximumMemory' => $this->faker->randomElement($maximumMemory),
             'memorySlots' => $this->faker->randomElement($memorySlots),

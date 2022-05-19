@@ -18,7 +18,8 @@
         <div class="productInfo">
             <figure style="width: 50%;">
                 <img class="card-img-top"
-                     alt="{{\App\Models\IllustrationImage::find($motherboard->illustration_image_id)["alt"]}}" style="display: block;"
+                     alt="{{\App\Models\IllustrationImage::find($motherboard->illustration_image_id)["alt"]}}"
+                     style="display: block;"
                      src="{{\App\Models\IllustrationImage::find($motherboard->illustration_image_id)["src"]}}"
                      data-holder-rendered="true">
                 <p class="text-center">Ilustrační foto</p>
@@ -32,7 +33,8 @@
                     @endif
                 </p>
                 <p class="card-text">Socket: {{ \App\Models\Socket::find($motherboard->socket_id)["name"] }}</p>
-                <p class="card-text">Podpora RAM: {{\App\Models\SupportedRamType::find($motherboard->supported_ram_type_id)["type"]}}</p>
+                <p class="card-text">Podpora
+                    RAM: {{\App\Models\SupportedRamType::find($motherboard->supported_ram_type_id)["type"]}}</p>
                 <p class="card-text">Velikost základní desky: {{$motherboard->type}}</p>
                 <p class="card-text">Maximální podporovaná velikost paměti: {{$motherboard->maximumMemory}} GB</p>
                 <p class="card-text">Počet slotů pro paměti: {{$motherboard->memorySlots}}</p>

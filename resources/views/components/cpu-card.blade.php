@@ -1,7 +1,8 @@
 <div class="col-md-4 ">
     <div class="card mb-4 box-shadow">
         <img class="card-img-top"
-             alt="{{\App\Models\IllustrationImage::find($cpu->illustration_image_id)["alt"]}}" style="height: 225px; width: 100%; display: block;"
+             alt="{{\App\Models\IllustrationImage::find($cpu->illustration_image_id)["alt"]}}"
+             style="height: 225px; width: 100%; display: block;"
              src="{{\App\Models\IllustrationImage::find($cpu->illustration_image_id)["src"]}}"
              data-holder-rendered="true">
         <p class="small text-center mt-2 mb-0">Ilustrační foto</p>
@@ -10,12 +11,13 @@
 
             @if($cpu->smt_or_ht == '1')
                 <p class="card-text">{{$cpu->cores}} jader ({{$cpu->cores * 2 }} vláken) s {{$cpu->clock}} GHz</p>
-                @else
+            @else
                 <p class="card-text">{{$cpu->cores}} jader s {{$cpu->clock}} GHz</p>
             @endif
             <p class="card-text">TDP: {{$cpu->tdp}} W</p>
             <p class="card-text">Socket: {{ \App\Models\Socket::find($cpu->socket_id)["name"] }}</p>
-            <p class="card-text">Podpora RAM: {{\App\Models\SupportedRamType::find($cpu->supported_ram_type_id)["type"]}}</p>
+            <p class="card-text">Podpora
+                RAM: {{\App\Models\SupportedRamType::find($cpu->supported_ram_type_id)["type"]}}</p>
             <p class="card-text">Integrovaná grafická karta: {{$cpu->i_gpu}}</p>
             <p class="card-text">
                 @if($cpu->rating < 20)

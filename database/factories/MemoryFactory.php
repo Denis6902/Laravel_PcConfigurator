@@ -16,7 +16,7 @@ class MemoryFactory extends Factory
      */
     public function definition()
     {
-        $typeList = [1,2];
+        $typeList = [1, 2];
         $speedDDR4 = ['2133', '2400', '2666', '3200', '3600'];
         $speedDDR5 = ['6400', '6200', '6000', '5600', '5200'];
         $casLatencyDDR4 = ['14', '16', '18', '20'];

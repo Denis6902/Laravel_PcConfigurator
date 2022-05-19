@@ -19,7 +19,7 @@ class CpuFactory extends Factory
         $tdp = ['65', '125', '105', '95'];
         $cores = ['4', '6', '8', '12', '16'];
         $clock = ['3.7', '2.5', '3.6', '2.6', '4.1'];
-        $supportedRamType = [1,2];
+        $supportedRamType = [1, 2];
         $name = substr($this->faker->sentence(3), 0, -1);
 
         return [
@@ -28,7 +28,7 @@ class CpuFactory extends Factory
             'clock' => $this->faker->randomElement($clock),
             'cores' => $this->faker->randomElement($cores),
             'tdp' => $this->faker->randomElement($tdp),
-            'socket_id' => $this->faker->numberBetween(1,4),
+            'socket_id' => $this->faker->numberBetween(1, 4),
             'i_gpu' => $this->faker->sentence(2),
             'smt_or_ht' => $this->faker->boolean(),
             'rating' => $this->faker->numberBetween(1, 100),

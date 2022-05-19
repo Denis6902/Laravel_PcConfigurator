@@ -1,44 +1,47 @@
 body {
-  padding: 0 10%;
+    padding: 0 10%;
 }
 
 header .hidden, footer .hidden {
-  display: none;
+    display: none;
 }
 
 .bigStar {
-  width: 5%;
+    width: 5%;
 }
 
 .smallStar {
-  width: 1.5%;
+    width: 1.5%;
 }
 
 .productInfo {
-  display: flex;
+    display: flex;
 }
+
 .productInfo p {
-  margin-right: 1em;
+    margin-right: 1em;
 }
+
 .productInfo figure p {
-  margin: 0;
+    margin: 0;
 }
 
 .underHeaderOfProduct {
-  display: flex;
+    display: flex;
 }
+
 .underHeaderOfProduct p {
-  margin-right: 1em;
-  margin-bottom: 0;
+    margin-right: 1em;
+    margin-bottom: 0;
 }
 
 .productMargin {
-  margin-right: 1em;
-  margin-bottom: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
 }
 
 h2 {
-  padding-top: 1em;
+    padding-top: 1em;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -18,13 +18,15 @@
         <div class="productInfo">
             <figure style="width: 50%">
                 <img class="card-img-top"
-                     alt="{{\App\Models\IllustrationImage::find($memory->illustration_image_id)["alt"]}}" style="display: block;"
+                     alt="{{\App\Models\IllustrationImage::find($memory->illustration_image_id)["alt"]}}"
+                     style="display: block;"
                      src="{{\App\Models\IllustrationImage::find($memory->illustration_image_id)["src"]}}"
                      data-holder-rendered="true">
                 <p class="text-center">Ilustrační foto</p>
             </figure>
             <div class="card-body">
-                <p class="card-text">Typ: {{\App\Models\SupportedRamType::find($memory->supported_ram_type_id)["type"]}}</p>
+                <p class="card-text">
+                    Typ: {{\App\Models\SupportedRamType::find($memory->supported_ram_type_id)["type"]}}</p>
                 <p class="card-text">Rychlost: {{$memory->speed}} MHz</p>
                 <p class="card-text">Počet kusů x Kapacita jednoho kusu: {{$memory->modules}}
                     x {{$memory->capacity}}</p>
