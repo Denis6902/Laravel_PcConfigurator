@@ -19,45 +19,49 @@
         <div class="album py-5">
             <div class="container">
                 <div class="row">
-                    @foreach($allThisBrandCpu[0] as $cpu)
+                    @foreach($allThisBrandCpu as $cpu)
                         <x-cpu-card :cpu="$cpu"></x-cpu-card>
                     @endforeach
 
-                    @foreach($allThisBrandCpuCooler[0] as $cpuCooler)
+                    @foreach($allThisBrandCpuCooler as $cpuCooler)
                         <x-cpu-cooler-card :cpuCooler="$cpuCooler"></x-cpu-cooler-card>
                     @endforeach
 
-                    @foreach($allThisBrandGpu[0] as $gpu)
+                    @foreach($allThisBrandGpu as $gpu)
                         <x-gpu-card :gpu="$gpu"></x-gpu-card>
                     @endforeach
 
-                    @foreach($allThisBrandMemory[0] as $memory)
+                    @foreach($allThisBrandMemory as $memory)
                         <x-memory-card :memory="$memory"></x-memory-card>
                     @endforeach
 
-                    @foreach($allThisBrandMonitor[0] as $monitor)
+                    @foreach($allThisBrandMonitor as $monitor)
                         <x-monitor-card :monitor="$monitor"></x-monitor-card>
                     @endforeach
 
-                    @foreach($allThisBrandMotherboard[0] as $motherboard)
+                    @foreach($allThisBrandMotherboard as $motherboard)
                         <x-motherboard-card :motherboard="$motherboard"></x-motherboard-card>
                     @endforeach
 
-                    @foreach($allThisBrandOs[0] as $os)
+                    @foreach($allThisBrandOs as $os)
                         <x-os-card :os="$os"></x-os-card>
                     @endforeach
 
-                    @foreach($allThisBrandPcCase[0] as $pcCase)
+                    @foreach($allThisBrandPcCase as $pcCase)
                         <x-pc-case-card :pcCase="$pcCase"></x-pc-case-card>
                     @endforeach
 
-                    @foreach($allThisBrandPsu[0] as $psu)
+                    @foreach($allThisBrandPsu as $psu)
                         <x-psu-card :psu="$psu"></x-psu-card>
                     @endforeach
 
-                    @foreach($allThisBrandStorage[0] as $storage)
+                    @foreach($allThisBrandStorage as $storage)
                         <x-storage-card :storage="$storage"></x-storage-card>
                     @endforeach
+
+                    @php
+                        print_r(json_encode($allComponents));
+                    @endphp
                 </div>
             </div>
         </div>

@@ -2,11 +2,13 @@
 
 namespace App\View\Components;
 
+use App\Models\IllustrationImage;
 use Illuminate\View\Component;
 
 class storageCard extends Component
 {
     public $storage;
+    public $illustrationImage;
 
     /**
      * Create a new component instance.
@@ -15,6 +17,7 @@ class storageCard extends Component
      */
     public function __construct($storage)
     {
+        $this->illustrationImage = IllustrationImage::find($storage->illustration_image_id);
         $this->storage = $storage;
     }
 

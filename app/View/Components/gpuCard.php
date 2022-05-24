@@ -2,11 +2,13 @@
 
 namespace App\View\Components;
 
+use App\Models\IllustrationImage;
 use Illuminate\View\Component;
 
 class gpuCard extends Component
 {
     public $gpu;
+    public $illustrationImage;
 
     /**
      * Create a new component instance.
@@ -15,6 +17,7 @@ class gpuCard extends Component
      */
     public function __construct($gpu)
     {
+        $this->illustrationImage = IllustrationImage::find($gpu->illustration_image_id);
         $this->gpu = $gpu;
     }
 

@@ -2,11 +2,13 @@
 
 namespace App\View\Components;
 
+use App\Models\IllustrationImage;
 use Illuminate\View\Component;
 
 class psuCard extends Component
 {
     public $psu;
+    public $illustrationImage;
 
     /**
      * Create a new component instance.
@@ -15,6 +17,7 @@ class psuCard extends Component
      */
     public function __construct($psu)
     {
+        $this->illustrationImage = IllustrationImage::find($psu->illustration_image_id);
         $this->psu = $psu;
     }
 

@@ -2,9 +2,9 @@
     <div class="card mb-4 box-shadow">
         @if($cpuCooler->radiator_size != 0)
             <img class="card-img-top"
-                 alt="{{\App\Models\IllustrationImage::find($cpuCooler->illustration_image_id)["ali"]}}"
+                 alt="{{$illustrationImage["alt"]}}"
                  style="height: 225px; width: 100%; display: block;"
-                 src="{{\App\Models\IllustrationImage::find($cpuCooler->illustration_image_id)["src"]}}"
+                 src="{{$illustrationImage["src"]}}"
                  data-holder-rendered="true">
         @else
             <img class="card-img-top"

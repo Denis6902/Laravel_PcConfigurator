@@ -18,18 +18,18 @@
         <div class="productInfo">
             <figure style="width: 50%">
                 <img class="card-img-top"
-                     alt="{{\App\Models\IllustrationImage::find($cpu->illustration_image_id)["alt"]}}"
+                     alt="{{$illustrationImage["alt"]}}"
                      style="display: block;"
-                     src="{{\App\Models\IllustrationImage::find($cpu->illustration_image_id)["src"]}}"
+                     src="{{$illustrationImage["src"]}}"
                      data-holder-rendered="true">
                 <p class="text-center">Ilustrační foto</p>
             </figure>
             <div class="card-body">
                 <p class="card-text">Takt: {{$cpu->clock}} GHz</p>
                 <p class="card-text">TDP: {{$cpu->tdp}} W</p>
-                <p class="card-text">Socket: {{ \App\Models\Socket::find($cpu->socket_id)["name"]}}</p>
+                <p class="card-text">Socket: {{$socket["name"]}}</p>
                 <p class="card-text">Podpora
-                    RAM: {{\App\Models\SupportedRamType::find($cpu->supported_ram_type_id)["type"]}}</p>
+                    RAM: {{$supportedRamType["type"]}}</p>
                 <p class="card-text">Integrovaná grafická karta: {{$cpu->i_gpu}}</p>
                 @if($cpu->smt_or_ht == '1')
                     <p class="card-text">Počet jader: {{$cpu->cores}} ({{$cpu->cores * 2 }} vláken)</p>
@@ -47,6 +47,7 @@
                 </div>
                 <p class="card-text"> Značka:
                     <a class="card-text"
+                       {{--TODO: předmět z $brandModel::Find($cpu->brand_id)["id"]) na brand["id"])--}}
                        href="{{route('brand' ,$brandModel::Find($cpu->brand_id)["id"])}}">{{$brandModel::Find($cpu->brand_id)["name"]}}
                     </a>
                 <p class="card-text">Kód značky: {{$brandModel::Find($cpu->brand_id)["id"]}}</p>

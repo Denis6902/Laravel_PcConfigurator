@@ -2,11 +2,13 @@
 
 namespace App\View\Components;
 
+use App\Models\IllustrationImage;
 use Illuminate\View\Component;
 
 class pcCaseCard extends Component
 {
     public $pcCase;
+    public $illustrationImage;
 
     /**
      * Create a new component instance.
@@ -15,6 +17,7 @@ class pcCaseCard extends Component
      */
     public function __construct($pcCase)
     {
+        $this->illustrationImage = IllustrationImage::find($pcCase->illustration_image_id);
         $this->pcCase = $pcCase;
     }
 

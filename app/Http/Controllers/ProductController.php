@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\CPU;
 use App\Models\CpuCooler;
 use App\Models\GPU;
+use App\Models\IllustrationImage;
 use App\Models\Memory;
 use App\Models\Monitor;
 use App\Models\Motherboard;
 use App\Models\OS;
 use App\Models\PcCase;
 use App\Models\PSU;
+use App\Models\Socket;
 use App\Models\Storage;
+use App\Models\SupportedRamType;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Session;
 
@@ -47,7 +50,6 @@ class ProductController extends BaseController
                 ]);
 
             case "memory":
-                //$allMemory = Memory::all();
                 $allMemory = $this->checkMemoryCompability();
 
                 return view('products.memory', [
@@ -57,6 +59,7 @@ class ProductController extends BaseController
 
             case "storage":
                 $allStorage = Storage::all();
+
                 return view('products.storage', [
                     "allStorage" => $allStorage,
                     "brandModel" => $brandModel,
@@ -112,81 +115,112 @@ class ProductController extends BaseController
         switch ($product):
             case "cpucooler":
                 $cpuCooler = CpuCooler::Find($id);
+                $illustrationImage = IllustrationImage::find($cpuCooler->illustration_image_id);
 
                 return view('product.cpuCooler', [
                     "cpuCooler" => $cpuCooler,
                     "brandModel" => $brandModel,
+                    "illustrationImage" => $illustrationImage,
                 ]);
 
             case "cpu":
                 $cpu = CPU::Find($id);
+                $illustrationImage = IllustrationImage::find($cpu->illustration_image_id);
+                $socket = Socket::find($cpu->socket_id);
+                $supportedRamType = SupportedRamType::find($cpu->supported_ram_type_id);
 
                 return view('product.cpu', [
                     "cpu" => $cpu,
                     "brandModel" => $brandModel,
+                    "illustrationImage" => $illustrationImage,
+                    "socket" => $socket,
+                    "supportedRamType" => $supportedRamType,
                 ]);
 
             case "motherboard":
                 $motherboard = Motherboard::Find($id);
+                $illustrationImage = IllustrationImage::find($motherboard->illustration_image_id);
+                $socket = Socket::find($motherboard->socket_id);
+                $supportedRamType = SupportedRamType::find($motherboard->supported_ram_type_id);
 
                 return view('product.motherboard', [
                     "motherboard" => $motherboard,
                     "brandModel" => $brandModel,
+                    "illustrationImage" => $illustrationImage,
+                    "socket" => $socket,
+                    "supportedRamType" => $supportedRamType,
                 ]);
 
             case "memory":
                 $memory = Memory::Find($id);
+                $illustrationImage = IllustrationImage::find($memory->illustration_image_id);
+                $supportedRamType = SupportedRamType::find($memory->supported_ram_type_id);
 
                 return view('product.memory', [
                     "memory" => $memory,
                     "brandModel" => $brandModel,
+                    "illustrationImage" => $illustrationImage,
+                    "supportedRamType" => $supportedRamType,
                 ]);
 
             case "storage":
                 $storage = Storage::Find($id);
+                $illustrationImage = IllustrationImage::find($storage->illustration_image_id);
+
                 return view('product.storage', [
                     "storage" => $storage,
                     "brandModel" => $brandModel,
+                    "illustrationImage" => $illustrationImage,
                 ]);
 
             case "gpu":
                 $gpu = GPU::Find($id);
+                $illustrationImage = IllustrationImage::find($gpu->illustration_image_id);
 
                 return view('product.gpu', [
                     "gpu" => $gpu,
                     "brandModel" => $brandModel,
+                    "illustrationImage" => $illustrationImage,
                 ]);
 
             case "pccase":
                 $pcCase = PcCase::Find($id);
+                $illustrationImage = IllustrationImage::find($pcCase->illustration_image_id);
 
                 return view('product.pcCase', [
                     "pcCase" => $pcCase,
                     "brandModel" => $brandModel,
+                    "illustrationImage" => $illustrationImage,
                 ]);
 
             case "psu":
                 $psu = PSU::Find($id);
+                $illustrationImage = IllustrationImage::find($psu->illustration_image_id);
 
                 return view('product.psu', [
                     "psu" => $psu,
                     "brandModel" => $brandModel,
+                    "illustrationImage" => $illustrationImage,
                 ]);
 
             case "os":
                 $os = OS::Find($id);
+                $illustrationImage = IllustrationImage::find($os->illustration_image_id);
 
                 return view('product.os', [
                     "os" => $os,
                     "brandModel" => $brandModel,
+                    "illustrationImage" => $illustrationImage,
                 ]);
 
             case "monitor":
                 $monitor = Monitor::Find($id);
+                $illustrationImage = IllustrationImage::find($monitor->illustration_image_id);
 
                 return view('product.monitor', [
                     "monitor" => $monitor,
                     "brandModel" => $brandModel,
+                    "illustrationImage" => $illustrationImage,
                 ]);
 
         endswitch;

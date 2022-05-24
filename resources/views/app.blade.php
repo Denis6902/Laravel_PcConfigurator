@@ -6,8 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @if(\Illuminate\Support\Facades\Session::get('theme') == 'dark')
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@latest/dist/css/bootstrap-dark.min.css"/>
+        <link href="/bootstrap-night.min.css" rel="stylesheet">
     @else
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
@@ -20,9 +19,13 @@
     <title>PC Konfigurátor</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
-{{--TODO: dodělat jednu 1:N vazbu...--}}
-{{--TODO: dodělat validace, například ATX desku jde dát jenom do ATX skříňe...--}}
-{{--TODO: dodělat databazi, hlavne kvuli validacim...--}}
+{{--TODO: okomentovat CELÝ KOD...--}}
+{{--TODO: Přejmenovat classy z třeba cpuCooler na CpuCooler...--}}
+{{--TODO: upravit vzhled kodu...--}}
+{{--TODO: zkontrolovat zadaní ukolu, jestli vse splnuji...--}}
+{{--TODO: zkusit udělat strankovac...--}}
+{{--TODO: přenest scss to /resources/css...--}}
+{{--TODO: zkusit udelat kompresi img...--}}
 @php
     \Illuminate\Support\Facades\Session::put("currentRoute", \Illuminate\Support\Facades\Request::fullUrl())
 @endphp

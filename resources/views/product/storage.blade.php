@@ -18,9 +18,9 @@
         <div class="productInfo">
             <figure style="width: 35%;">
                 <img class="card-img-top"
-                     alt="{{\App\Models\IllustrationImage::find($storage->illustration_image_id)["alt"]}}"
+                     alt="{{$illustrationImage["alt"]}}"
                      style="display: block;"
-                     src="{{\App\Models\IllustrationImage::find($storage->illustration_image_id)["src"]}}"
+                     src="{{$illustrationImage["src"]}}"
                      data-holder-rendered="true">
                 <p class="text-center">Ilustrační foto</p>
             </figure>
