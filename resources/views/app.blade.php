@@ -20,12 +20,8 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 {{--TODO: okomentovat CELÝ KOD...--}}
-{{--TODO: Přejmenovat classy z třeba cpuCooler na CpuCooler...--}}
 {{--TODO: upravit vzhled kodu...--}}
-{{--TODO: zkontrolovat zadaní ukolu, jestli vse splnuji...--}}
 {{--TODO: zkusit udělat strankovac...--}}
-{{--TODO: přenest scss to /resources/css...--}}
-{{--TODO: zkusit udelat kompresi img...--}}
 @php
     \Illuminate\Support\Facades\Session::put("currentRoute", \Illuminate\Support\Facades\Request::fullUrl())
 @endphp

@@ -5,9 +5,9 @@ namespace App\View\Components;
 use App\Models\IllustrationImage;
 use Illuminate\View\Component;
 
-class cpuCoolerCard extends Component
+class PcCaseCard extends Component
 {
-    public $cpuCooler;
+    public $pcCase;
     public $illustrationImage;
 
     /**
@@ -15,10 +15,10 @@ class cpuCoolerCard extends Component
      *
      * @return void
      */
-    public function __construct($cpuCooler)
+    public function __construct($pcCase)
     {
-        $this->illustrationImage = IllustrationImage::find($cpuCooler->illustration_image_id);
-        $this->cpuCooler = $cpuCooler;
+        $this->illustrationImage = IllustrationImage::find($pcCase->illustration_image_id);
+        $this->pcCase = $pcCase;
     }
 
     /**
@@ -28,6 +28,6 @@ class cpuCoolerCard extends Component
      */
     public function render()
     {
-        return view('components.cpu-cooler-card');
+        return view('components.pc-case-card');
     }
 }

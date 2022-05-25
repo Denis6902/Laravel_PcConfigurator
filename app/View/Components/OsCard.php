@@ -5,9 +5,9 @@ namespace App\View\Components;
 use App\Models\IllustrationImage;
 use Illuminate\View\Component;
 
-class pcCaseCard extends Component
+class OsCard extends Component
 {
-    public $pcCase;
+    public $os;
     public $illustrationImage;
 
     /**
@@ -15,10 +15,10 @@ class pcCaseCard extends Component
      *
      * @return void
      */
-    public function __construct($pcCase)
+    public function __construct($os)
     {
-        $this->illustrationImage = IllustrationImage::find($pcCase->illustration_image_id);
-        $this->pcCase = $pcCase;
+        $this->illustrationImage = IllustrationImage::find($os->illustration_image_id);
+        $this->os = $os;
     }
 
     /**
@@ -28,6 +28,6 @@ class pcCaseCard extends Component
      */
     public function render()
     {
-        return view('components.pc-case-card');
+        return view('components.os-card');
     }
 }

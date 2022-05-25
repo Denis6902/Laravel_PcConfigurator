@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\IllustrationImage;
 use Illuminate\View\Component;
 
-class storageCard extends Component
+class StorageCard extends Component
 {
     public $storage;
     public $illustrationImage;

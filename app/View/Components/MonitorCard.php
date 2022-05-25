@@ -5,9 +5,9 @@ namespace App\View\Components;
 use App\Models\IllustrationImage;
 use Illuminate\View\Component;
 
-class osCard extends Component
+class MonitorCard extends Component
 {
-    public $os;
+    public $monitor;
     public $illustrationImage;
 
     /**
@@ -15,10 +15,10 @@ class osCard extends Component
      *
      * @return void
      */
-    public function __construct($os)
+    public function __construct($monitor)
     {
-        $this->illustrationImage = IllustrationImage::find($os->illustration_image_id);
-        $this->os = $os;
+        $this->illustrationImage = IllustrationImage::find($monitor->illustration_image_id);
+        $this->monitor = $monitor;
     }
 
     /**
@@ -28,6 +28,6 @@ class osCard extends Component
      */
     public function render()
     {
-        return view('components.os-card');
+        return view('components.monitor-card');
     }
 }

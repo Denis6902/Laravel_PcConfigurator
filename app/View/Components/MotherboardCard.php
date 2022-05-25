@@ -7,7 +7,7 @@ use App\Models\Socket;
 use App\Models\SupportedRamType;
 use Illuminate\View\Component;
 
-class motherboardCard extends Component
+class MotherboardCard extends Component
 {
     public $motherboard;
     public $illustrationImage;

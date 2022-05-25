@@ -247,7 +247,6 @@ class ProductController extends BaseController
         $product = $ProductModel1::find(Session::get($productName1));
 
         if (Session::get($productName1) != null) {
-
             switch ($productName1):
                 case "gpu":
                     return $ProductModel2::Where("wattage", ">=", $product["minimumWattage"])->get();
@@ -265,17 +264,19 @@ class ProductController extends BaseController
         $memory = Memory::find(Session::get("memory"));
         $motherboard = Motherboard::find(Session::get("motherboard"));
 
-        if (Session::get("memory") != null && Session::get("motherboard") != null) {
+        if (Session::get("memory") != null && Session::get("motherboard") != null) { // jestli je již vybraná základní deska i paměť
+            //, vratí CPU se správným socketem a podporou správného typu paměti
             return CPU::Where([
                 ["supported_ram_type_id", "=", $memory["supported_ram_type_id"]],
                 ["supported_ram_type_id", "=", $motherboard["supported_ram_type_id"]],
                 ["socket_id", "=", $motherboard["socket_id"]],
             ])->get();
-        } elseif (Session::get("memory") != null) {
+        } elseif (Session::get("memory") != null) { // jestli je již vybraná paměť, vratí CPU se správným typem paměti
             return CPU::Where([
                 ["supported_ram_type_id", "=", $memory["supported_ram_type_id"]],
             ])->get();
-        } elseif (Session::get("motherboard") != null) {
+        } elseif (Session::get("motherboard") != null) { // jestli je již vybraná základní deska
+            //, vratí CPU se správným socketem a podporou správného typu paměti
             return CPU::Where([
                 ["supported_ram_type_id", "=", $motherboard["supported_ram_type_id"]],
                 ["socket_id", "=", $motherboard["socket_id"]],
@@ -290,17 +291,20 @@ class ProductController extends BaseController
         $memory = Memory::find(Session::get("memory"));
         $cpu = CPU::find(Session::get("cpu"));
 
-        if (Session::get("memory") != null && Session::get("cpu") != null) {
+        if (Session::get("memory") != null && Session::get("cpu") != null) { // jestli je již vybraná paměť i CPU
+            //, vratí základní desky se správným socketem a podporou správného typu paměti
             return Motherboard::Where([
                 ["supported_ram_type_id", "=", $memory["supported_ram_type_id"]],
                 ["supported_ram_type_id", "=", $cpu["supported_ram_type_id"]],
                 ["socket_id", "=", $cpu["socket_id"]],
             ])->get();
-        } elseif (Session::get("memory") != null) {
+        } elseif (Session::get("memory") != null) { // jestli je již vybraná paměť
+            //, vratí základní desky se správnou podporou typu paměti
             return Motherboard::Where([
                 ["supported_ram_type_id", "=", $memory["supported_ram_type_id"]],
             ])->get();
-        } elseif (Session::get("cpu") != null) {
+        } elseif (Session::get("cpu") != null) { // jestli je již vybrané CPU
+            //, vratí základní desky se správným socketem a podporou správného typu paměti
             return Motherboard::Where([
                 ["supported_ram_type_id", "=", $cpu["supported_ram_type_id"]],
                 ["socket_id", "=", $cpu["socket_id"]],
@@ -316,31 +320,37 @@ class ProductController extends BaseController
         $cpu = CPU::find(Session::get("cpu"));
         $os = OS::find(Session::get("os"));
 
-        if (Session::get("motherboard") != null && Session::get("cpu") != null && Session::get("os") != null) {
+        if (Session::get("motherboard") != null && Session::get("cpu") != null && Session::get("os") != null) { // jestli je již vybraná základní deska i CPU i OS
+            //, vratí paměťi se správnou kapacitou a podporou správného typu paměti
             return Memory::Where([
                 ["supported_ram_type_id", "=", $motherboard["supported_ram_type_id"]],
                 ["supported_ram_type_id", "=", $cpu["supported_ram_type_id"]],
                 ["capacity", "<=", $os["maximumMemory"]],
             ])->get();
-        } elseif (Session::get("motherboard") != null && Session::get("os") != null) {
+        } elseif (Session::get("motherboard") != null && Session::get("os") != null) {  // jestli je již vybraná základní deska i OS
+            //, vratí paměťi se správnou kapacitou a podporou správného typu paměti
             return Memory::Where([
                 ["supported_ram_type_id", "=", $motherboard["supported_ram_type_id"]],
                 ["capacity", "<=", $os["maximumMemory"]],
             ])->get();
-        } elseif (Session::get("motherboard") != null) {
+        } elseif (Session::get("motherboard") != null) { // jestli je již vybraná základní deska
+            //, vratí paměťi s podporou správného typu paměti
             return Memory::Where([
                 ["supported_ram_type_id", "=", $motherboard["supported_ram_type_id"]],
             ])->get();
-        } elseif (Session::get("cpu") != null && Session::get("os") != null) {
+        } elseif (Session::get("cpu") != null && Session::get("os") != null) { // jestli je již vybrané CPU a OS
+            //, vratí paměťi s podporou správného typu paměti a se správnou kapacitou
             return Memory::Where([
                 ["supported_ram_type_id", "=", $cpu["supported_ram_type_id"]],
                 ["capacity", "<=", $os["maximumMemory"]],
             ])->get();
-        } elseif (Session::get("cpu") != null) {
+        } elseif (Session::get("cpu") != null) { // jestli je již vybrané CPU
+            //, vratí paměťi s podporou správného typu paměti
             return Memory::Where([
                 ["supported_ram_type_id", "=", $cpu["supported_ram_type_id"]],
             ])->get();
-        } elseif (Session::get("os") != null) {
+        } elseif (Session::get("os") != null) { // jestli je již vybraný OS
+            //, vratí paměťi se správnou kapacitou
             return Memory::Where([
                 ["capacity", "<=", $os["maximumMemory"]],
             ])->get();

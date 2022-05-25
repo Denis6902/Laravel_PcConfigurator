@@ -3,22 +3,26 @@
 namespace App\View\Components;
 
 use App\Models\IllustrationImage;
+use App\Models\SupportedRamType;
 use Illuminate\View\Component;
 
-class gpuCard extends Component
+class MemoryCard extends Component
 {
-    public $gpu;
+    public $memory;
     public $illustrationImage;
+    public $supportedRamType;
+
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($gpu)
+    public function __construct($memory)
     {
-        $this->illustrationImage = IllustrationImage::find($gpu->illustration_image_id);
-        $this->gpu = $gpu;
+        $this->illustrationImage = IllustrationImage::find($memory->illustration_image_id);
+        $this->supportedRamType = SupportedRamType::find($memory->supported_ram_type_id);
+        $this->memory = $memory;
     }
 
     /**
@@ -28,6 +32,6 @@ class gpuCard extends Component
      */
     public function render()
     {
-        return view('components.gpu-card');
+        return view('components.memory-card');
     }
 }

@@ -5,9 +5,9 @@ namespace App\View\Components;
 use App\Models\IllustrationImage;
 use Illuminate\View\Component;
 
-class psuCard extends Component
+class GpuCard extends Component
 {
-    public $psu;
+    public $gpu;
     public $illustrationImage;
 
     /**
@@ -15,10 +15,10 @@ class psuCard extends Component
      *
      * @return void
      */
-    public function __construct($psu)
+    public function __construct($gpu)
     {
-        $this->illustrationImage = IllustrationImage::find($psu->illustration_image_id);
-        $this->psu = $psu;
+        $this->illustrationImage = IllustrationImage::find($gpu->illustration_image_id);
+        $this->gpu = $gpu;
     }
 
     /**
@@ -28,6 +28,6 @@ class psuCard extends Component
      */
     public function render()
     {
-        return view('components.psu-card');
+        return view('components.gpu-card');
     }
 }
