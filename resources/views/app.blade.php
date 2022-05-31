@@ -20,8 +20,6 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 {{--TODO: okomentovat CELÝ KOD...--}}
-{{--TODO: upravit vzhled kodu...--}}
-{{--TODO: zkusit udělat strankovac...--}}
 @php
     \Illuminate\Support\Facades\Session::put("currentRoute", \Illuminate\Support\Facades\Request::fullUrl())
 @endphp

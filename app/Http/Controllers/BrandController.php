@@ -13,13 +13,13 @@ use App\Models\OS;
 use App\Models\PcCase;
 use App\Models\PSU;
 use App\Models\Storage;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Routing\Controller as BaseController;
 
 class BrandController extends BaseController
 {
     function read($id)
     {
+        // uloží do jednotlivých proměnných jednotlivé produkty, jaké mají dané brand_id
         $brand = Brand::Find($id);
         $allThisBrandCpu = CPU::where('brand_id', $id)->get();
         $allThisBrandCpuCooler = CpuCooler::where('brand_id', $id)->get();
@@ -31,20 +31,6 @@ class BrandController extends BaseController
         $allThisBrandPcCase = PcCase::where('brand_id', $id)->get();
         $allThisBrandPsu = PSU::where('brand_id', $id)->get();
         $allThisBrandStorage = Storage::where('brand_id', $id)->get();
-        // TODO: zkusit merge tabulek
-        // TODO: dodělat stránkovač
-
-        $allComponents = new Collection;
-        $allComponents = $allComponents->merge($allThisBrandCpu);
-        $allComponents = $allComponents->merge($allThisBrandCpuCooler);
-        $allComponents = $allComponents->merge($allThisBrandGpu);
-        $allComponents = $allComponents->merge($allThisBrandMemory);
-        $allComponents = $allComponents->merge($allThisBrandMonitor);
-        $allComponents = $allComponents->merge($allThisBrandMotherboard);
-        $allComponents = $allComponents->merge($allThisBrandOs);
-        $allComponents = $allComponents->merge($allThisBrandPcCase);
-        $allComponents = $allComponents->merge($allThisBrandPsu);
-        $allComponents = $allComponents->merge($allThisBrandStorage);
 
         return view('pcConfigurator.brand', [
             "brand" => $brand,
@@ -58,7 +44,6 @@ class BrandController extends BaseController
             "allThisBrandPcCase" => $allThisBrandPcCase,
             "allThisBrandPsu" => $allThisBrandPsu,
             "allThisBrandStorage" => $allThisBrandStorage,
-            "allComponents" => $allComponents,
         ]);
     }
 }

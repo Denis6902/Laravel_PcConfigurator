@@ -111,12 +111,13 @@ class PcConfiguratorController extends BaseController
     {
         $currentRoute = Session::get("currentRoute");
 
-        if (Session::get('theme') == null) {
-            $theme = 'white';
-        } elseif (Session::get('theme') == 'dark') {
-            $theme = 'white';
-        } elseif (Session::get('theme') == 'white') {
-            $theme = 'dark';
+        $theme = 'white'; // nastaví téma na white
+
+        // pokud je v Session ulozené téma dark
+        if (Session::get('theme') == 'dark') {
+            $theme = 'white'; // nastaví téma na white
+        } elseif (Session::get('theme') == 'white') { // pokud je v Session ulozené téma white
+            $theme = 'dark'; // nastaví téma na dark
         }
 
         return view('pcConfigurator.switchTheme', [

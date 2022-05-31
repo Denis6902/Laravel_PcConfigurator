@@ -47,7 +47,6 @@
                 </div>
                 <p class="card-text"> Značka:
                     <a class="card-text"
-                       {{--TODO: předmět z $brandModel::Find($cpu->brand_id)["id"]) na brand["id"])--}}
                        href="{{route('brand' ,$brandModel::Find($cpu->brand_id)["id"])}}">{{$brandModel::Find($cpu->brand_id)["name"]}}
                     </a>
                 <p class="card-text">Kód značky: {{$brandModel::Find($cpu->brand_id)["id"]}}</p>

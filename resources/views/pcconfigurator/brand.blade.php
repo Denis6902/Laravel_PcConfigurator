@@ -19,49 +19,65 @@
         <div class="album py-5">
             <div class="container">
                 <div class="row">
-                    @foreach($allThisBrandCpu as $cpu)
-                        <x-cpu-card :cpu="$cpu"></x-cpu-card>
-                    @endforeach
+                    @if($allThisBrandCpu != null)
+                        @foreach($allThisBrandCpu as $cpu)
+                            <x-cpu-card :cpu="$cpu"></x-cpu-card>
+                        @endforeach
+                    @endif
 
-                    @foreach($allThisBrandCpuCooler as $cpuCooler)
-                        <x-cpu-cooler-card :cpuCooler="$cpuCooler"></x-cpu-cooler-card>
-                    @endforeach
+                    @if($allThisBrandCpuCooler != null)
+                        @foreach($allThisBrandCpuCooler as $cpuCooler)
+                            <x-cpu-cooler-card :cpuCooler="$cpuCooler"></x-cpu-cooler-card>
+                        @endforeach
+                    @endif
 
-                    @foreach($allThisBrandGpu as $gpu)
-                        <x-gpu-card :gpu="$gpu"></x-gpu-card>
-                    @endforeach
+                    @if($allThisBrandGpu != null)
+                        @foreach($allThisBrandGpu as $gpu)
+                            <x-gpu-card :gpu="$gpu"></x-gpu-card>
+                        @endforeach
+                    @endif
 
-                    @foreach($allThisBrandMemory as $memory)
-                        <x-memory-card :memory="$memory"></x-memory-card>
-                    @endforeach
+                    @if($allThisBrandMemory != null)
+                        @foreach($allThisBrandMemory as $memory)
+                            <x-memory-card :memory="$memory"></x-memory-card>
+                        @endforeach
+                    @endif
 
-                    @foreach($allThisBrandMonitor as $monitor)
-                        <x-monitor-card :monitor="$monitor"></x-monitor-card>
-                    @endforeach
+                    @if($allThisBrandMonitor != null)
+                        @foreach($allThisBrandMonitor as $monitor)
+                            <x-monitor-card :monitor="$monitor"></x-monitor-card>
+                        @endforeach
+                    @endif
 
-                    @foreach($allThisBrandMotherboard as $motherboard)
-                        <x-motherboard-card :motherboard="$motherboard"></x-motherboard-card>
-                    @endforeach
+                    @if($allThisBrandMotherboard != null)
+                        @foreach($allThisBrandMotherboard as $motherboard)
+                            <x-motherboard-card :motherboard="$motherboard"></x-motherboard-card>
+                        @endforeach
+                    @endif
 
-                    @foreach($allThisBrandOs as $os)
-                        <x-os-card :os="$os"></x-os-card>
-                    @endforeach
+                    @if($allThisBrandOs != null)
+                        @foreach($allThisBrandOs as $os)
+                            <x-os-card :os="$os"></x-os-card>
+                        @endforeach
+                    @endif
 
-                    @foreach($allThisBrandPcCase as $pcCase)
-                        <x-pc-case-card :pcCase="$pcCase"></x-pc-case-card>
-                    @endforeach
+                    @if($allThisBrandPcCase != null)
+                        @foreach($allThisBrandPcCase as $pcCase)
+                            <x-pc-case-card :pcCase="$pcCase"></x-pc-case-card>
+                        @endforeach
+                    @endif
 
-                    @foreach($allThisBrandPsu as $psu)
-                        <x-psu-card :psu="$psu"></x-psu-card>
-                    @endforeach
+                    @if($allThisBrandPsu != null)
+                        @foreach($allThisBrandPsu as $psu)
+                            <x-psu-card :psu="$psu"></x-psu-card>
+                        @endforeach
+                    @endif
 
-                    @foreach($allThisBrandStorage as $storage)
-                        <x-storage-card :storage="$storage"></x-storage-card>
-                    @endforeach
-
-                    @php
-                        print_r(json_encode($allComponents));
-                    @endphp
+                    @if($allThisBrandStorage != null)
+                        @foreach($allThisBrandStorage as $storage)
+                            <x-storage-card :storage="$storage"></x-storage-card>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>

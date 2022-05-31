@@ -228,9 +228,12 @@ class ProductController extends BaseController
 
     function create($product, $id)
     {
+        $brandModel = 'App\Models\Brand';
+
         return view('pcConfigurator.addProduct', [
+            "id" => $id,
             "product" => $product,
-            "id" => $id
+            "brandModel" => $brandModel
         ]);
     }
 

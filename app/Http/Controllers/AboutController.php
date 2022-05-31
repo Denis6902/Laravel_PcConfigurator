@@ -8,7 +8,6 @@ class AboutController extends BaseController
 {
     function read()
     {
-        return view('about.index', [
-        ]);
+        return view('about.index');
     }
 }
