@@ -22,7 +22,7 @@ class MotherboardCard extends Component
     public function __construct($motherboard)
     {
         $this->illustrationImage = IllustrationImage::find($motherboard->illustration_image_id);
-        $this->socket = Socket::find($motherboard->supported_ram_type_id);
+        $this->socket = Socket::find($motherboard->socket_id);
         $this->supportedRamType = SupportedRamType::find($motherboard->supported_ram_type_id);
         $this->motherboard = $motherboard;
     }
