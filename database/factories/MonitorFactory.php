@@ -19,7 +19,8 @@ class MonitorFactory extends Factory
         $resolution = ['1920 x 1080', '3840 x 2160', '5120 x 1440', '2560 x 1440'];
         $refresh_rate = ['60', '120', '144', '165', '240'];
         $panel_type = ['IPS', 'TN', 'VA'];
-        $name = substr($this->faker->sentence(3), 0, -1);
+        $name = $this->faker->sentence(2);
+        $name = str_replace('.', '', $name);
 
 
         return [

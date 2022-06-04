@@ -23,7 +23,8 @@ class OsFactory extends Factory
         $mode = $this->faker->randomElement($modeList);
         $version = $this->faker->randomElement($versionList);
         $edition = $this->faker->randomElement($editionList);
-        $name = substr($this->faker->sentence(3), 0, -1);
+        $name = $this->faker->sentence(2);
+        $name = str_replace('.', '', $name);
 
 
         if ($mode == "32-bit") {

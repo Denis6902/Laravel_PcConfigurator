@@ -20,7 +20,8 @@ class CpuFactory extends Factory
         $cores = ['4', '6', '8', '12', '16'];
         $clock = ['3.7', '2.5', '3.6', '2.6', '4.1'];
         $supportedRamType = [1, 2];
-        $name = substr($this->faker->sentence(3), 0, -1);
+        $name = $this->faker->sentence(2);
+        $name = str_replace('.', '', $name);
 
         return [
             'name' => $name,

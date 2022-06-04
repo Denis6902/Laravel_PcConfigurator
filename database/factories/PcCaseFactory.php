@@ -18,7 +18,8 @@ class PcCaseFactory extends Factory
     {
         $type = ['ATX Mid Tower', 'MicroATX Mini Tower', 'Mini ITX Desktop'];
         $color = ['Černá', 'Bílá'];
-        $name = substr($this->faker->sentence(3), 0, -1);
+        $name = $this->faker->sentence(2);
+        $name = str_replace('.', '', $name);
 
         return [
             'name' => $name,

@@ -20,8 +20,8 @@ class PsuFactory extends Factory
         $type = ['Gold', 'Platinum', 'Bronze'];
         $wattage = ['500', '550', '650', '750'];
         $modular = ['Plně', 'Semi', 'Není'];
-        $name = substr($this->faker->sentence(2), 0, -1);
-
+        $name = $this->faker->sentence(2);
+        $name = str_replace('.', '', $name);
 
         return [
             'name' => $name,

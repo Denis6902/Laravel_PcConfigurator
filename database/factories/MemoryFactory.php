@@ -25,8 +25,8 @@ class MemoryFactory extends Factory
         $capacity = ['4', '8', '16', '32', '64'];
         $color = ['Černá', 'Bílá'];
         $type = $this->faker->randomElement($typeList);
-        $name = substr($this->faker->sentence(3), 0, -1);
-
+        $name = $this->faker->sentence(2);
+        $name = str_replace('.', '', $name);
 
         if ($type == 1) {
             $speed = $this->faker->randomElement($speedDDR4);

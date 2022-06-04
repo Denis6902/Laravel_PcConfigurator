@@ -20,7 +20,8 @@ class MotherboardFactory extends Factory
         $maximumMemory = ['64', '128'];
         $memorySlots = ['2', '4'];
         $color = ['Černá', 'Bílá'];
-        $name = substr($this->faker->sentence(3), 0, -1);
+        $name = $this->faker->sentence(2);
+        $name = str_replace('.', '', $name);
         $supported_ram_type = [1, 2];
 
 

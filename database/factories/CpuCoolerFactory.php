@@ -20,6 +20,8 @@ class CpuCoolerFactory extends Factory
         $fan_rpm = ['500 - 1800', '500 - 1500', '900 - 1800', '500 -  2000', '1800'];
         $noise_level = ['22.5', '14 - 25', '28', '4 - 25', '25', '15 - 38'];
         $aio = $this->faker->boolean();
+        $name = $this->faker->sentence(2);
+        $name = str_replace('.', '', $name);
 
         if ($aio == null) {
             $radiator_size = ['240', '280', '360', '120', '140'];
@@ -31,7 +33,7 @@ class CpuCoolerFactory extends Factory
 
 
         return [
-            'name' => $this->faker->sentence(3),
+            'name' => $name,
             'brand_id' => $this->faker->numberBetween(1, 10),
             'fan_rpm' => $this->faker->randomElement($fan_rpm),
             'noise_level' => $this->faker->randomElement($noise_level),

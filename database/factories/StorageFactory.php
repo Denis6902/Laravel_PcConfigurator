@@ -18,7 +18,8 @@ class StorageFactory extends Factory
     {
         $capacity = ['128', '256', '512', '1024', '2048'];
         $type = ['SSD', 'HDD'];
-        $name = substr($this->faker->sentence(3), 0, -1);
+        $name = $this->faker->sentence(2);
+        $name = str_replace('.', '', $name);
 
         if ('type' == 'HDD') {
             $interface = 'SATA';

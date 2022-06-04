@@ -17,7 +17,8 @@ class BrandFactory extends Factory
     public function definition()
     {
         $headquarters = ['USA', 'EU', 'Asia'];
-        $name = substr($this->faker->sentence(1), 0, -1);
+        $name = $this->faker->sentence(2);
+        $name = str_replace('.', '', $name);
 
 
         return [

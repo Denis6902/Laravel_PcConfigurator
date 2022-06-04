@@ -83,15 +83,11 @@ class PcConfiguratorController extends BaseController
             $totalPrice += $thisMonitor["price"];
         }
 
-        $count = count(session()->all());
-        $isempty = ($count - 5 == 0) || $count == 1;
-
         if (Session::get('theme') == null) {
             Session::put('theme', 'white');
         }
 
         return view('pcconfigurator.index', [
-            "isEmpty" => $isempty,
             "totalPrice" => $totalPrice,
             "thisCpu" => $thisCpu,
             "thisCpuCooler" => $thisCpuCooler,
@@ -114,9 +110,7 @@ class PcConfiguratorController extends BaseController
         $theme = 'white'; // nastaví téma na white
 
         // pokud je v Session ulozené téma dark
-        if (Session::get('theme') == 'dark') {
-            $theme = 'white'; // nastaví téma na white
-        } elseif (Session::get('theme') == 'white') { // pokud je v Session ulozené téma white
+        if (Session::get('theme') == 'white') { // pokud je v Session ulozené téma white
             $theme = 'dark'; // nastaví téma na dark
         }
 

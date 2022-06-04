@@ -20,8 +20,10 @@ class GpuFactory extends Factory
         $memory = ['4', '8', '6', '12', '24'];
         $recommendedWattage = ['500', '600', '700'];
         $core_clock = $this->faker->numberBetween(1300, 1600);
-        $name = rtrim($this->faker->sentence(2), '.');
-        $chipset = rtrim($this->faker->sentence(2), '.');
+        $name = $this->faker->sentence(2);
+        $name = str_replace('.', '', $name);
+        $chipset = $this->faker->sentence(2);
+        $chipset = str_replace('.', '', $chipset);
 
         return [
             'name' => $name,

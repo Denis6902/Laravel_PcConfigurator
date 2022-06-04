@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string("name");
             $table->string("headquarters");
-            $table->integer("founded_in");
+            $table->year("founded_in");
             $table->text("info");
             $table->timestamps();
         });
