@@ -5,11 +5,11 @@
                 <li class="nav-item"><a href="{{ route('pcConfigurator') }}" class="nav-link px-2 text-muted">Konfigurátor</a>
                 </li>
                 <li class="nav-item"><a href="{{ route('about') }}" class="nav-link px-2 text-muted">O webu / Zadaní
-                        úkolu</a></li>
-                <li class="nav-item {{ \Illuminate\Support\Facades\Session::get('theme') == 'white' ? 'hidden' : '' }}">
-                    <a href="{{ route('switchTheme') }}" class="nav-link text-muted">Přepnout na světlý režím</a></li>
-                <li class="nav-item {{ \Illuminate\Support\Facades\Session::get('theme') == 'dark' ? 'hidden' : '' }}">
-                    <a href="{{ route('switchTheme') }}" class="nav-link text-muted">Přepnout na tmavý režím</a></li>
+                        úkolu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 text-muted" id="darkmode-button-footer-id">Změnit režim</a>
+                </li>
             </ul>
             <p class="text-center text-muted">© 2022 Denis Baťa</p>
         </footer>
