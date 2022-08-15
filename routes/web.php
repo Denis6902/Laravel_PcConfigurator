@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [PcConfiguratorController::class, 'read'])->name('pcConfigurator');
-Route::get('switchTheme', [PcConfiguratorController::class, 'updateTheme'])->name('switchTheme');
 Route::get('about', [AboutController::class, 'read'])->name('about');
 Route::get('addProduct/{product}/{id}', [ProductController::class, 'create'])->name('addProduct');
 Route::get('deleteProduct/{product}', [ProductController::class, 'delete'])->name('deleteProduct');
