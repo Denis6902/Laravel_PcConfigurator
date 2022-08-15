@@ -20,7 +20,6 @@ class PcConfiguratorController extends BaseController
         $os = Session::get('os');
         $monitor = Session::get('monitor');
         $brandModel = 'App\Models\Brand';
-        $totalPrice = 0;
 
         $thisCpu = null;
         $thisCpuCooler = null;
@@ -35,57 +34,46 @@ class PcConfiguratorController extends BaseController
 
         if ($cpu != null) {
             $thisCpu = \App\Models\CPU::Find($cpu);
-            $totalPrice += $thisCpu["price"];
         }
 
         if ($cpuCooler != null) {
             $thisCpuCooler = \App\Models\CpuCooler::Find($cpuCooler);
-            $totalPrice += $thisCpuCooler["price"];
         }
 
         if ($motherboard != null) {
             $thisMotherboard = \App\Models\Motherboard::Find($motherboard);
-            $totalPrice += $thisMotherboard["price"];
         }
 
         if ($memory != null) {
             $thisMemory = \App\Models\Memory::Find($memory);
-            $totalPrice += $thisMemory["price"];
         }
 
         if ($storage != null) {
             $thisStorage = \App\Models\Storage::Find($storage);
-            $totalPrice += $thisStorage["price"];
         }
 
         if ($gpu != null) {
             $thisGpu = \App\Models\GPU::Find($gpu);
-            $totalPrice += $thisGpu["price"];
         }
 
         if ($pcCase != null) {
             $thisPcCase = \App\Models\PcCase::Find($pcCase);
-            $totalPrice += $thisPcCase["price"];
         }
 
         if ($psu != null) {
             $thisPsu = \App\Models\PSU::Find($psu);
-            $totalPrice += $thisPsu["price"];
         }
 
         if ($os != null) {
             $thisOs = \App\Models\OS::Find($os);
-            $totalPrice += $thisOs["price"];
         }
 
         if ($monitor != null) {
             $thisMonitor = \App\Models\Monitor::Find($monitor);
-            $totalPrice += $thisMonitor["price"];
         }
 
 
         return view('pcconfigurator.index', [
-            "totalPrice" => $totalPrice,
             "thisCpu" => $thisCpu,
             "thisCpuCooler" => $thisCpuCooler,
             "thisMotherboard" => $thisMotherboard,
