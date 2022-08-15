@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\PcConfiguratorController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PcConfiguratorController::class, 'read'])->name('pcConfigurator');
 Route::get('about', [AboutController::class, 'read'])->name('about');
+Route::get('cart', [CartController::class, 'read'])->name('cart');
 Route::get('addProduct/{product}/{id}', [ProductController::class, 'create'])->name('addProduct');
 Route::get('deleteProduct/{product}', [ProductController::class, 'delete'])->name('deleteProduct');
 Route::get('brand/{id}', [BrandController::class, 'read'])->name('brand');
