@@ -5,6 +5,11 @@ body {
 header .hidden, footer .hidden {
   display: none;
 }
+header .cart-body, footer .cart-body {
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+}
 
 .bigStar {
   width: 5%;
@@ -43,6 +48,15 @@ h2 {
 
 #darkmode-button-header-id:hover, #darkmode-button-footer-id:hover {
   cursor: pointer;
+}
+
+.cart-things .cart-body {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=main.css.map */
