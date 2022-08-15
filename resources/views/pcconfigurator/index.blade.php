@@ -2,10 +2,6 @@
 
 @section("content")
     @include("header")
-    @if($totalPrice != 0)
-        <h1>Celková cena: {{ $totalPrice}} Kč</h1>
-    @endif
-
     <div class="album py-5">
         <div class="container">
             <div class="row">
