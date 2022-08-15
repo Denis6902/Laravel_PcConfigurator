@@ -102,21 +102,4 @@ class PcConfiguratorController extends BaseController
             "brandModel" => $brandModel,
         ]);
     }
-
-    function updateTheme()
-    {
-        $currentRoute = Session::get("currentRoute");
-
-        $theme = 'white'; // nastaví téma na white
-
-        // pokud je v Session ulozené téma dark
-        if (Session::get('theme') == 'white') { // pokud je v Session ulozené téma white
-            $theme = 'dark'; // nastaví téma na dark
-        }
-
-        return view('pcConfigurator.switchTheme', [
-            "theme" => $theme,
-            "currentRoute" => $currentRoute
-        ]);
-    }
 }
