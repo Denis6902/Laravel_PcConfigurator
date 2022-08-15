@@ -11,6 +11,14 @@
                 <li class="nav-item">
                     <a class="nav-link" id="darkmode-button-header-id">Změnit režim</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('cart')}}" class="nav-link cart-body">
+                        <img class="cart" src="/./img/cart.svg" alt="Cart">
+                        @if(Session::has('totalPrice'))
+                            <p class="nav-item">{{ \Illuminate\Support\Facades\Session::get('totalPrice')}}&nbsp;Kč</p>
+                        @endif
+                    </a>
+                </li>
             </ul>
         </header>
     </div>
