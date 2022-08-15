@@ -15,4 +15,14 @@
 {{--TODO: okomentovat CELÝ KOD...--}}
 @yield("content")
 </body>
+
+<script>
+    document.querySelector("#darkmode-button-header-id").onclick = function(e){
+        darkmode.toggleDarkMode();
+    }
+
+    document.querySelector("#darkmode-button-footer-id").onclick = function(e){
+        darkmode.toggleDarkMode();
+    }
+</script>
 </html>
