@@ -83,9 +83,6 @@ class PcConfiguratorController extends BaseController
             $totalPrice += $thisMonitor["price"];
         }
 
-        if (Session::get('theme') == null) {
-            Session::put('theme', 'white');
-        }
 
         return view('pcconfigurator.index', [
             "totalPrice" => $totalPrice,
