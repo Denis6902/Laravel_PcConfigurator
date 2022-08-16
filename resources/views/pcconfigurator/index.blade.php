@@ -18,7 +18,8 @@
                                 <div
                                     class="text-muted">
                                     <a class="btn btn-sm btn-outline-primary"
-                                       href="{{ route('products', 'cpu') }}">Vybrat CPU</a>
+                                       href="{{ route('products',['product' => 'cpu', 'checkCompability' => 'true']) }}">Vybrat
+                                        CPU</a>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +63,8 @@
                                 <div
                                     class="text-muted">
                                     <a class="btn btn-sm btn-outline-primary"
-                                       href="{{ route('products', 'motherboard') }}">Vybrat základní desku</a>
+                                       href="{{ route('products', ['product' => 'motherboard', 'checkCompability' => 'true']) }}">Vybrat
+                                        základní desku</a>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +86,7 @@
                                 <div
                                     class="text-muted">
                                     <a class="btn btn-sm btn-outline-primary"
-                                       href="{{ route('products', 'memory') }}">Vybrat paměť</a>
+                                       href="{{ route('products', ['product' => 'memory', 'checkCompability' => 'true']) }}">Vybrat paměť</a>
                                 </div>
                             </div>
                         </div>
