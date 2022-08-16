@@ -5,6 +5,12 @@
                 <li class="nav-item"><a href="{{ route('pcConfigurator') }}"
                                         class="nav-link {{ Route::is('pcConfigurator') ? 'active' : '' }}
                                             " aria-current="page">Konfigurátor</a></li>
+                <li class="nav-item">
+                    <a href="{{route('productTypes')}}"
+                       class="nav-link {{ Route::is('productTypes') ? 'active' : '' }}">
+                        Produkty
+                    </a>
+                </li>
                 <li class="nav-item"><a href="{{ route('about') }}"
                                         class="nav-link {{ Route::is('about') ? 'active' : '' }}">O webu / Zadaní
                         úkolu</a></li>
