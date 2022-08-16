@@ -10,4 +10,10 @@ class OS extends Model
     use HasFactory;
 
     protected $table = "os";
+    protected $appends = ['tableName'];
+
+    public function getTableNameAttribute()
+    {
+        return $this->table; //or however you want to manipulate it
+    }
 }
