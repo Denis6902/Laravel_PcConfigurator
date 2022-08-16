@@ -19,13 +19,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// home
 Route::get('/', [PcConfiguratorController::class, 'read'])->name('pcConfigurator');
+
+// about
+Route::get('old/about', [AboutController::class, 'oldRead'])->name('oldAbout');
 Route::get('about', [AboutController::class, 'read'])->name('about');
+
+// cart
 Route::get('cart', [CartController::class, 'read'])->name('cart');
-Route::get('addProduct/{product}/{id}', [ProductController::class, 'create'])->name('addProduct');
-Route::get('deleteProduct/{product}', [ProductController::class, 'delete'])->name('deleteProduct');
+
+// brand
 Route::get('brand/{id}', [BrandController::class, 'read'])->name('brand');
+
+
+Route::get('products', [ProductController::class, 'readProductTypes'])->name('productTypes');
 Route::get('products/{product}', [ProductController::class, 'readProducts'])->name('products');
 Route::get('product/{product}/{id}', [ProductController::class, 'readProduct'])->name('product');
 
+// Delete and Add
+Route::get('addProduct/{product}/{id}', [ProductController::class, 'create'])->name('addProduct');
+Route::get('deleteProduct/{product}', [ProductController::class, 'delete'])->name('deleteProduct');
