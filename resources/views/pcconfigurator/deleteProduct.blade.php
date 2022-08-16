@@ -5,7 +5,7 @@
     {{\Illuminate\Support\Facades\Session::forget($product)}}
 
     <script type="text/javascript">
-        window.location.href = "{{ route('pcConfigurator')}}";
+        window.location.href = "{{ route('cart')}}";
     </script>
     @include("footer")
 @endsection
