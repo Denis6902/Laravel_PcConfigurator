@@ -10,4 +10,8 @@ class AboutController extends BaseController
     {
         return view('about.index');
     }
+
+    function oldRead(){
+        return view('about.old');
+    }
 }
