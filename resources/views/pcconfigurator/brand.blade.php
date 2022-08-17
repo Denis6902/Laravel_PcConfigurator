@@ -2,85 +2,66 @@
 
 @section("content")
     @include("header")
-    @if($brand == null)
-        <script type="text/javascript">
-            window.location = '/';
-        </script>
-    @else
-        <h1>{{$brand->name}}</h1>
-        <p>Značka {{$brand->name}} pochází z {{$brand->headquarters}}</p>
-        <p>Byla založena v roce {{$brand->founded_in}}</p>
+    <h1>{{$brand->name}}</h1>
+    <p>Značka {{$brand->name}} pochází z {{$brand->headquarters}}</p>
+    <p>Byla založena v roce {{$brand->founded_in}}</p>
 
-        <h2>O značce</h2>
-        <p>{{$brand->info}}</p>
+    <h2>O značce</h2>
+    <p>{{$brand->info}}</p>
 
-        <h2>Produkty dané značky</h2>
+    <h2>Produkty dané značky</h2>
 
-        <div class="album py-5">
-            <div class="container">
-                <div class="row">
-                    @if($allThisBrandCpu != null)
-                        @foreach($allThisBrandCpu as $cpu)
-                            <x-cpu-card :cpu="$cpu"></x-cpu-card>
-                        @endforeach
-                    @endif
+    @include('pcconfigurator.paginator')
 
-                    @if($allThisBrandCpuCooler != null)
-                        @foreach($allThisBrandCpuCooler as $cpuCooler)
-                            <x-cpu-cooler-card :cpuCooler="$cpuCooler"></x-cpu-cooler-card>
-                        @endforeach
-                    @endif
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                @foreach($products as $product)
+                    @switch($product->tableName)
+                        @case("cpu")
+                            <x-cpu-card :cpu="$product"></x-cpu-card>
+                            @break
 
-                    @if($allThisBrandGpu != null)
-                        @foreach($allThisBrandGpu as $gpu)
-                            <x-gpu-card :gpu="$gpu"></x-gpu-card>
-                        @endforeach
-                    @endif
+                        @case("cpucooler")
+                            <x-cpu-cooler-card :cpuCooler="$product"></x-cpu-cooler-card>
+                            @break
 
-                    @if($allThisBrandMemory != null)
-                        @foreach($allThisBrandMemory as $memory)
-                            <x-memory-card :memory="$memory"></x-memory-card>
-                        @endforeach
-                    @endif
+                        @case("gpu")
+                            <x-gpu-card :gpu="$product"></x-gpu-card>
+                            @break
 
-                    @if($allThisBrandMonitor != null)
-                        @foreach($allThisBrandMonitor as $monitor)
-                            <x-monitor-card :monitor="$monitor"></x-monitor-card>
-                        @endforeach
-                    @endif
+                        @case("memory")
+                            <x-memory-card :memory="$product"></x-memory-card>
+                            @break
 
-                    @if($allThisBrandMotherboard != null)
-                        @foreach($allThisBrandMotherboard as $motherboard)
-                            <x-motherboard-card :motherboard="$motherboard"></x-motherboard-card>
-                        @endforeach
-                    @endif
+                        @case("monitor")
+                            <x-monitor-card :monitor="$product"></x-monitor-card>
+                            @break
 
-                    @if($allThisBrandOs != null)
-                        @foreach($allThisBrandOs as $os)
-                            <x-os-card :os="$os"></x-os-card>
-                        @endforeach
-                    @endif
+                        @case("motherboard")
+                            <x-motherboard-card :motherboard="$product"></x-motherboard-card>
+                            @break
 
-                    @if($allThisBrandPcCase != null)
-                        @foreach($allThisBrandPcCase as $pcCase)
-                            <x-pc-case-card :pcCase="$pcCase"></x-pc-case-card>
-                        @endforeach
-                    @endif
+                        @case("os")
+                            <x-os-card :os="$product"></x-os-card>
+                            @break
 
-                    @if($allThisBrandPsu != null)
-                        @foreach($allThisBrandPsu as $psu)
-                            <x-psu-card :psu="$psu"></x-psu-card>
-                        @endforeach
-                    @endif
+                        @case("pccase")
+                            <x-pc-case-card :pcCase="$product"></x-pc-case-card>
+                            @break
 
-                    @if($allThisBrandStorage != null)
-                        @foreach($allThisBrandStorage as $storage)
-                            <x-storage-card :storage="$storage"></x-storage-card>
-                        @endforeach
-                    @endif
-                </div>
+                        @case("psu")
+                            <x-psu-card :psu="$product"></x-psu-card>
+                            @break
+
+                        @case("storage")
+                            <x-storage-card :storage="$product"></x-storage-card>
+                            @break
+                    @endswitch
+                @endforeach
             </div>
         </div>
-    @endif
+    </div>
+
     @include("footer")
 @endsection
