@@ -11,9 +11,17 @@
                         Produkty
                     </a>
                 </li>
-                <li class="nav-item"><a href="{{ route('about') }}"
-                                        class="nav-link {{ Route::is('about') ? 'active' : '' }}">O webu / Zadaní
-                        úkolu</a></li>
+                <li class="nav-item">
+                    <a href="{{route('brands')}}"
+                       class="nav-link {{ Route::is('brands') ? 'active' : '' }}">
+                        Značky
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('about') }}"
+                    class="nav-link {{ Route::is('about') ? 'active' : '' }}">
+                        O webu / Zadaní úkolu</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" id="darkmode-button-header-id">Změnit režim</a>
                 </li>
