@@ -13,7 +13,6 @@ use App\Models\OS;
 use App\Models\PcCase;
 use App\Models\PSU;
 use App\Models\Storage;
-use Database\Factories\SocketFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -27,36 +26,49 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Brand::factory(10)->create();
-        DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['AM4', Carbon::now(), Carbon::now()]);
-        DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['LGA-1700', Carbon::now(), Carbon::now()]);
-        DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['LGA-1200', Carbon::now(), Carbon::now()]);
-        DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['LGA-1151', Carbon::now(), Carbon::now()]);
+        $brandCount = 10;
+        $productCount = 25;
 
-        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/cpu.jpg', "CPU", Carbon::now(), Carbon::now()]);
-        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/cpucooler.jpg', "CPU Cooler", Carbon::now(), Carbon::now()]);
-        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/aiocpucooler.jpg', "AiO CPU Cooler", Carbon::now(), Carbon::now()]);
-        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/motherboard.jpg', "Motherboard", Carbon::now(), Carbon::now()]);
-        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/memory.jpg', "Memory", Carbon::now(), Carbon::now()]);
-        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/storage.jpg', "Storage", Carbon::now(), Carbon::now()]);
-        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/gpu.jpg', "GPU", Carbon::now(), Carbon::now()]);
-        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/pccase.jpg', "PC Case", Carbon::now(), Carbon::now()]);
-        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/psu.jpg', "PSU", Carbon::now(), Carbon::now()]);
-        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/os.jpg', "OS", Carbon::now(), Carbon::now()]);
-        DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/monitor.jpg', "Monitor", Carbon::now(), Carbon::now()]);
+        Brand::factory($brandCount)->create();
 
-        DB::insert('insert into supportedramtype (type, created_at, updated_at) values (?,?,?)', ['DDR4', Carbon::now(), Carbon::now()]);
-        DB::insert('insert into supportedramtype (type, created_at, updated_at) values (?,?,?)', ['DDR5', Carbon::now(), Carbon::now()]);
+        if (DB::table('socket')->count() !== 4) {
+            DB::table('socket')->dump();
+            DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['AM4', Carbon::now(), Carbon::now()]);
+            DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['LGA-1700', Carbon::now(), Carbon::now()]);
+            DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['LGA-1200', Carbon::now(), Carbon::now()]);
+            DB::insert('insert into socket (name, created_at, updated_at) values (?,?,?)', ['LGA-1151', Carbon::now(), Carbon::now()]);
+        }
 
-        Storage::factory(20)->create();
-        PSU::factory(20)->create();
-        PcCase::factory(20)->create();
-        OS::factory(20)->create();
-        Motherboard::factory(20)->create();
-        Monitor::factory(20)->create();
-        Memory::factory(20)->create();
-        GPU::factory(20)->create();
-        CpuCooler::factory(20)->create();
-        CPU::factory(20)->create();
+        if (DB::table('illustrationimage')->count() !== 11) {
+            DB::table('illustrationimage')->dump();
+            DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/cpu.jpg', "CPU", Carbon::now(), Carbon::now()]);
+            DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/cpucooler.jpg', "CPU Cooler", Carbon::now(), Carbon::now()]);
+            DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/aiocpucooler.jpg', "AiO CPU Cooler", Carbon::now(), Carbon::now()]);
+            DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/motherboard.jpg', "Motherboard", Carbon::now(), Carbon::now()]);
+            DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/memory.jpg', "Memory", Carbon::now(), Carbon::now()]);
+            DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/storage.jpg', "Storage", Carbon::now(), Carbon::now()]);
+            DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/gpu.jpg', "GPU", Carbon::now(), Carbon::now()]);
+            DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/pccase.jpg', "PC Case", Carbon::now(), Carbon::now()]);
+            DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/psu.jpg', "PSU", Carbon::now(), Carbon::now()]);
+            DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/os.jpg', "OS", Carbon::now(), Carbon::now()]);
+            DB::insert('insert into illustrationimage (src, alt, created_at, updated_at) values (?,?,?,?)', ['/./img/products/monitor.jpg', "Monitor", Carbon::now(), Carbon::now()]);
+        }
+
+        if (DB::table('supportedramtype')->count() !== 2) {
+            DB::table('supportedramtype')->dump();
+            DB::insert('insert into supportedramtype (type, created_at, updated_at) values (?,?,?)', ['DDR4', Carbon::now(), Carbon::now()]);
+            DB::insert('insert into supportedramtype (type, created_at, updated_at) values (?,?,?)', ['DDR5', Carbon::now(), Carbon::now()]);
+        }
+
+        Storage::factory($productCount)->create();
+        PSU::factory($productCount)->create();
+        PcCase::factory($productCount)->create();
+        OS::factory($productCount)->create();
+        Motherboard::factory($productCount)->create();
+        Monitor::factory($productCount)->create();
+        Memory::factory($productCount)->create();
+        GPU::factory($productCount)->create();
+        CpuCooler::factory($productCount)->create();
+        CPU::factory($productCount)->create();
     }
 }
