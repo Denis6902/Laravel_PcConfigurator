@@ -11,13 +11,15 @@
     <main class="cart-things">
         @foreach($products as $product)
             <div class="cart-body">
-                <img class="cart-image"
-                     src="{{ \App\Models\IllustrationImage::Find($product->illustration_image_id)->src }}"
-                     alt="{{ \App\Models\IllustrationImage::Find($product->illustration_image_id)->alt }}">
-                <div>
-                    <a href='{{route('product', ['product'=>"$product->tableName", 'id'=>$product->id])}}'>
-                        {{$product->name}}</a>
-                    <p>{{$product->id}}</p>
+                <div class="cart-info">
+                    <img class="cart-image"
+                         src="{{ \App\Models\IllustrationImage::Find($product->illustration_image_id)->src }}"
+                         alt="{{ \App\Models\IllustrationImage::Find($product->illustration_image_id)->alt }}">
+                    <div class="cart-name">
+                        <a href='{{route('product', ['product'=>"$product->tableName", 'id'=>$product->id])}}'>
+                            {{$product->name}}</a>
+                        <p>({{$product->id}})</p>
+                    </div>
                 </div>
 
                 <div class="cart-cancel">
