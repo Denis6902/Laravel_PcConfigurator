@@ -30,7 +30,8 @@ Route::get('about', [AboutController::class, 'read'])->name('about');
 Route::get('cart', [CartController::class, 'read'])->name('cart');
 
 // brand
-Route::get('brand/{id}', [BrandController::class, 'read'])->name('brand');
+Route::get('brands', [BrandController::class, 'readBrands'])->name('brands');
+Route::get('brand/{id}', [BrandController::class, 'readBrand'])->name('brand');
 
 
 Route::get('products', [ProductController::class, 'readProductTypes'])->name('productTypes');
