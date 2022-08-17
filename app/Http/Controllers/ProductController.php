@@ -15,6 +15,7 @@ use App\Models\PSU;
 use App\Models\Socket;
 use App\Models\Storage;
 use App\Models\SupportedRamType;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Session;
 use App\Models\Brand;
@@ -236,12 +237,54 @@ class ProductController extends BaseController
 
     function create($product, $id)
     {
-        $brandModel = 'App\Models\Brand';
+        $productName = "??";
+
+        switch ($product) {
+            case "cpu":
+                $productName = CPU::Find($id)->name;
+                break;
+
+            case "cpucooler" :
+                $productName = CpuCooler::Find($id)->name;
+                break;
+
+            case "gpu":
+                $productName = GPU::Find($id)->name;
+                break;
+
+            case "memory":
+                $productName = Memory::Find($id)->name;
+                break;
+
+            case "monitor":
+                $productName = Monitor::Find($id)->name;
+                break;
+
+            case "motherboard":
+                $productName = Motherboard::Find($id)->name;
+                break;
+
+            case "os":
+                $productName = OS::Find($id)->name;
+                break;
+
+            case "pccase":
+                $productName = PcCase::Find($id)->name;
+                break;
+
+            case "psu":
+                $productName = PSU::Find($id)->name;
+                break;
+
+            case "storage":
+                $productName = Storage::Find($id)->name;
+                break;
+        }
 
         return view('pcConfigurator.addProduct', [
             "id" => $id,
             "product" => $product,
-            "brandModel" => $brandModel
+            "productName" => $productName,
         ]);
     }
 
