@@ -67,7 +67,7 @@ h2 {
         padding: 1em;
 
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .cart-image{
@@ -83,6 +83,14 @@ h2 {
         a{
             height: fit-content;
             border: 0;
+        }
+    }
+
+    .cart-info{
+        display: flex;
+
+        .cart-name{
+            margin-left: 1em;
         }
     }
 }

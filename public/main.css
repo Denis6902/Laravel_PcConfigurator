@@ -51,7 +51,7 @@ h2 {
   margin-bottom: 1em;
   padding: 1em;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 .cart-things .cart-image {
   width: 100px;
@@ -65,6 +65,12 @@ h2 {
 .cart-things .cart-cancel a {
   height: fit-content;
   border: 0;
+}
+.cart-things .cart-info {
+  display: flex;
+}
+.cart-things .cart-info .cart-name {
+  margin-left: 1em;
 }
 
 .card {
