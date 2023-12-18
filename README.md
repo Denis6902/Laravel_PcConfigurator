@@ -1,5 +1,15 @@
 # Aplikace v PHP frameworku Laravel
 
+Jednoduchý konfigurátor počítače.
+
+- K designu byl použitý Bootstrap.
+- Aplikace obsahuje falešná data, aby se dala aplikace po spuštění hned používat
+- Při výběru komponent se automaticky kontroluje i kompatibilita komponentů
+- Ke spuštění je potřeba mít vlastní databázi
+
+## Ukázka
+![Screenshot](img.png)
+
 ## Instalace
 
 - Mít nainstalovaný php interpreter a composer
